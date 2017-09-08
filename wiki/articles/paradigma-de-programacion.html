@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Paradigma de programacion</title>
+  <meta property="og:title" content="Paradigma de programacion" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/paradigma-de-programacion.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/paradigma-de-programacion.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Paradigma de programacion</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>Un paradigma de programación es un marco conceptual, un conjunto de ideas que describe una forma de entender la construcción de programa, como tal define:</p>
+
+<ul>
+  <li>Las herramientas conceptuales que se pueden utilizar para construir un programa (objetos, relaciones, funciones, instrucciones).</li>
+  <li>Las formas válidas de combinarlas.</li>
+</ul>
+
+<p>Los distintos lenguajes de programación proveen implentaciones para las herramientas conceptuales descriptas por los paradigmas. Existen lenguajes que se concentran en las ideas de un único paradigma así como hay otros que permiten la combinación de ideas provenientes de distintos paradigmas.</p>
+
+<p>Dado que un paradigma es un conjunto de ideas, su influencia se ve principalmente en el momento de modelar una solución a un problema dado. No es suficiente saber en qué lenguaje está construido un programa para saber qué marco conceptual se utilizó en el momento de construirlo. El paradigma tiene más relación con el proceso mental que se realiza para construir un programa que con el programa resultante.</p>
+
+<h2 id="qué-es-un-programa">¿Qué es un programa?</h2>
+
+<p>Para definir programa es necesario analizarlo desde dos diferentes perspectivas. Uno de esos puntos de vista es análogo al del usuario del programa, interesado en la tarea que realizar el programa. Desde esa perspectiva un programa es aquello que permite que una computadora realice una tarea determinada.</p>
+
+<p>El otro punto de vista es el de aquel que tenga que construir o modificar ese programa (programador), a quien interesará también la forma en que está construido. Desde esta perspectiva no hay una única definición al concepto de programa ya que cada paradigma ofrece una respuesta distinta a esta pregunta.</p>
+
+<p><a href="paradigma-estructurado.html">Paradigma Estructurado</a><br />
+Secuencia ordenada de instrucciones que manipulan un espacio de memoria.</p>
+
+<!-- -->
+
+<p><a href="paradigma-de-objetos.html">Paradigma de Objetos</a><br />
+Conjunto de objetos que se conocen entre sí a través de referencias y se envían mensajes en un ambiente.</p>
+
+<!-- -->
+
+<p><a href="paradigma-logico.html">Paradigma Lógico</a><br />
+Conjunto de predicados definidos a través de cláusulas (hechos y reglas) que describen propiedades y relaciones de un conjunto de individuos, sobre los cuales podemos realizar consultas.</p>
+
+<!-- -->
+
+<p><a href="paradigma-funcional.html">Paradigma Funcional</a><br />
+Conjunto de funciones (relaciones que cumplen las propiedades de unicidad y existencia), que pueden ser evaluadas para obtener un resultado.</p>
+
+<h2 id="otras-ideas">Otras Ideas</h2>
+
+<ul>
+  <li>Modelar la realidad, o mejor dicho que el programa se acerque a la realidad (vs. tener un diseño y luego un programa lejano a eso)</li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>44</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>JFace controles y binding</title>
+  <meta property="og:title" content="JFace controles y binding" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/jface--controles-y-binding.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/jface--controles-y-binding.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>JFace controles y binding</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Cómo se implementa el binding en JFace</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Control Textbox</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Control Checkbox</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Control Combo</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#tocAnchor-1-5"><span class="tocnumber">5</span> <span class="toctext">Control Grilla</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#tocAnchor-1-6"><span class="tocnumber">6</span> <span class="toctext">Control Botón</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#tocAnchor-1-7"><span class="tocnumber">7</span> <span class="toctext">Campos calculados</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-8">
+              <a href="#tocAnchor-1-8"><span class="tocnumber">8</span> <span class="toctext">Links relacionados</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p><strong>Nota:</strong> el objetivo de esta página es comentar cómo se produce el binding entre controles de SWT/JFace y atributos de dominio. Si desea documentación para programar interfaces de usuario puede consultar <a href="http://www.eclipse.org/swt/">la página oficial de SWT</a> y <a href="http://wiki.eclipse.org/index.php/JFace">el wiki de JFace</a></p>
+
+<h1 id="tocAnchor-1-1">Cómo se implementa el binding en JFace</h1>
+
+<p>A través de la clase DataBindingContext que conoce a ambos observers: los interesados en los cambios del modelo (BeansObservables) pero también al modelo le interesa los cambios que hace el usuario a través de la vista (SWTObservables).</p>
+
+<p><em>Ejemplo:</em> si queremos tener binding bidireccional entre el atributo nombre de un Socio y el control textbox de la pantalla de actualización de un socio</p>
+
+<ul>
+  <li>Al generarse la pantalla debemos bindear la propiedad “nombre” del objeto socio con el control textbox de la pantalla de actualización</li>
+  <li>Si se modifica el valor del atributo nombre de un socio (por afuera de la UI), debemos disparar la notificación al textbox. Esto se hace en el setter de nombre, enviando el mensaje firePropertyChange.</li>
+  <li>Si el usuario escribe algo en el textbox, eso dispara automáticamente la actualización del modelo. Ejemplo: en el textbox del nombre escribimos “TARCISO”, entonces se disparará el mensaje setNombre(“TARCISO”) al objeto Socio. El setNombre a su vez disparará un firePropertyChange, pero la lógica de notificación es inteligente y sabe cortar aquí el flujo de avisos para no entrar en loop.</li>
+</ul>
+
+<h1 id="tocAnchor-1-2">Control Textbox</h1>
+
+<p>En SWT el textbox está representado por la clase <code class="highlighter-rouge">org.eclipse.swt.widgets.Text</code></p>
+
+<p>Podemos bindear la propiedad text de un control textbox contra un atributo String de un modelo de la siguiente manera</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="k">new</span><span class="err"> </span><span class="n">DataBindingContext</span><span class="o">().</span><span class="na">bindValue</span><span class="o">(</span>
+<span class="err">    </span><span class="n">SWTObservables</span><span class="o">.</span><span class="na">observeText</span><span class="o">(</span><span class="n">controlTextBoxEnCuestion</span><span class="o">,</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">FocusOut</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="n">BeansObservables</span><span class="o">.</span><span class="na">observeValue</span><span class="o">(</span><span class="n">objetoModelo</span><span class="o">,</span><span class="err"> </span><span class="n">propiedadDelModeloContraElQueSeBindea</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="kc">null</span><span class="o">,</span><span class="err"> </span>
+<span class="err">    </span><span class="kc">null</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>donde controlTextBoxEnCuestion es de tipo Text, objetoModelo es cualquier Object y propiedadDelModeloContraElQueSeBindea es un String.</p>
+
+<p>Otras propiedades que admiten binding bidireccional:</p>
+
+<ul>
+  <li><strong>editable</strong>: un valor booleano que permite habilitar/deshabilitar el input desde el teclado</li>
+  <li><strong>visible</strong>: el control puede hacerse visible o invisible en base al binding con un atributo de tipo boolean del modelo</li>
+  <li><strong>font/foreground/background</strong>: se puede modificar la letra con la que se visualizan los datos cargados en el control, el color de la letra o bien el de fondo, en base a un atributo de un modelo.</li>
+</ul>
+
+<p><em>Ejemplo:</em> queremos permitir cambiar el nombre a un socio solamente si está activo. El socio define como interfaz setNombre/getNombre y un isActivo(), no importa cómo se implementa. Entonces para bindear la propiedad Editable del textbox que ingresa el nombre (llamado textNombre) debemos escribir lo siguiente:</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="k">new</span><span class="err"> </span><span class="n">DataBindingContext</span><span class="o">().</span><span class="na">bindValue</span><span class="o">(</span>
+<span class="err">    </span><span class="n">SWTObservables</span><span class="o">.</span><span class="na">observeEditable</span><span class="o">(</span><span class="n">textNombre</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="n">BeansObservables</span><span class="o">.</span><span class="na">observeValue</span><span class="o">(</span><span class="n">socio</span><span class="o">,</span><span class="err"> </span><span class="s">"activo"</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="kc">null</span><span class="o">,</span><span class="err"> </span>
+ <span class="err">   </span><span class="kc">null</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>Nótese que no necesariamente la “propiedad” del modelo tiene que ser un atributo (variable de instancia) del objeto modelo. En nuestro caso el estar activo podría no ser un getter booleano sino un atributo calculado dinámicamente. Lo que hace JFace es recuperar el valor del método getActivo() o isActivo() para el objeto socio (a través de Reflection) y asociarlo a la propiedad editable del control (lo que devuelva el método getActivo() debe ser un booleano).</p>
+
+<p>Mirando la clase SWTObservables podemos ver todas las propiedades que el framework en cuestión nos permite vincular.</p>
+
+<p>Las siguientes propiedades no tienen binding bidireccional con un atributo del modelo. No obstante, podemos modificar sus valores al cargar el formulario o ante cualquier otro evento que el usuario o la pantalla dispare:</p>
+
+<ul>
+  <li><strong>width:</strong> el tamaño del control</li>
+  <li><strong>size:</strong> la cantidad de caracteres que permite cargar</li>
+</ul>
+
+<h1 id="tocAnchor-1-3">Control Checkbox</h1>
+
+<p>En SWT el checkbox está representado por la clase <code class="highlighter-rouge">org.eclipse.swt.widgets.Button</code> pasándole el parámetro SWT.CHECK al constructor.</p>
+
+<p>Se puede bindear la propiedad SELECTION contra un atributo boolean de un modelo:</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="k">new</span><span class="err"> </span><span class="n">DataBindingContext</span><span class="o">().</span><span class="na">bindValue</span><span class="o">(</span>
+<span class="err">    </span><span class="n">SWTObservables</span><span class="o">.</span><span class="na">observeSelection</span><span class="o">(</span><span class="n">controlCheckBoxEnCuestion</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="n">BeansObservables</span><span class="o">.</span><span class="na">observeValue</span><span class="o">(</span><span class="n">objetoModelo</span><span class="o">,</span><span class="err"> </span><span class="n">atributoBooleanDelModeloContraElQueSeBindea</span><span class="o">),</span><span class="err"> </span>
+<span class="err">    </span><span class="kc">null</span><span class="o">,</span><span class="err"> </span>
+<span class="err">    </span><span class="kc">null</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>También se puede bindear las propiedades visible, font, foreground y background, entre otras. No tiene sentido bindear la propiedad text, hacerlo resulta en error.</p>
+
+<h1 id="tocAnchor-1-4">Control Combo</h1>
+
+<p>En SWT el combo está representado por la clase <code class="highlighter-rouge">org.eclipse.swt.widgets.Combo</code></p>
+
+<p>Se agregan elementos al combo:</p>
+
+<ul>
+  <li>enviando el mensaje <code class="highlighter-rouge">add(String string)</code> o <code class="highlighter-rouge">add(String string, int index)</code> o <code class="highlighter-rouge">setItem(int index, String string)</code></li>
+  <li>enviando el mensaje <code class="highlighter-rouge">setItems(String[] items)</code></li>
+</ul>
+
+<p>Como se desprende de la interfaz de cada uno de los métodos</p>
+
+<ul>
+  <li>no podemos agregar cualquier objeto, tienen que ser strings, esto nos fuerza a 1) tener en paralelo una lista de elementos “posta” relacionados o 2) recuperar con ese string el elemento (el string debe identificar de manera unívoca a ese elemento). <em>Ejemplo:</em> si el combo muestra socios de un videoclub, debemos mostrar por un lado el nombre del socio pero por otra parte tenemos que encontrar el objeto socio “posta” en base al nombre. De la misma manera ocurriría con los géneros de una película, o con los libros de una biblioteca, etc.</li>
+  <li>los elementos se guardan en un orden, por eso existen métodos que agregan a partir de una posición</li>
+</ul>
+
+<p>Para conocer cuál es el elemento seleccionado del combo enviamos el mensaje getSelectionIndex(), que devuelve un int. Vemos el javadoc:</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+ * 
+ * Returns the zero-relative index of the item which is currently selected in the
+ * receiver's list, or -1 if no item is selected.
+ *
+ */</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">getSelectionIndex</span><span class="o">()</span> 
+</code></pre>
+</div>
+
+<p>Tener el selectionIndex como un entero refuerza la idea de que el orden en el combo es importante, si tengo los elementos en un Set no me serviría el selectionIndex.</p>
+
+<p>El binding relaciona un String con la propiedad selection del combo cuando el usuario modifica el elemento elegido.</p>
+
+<p><em>Ejemplo:</em> queremos definir un combo cuyos elementos son la lista de socios de un videoclub. El código es el siguiente</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Combo</span><span class="err"> </span><span class="n">comboSocios</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="k">new</span><span class="err"> </span><span class="n">Combo</span><span class="o">(</span><span class="n">formulario</span><span class="o">,</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">LEFT</span><span class="err"> </span><span class="o">|</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">BORDER</span><span class="err"> </span><span class="o">|</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">SINGLE</span><span class="o">);</span>
+<span class="n">comboSocios</span><span class="o">.</span><span class="na">setLayoutData</span><span class="o">(</span><span class="k">new</span><span class="err"> </span><span class="n">GridData</span><span class="o">(</span><span class="mi">150</span><span class="o">,</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">));</span>
+<span class="k">for</span><span class="err"> </span><span class="o">(</span><span class="n">Socio</span><span class="err"> </span><span class="n">socio</span><span class="err"> </span><span class="o">:</span><span class="err"> </span><span class="k">this</span><span class="o">.</span><span class="na">getSocios</span><span class="o">())</span><span class="err"> </span><span class="o">{</span>
+<span class="err">    </span><span class="n">comboSocios</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">socio</span><span class="o">.</span><span class="na">getNombreCompleto</span><span class="o">());</span>
+<span class="o">}</span>
+<span class="k">new</span><span class="err"> </span><span class="n">DataBindingContext</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">bindValue</span><span class="o">(</span><span class="n">SWTObservables</span><span class="o">.</span><span class="na">observeSelection</span><span class="o">(</span><span class="n">comboSocios</span><span class="o">),</span><span class="err"> </span>
+<span class="err">               </span><span class="n">BeansObservables</span><span class="o">.</span><span class="na">observeValueEditarSocioModel</span><span class="o">,</span><span class="err"> </span><span class="n">socioSeleccionado</span><span class="o">),</span><span class="err"> </span>
+<span class="err">               </span><span class="kc">null</span><span class="o">,</span>
+<span class="err">               </span><span class="kc">null</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>El binding no lo podemos hacer contra un socio en particular, necesitamos trabajar con un model que tenga comportamiento adicional. El EditarSocioModel define el método setSocioSeleccionado de la siguiente manera:</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">setSocioSeleccionado</span><span class="o">(</span><span class="n">String</span><span class="err"> </span><span class="n">nombreCompletoSocio</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">`    </span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Aquí entonces hay que convertir el nombre del socio (un String) al objeto Socio en cuestión si queremos enviarle algún mensaje.</p>
+
+<h1 id="tocAnchor-1-5">Control Grilla</h1>
+
+<p>En SWT la grilla se representa con la clase <code class="highlighter-rouge">org.eclipse.swt.widgets.Table</code></p>
+
+<h1 id="tocAnchor-1-6">Control Botón</h1>
+
+<p>En SWT la grilla se representa con la clase <code class="highlighter-rouge">org.eclipse.swt.widgets.Button</code> pasándole el parámetro SWT.PUSH al constructor.</p>
+
+<p>El botón tiene listeners, cuando el usuario presiona el botón se dispara la notificación del botón apretado a cada listener. Nosotros escribimos el código no en el botón, sino en el listener.</p>
+
+<p>
+  <em>Ejemplo:</em>
+</p>
+
+<!-- -->
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">Button</span><span class="err"> </span><span class="n">botonAceptar</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="k">new</span><span class="err"> </span><span class="n">Button</span><span class="o">(</span><span class="n">formulario</span><span class="o">,</span><span class="err"> </span><span class="n">SWT</span><span class="o">.</span><span class="na">PUSH</span><span class="o">);</span>
+<span class="n">botonAceptar</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Aceptar"</span><span class="o">);</span>
+<span class="n">botonAceptar</span><span class="o">.</span><span class="na">addSelectionListener</span><span class="o">(</span>
+ <span class="err">   </span><span class="k">new</span><span class="err"> </span><span class="n">SelectionListener</span><span class="o">()</span><span class="err"> </span><span class="o">{</span>
+ <span class="err">       </span><span class="nd">@Override</span>
+ <span class="err">       </span><span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">widgetSelected</span><span class="o">(</span><span class="n">SelectionEvent</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+ <span class="err">           </span><span class="o">...</span><span class="err"> </span><span class="o">&lt;--</span><span class="err"> </span><span class="n">ACA</span><span class="err"> </span><span class="n">ESCRIBIMOS</span><span class="err"> </span><span class="n">EL</span><span class="err"> </span><span class="n">CODIGO</span><span class="err"> </span><span class="n">DEL</span><span class="err"> </span><span class="n">BOTON</span><span class="err"> </span><span class="o">--&gt;</span>
+ <span class="err">       </span><span class="o">}</span>
+ <span class="err">       </span><span class="nd">@Override</span>
+ <span class="err">       </span><span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">widgetDefaultSelected</span><span class="o">(</span><span class="n">SelectionEvent</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+ <span class="err">           </span><span class="k">this</span><span class="o">.</span><span class="na">widgetSelected</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="err"> </span> <span class="err">      </span><span class="o">}</span>
+      <span class="err">   </span>
+<span class="err">  </span> <span class="err"> </span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p>Las propiedades más interesantes de bindear son enabled (si el botón está habilitado) y visible (si está visible).</p>
+
+<h1 id="tocAnchor-1-7">Campos calculados</h1>
+
+<p>Podemos subclasificar la clase <strong>ComputedValue</strong> para vincular cualquier expresión que deseemos: sólo tenemos que redefinir el método</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">protected</span> <span class="n">Object</span> <span class="nf">calculate</span><span class="o">()</span>
+</code></pre>
+</div>
+
+<p>Pueden verse los siguientes ejemplos <a href="http://wiki.eclipse.org/JFace_Data_Binding/Snippets">&gt; ver ComputedValue</a></p>
+
+<h1 id="tocAnchor-1-8">Links relacionados</h1>
+
+<ul>
+  <li><a href="formas-de-vincular-una-vista-con-el-modelo-de-dominio.html">Formas de vincular una vista con el modelo de dominio</a></li>
+  <li><a href="ejemplos-de-binding-entre-vista-y-modelo.html">Ejemplos de Binding entre vista y modelo</a></li>
+  <li><a href="algo3-temario.html">Temario Algoritmos III</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>194</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

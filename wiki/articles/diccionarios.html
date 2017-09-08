@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Diccionarios</title>
+  <meta property="og:title" content="Diccionarios" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/diccionarios.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/diccionarios.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Diccionarios</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>Un Dictionary es un conjunto de asociaciones entre claves y valores, donde tanto las claves como los valores son objetos cualesquiera.</p>
+
+<p>Dicho de otra forma: a un Dictionary puedo pedirle que asocie un objeto valor a un objeto clave. Cada clave puede tener asociado un único objeto valor en un Dictionary; si asocio un valor a una clave que ya tenía otro valor asociado, reemplaza el valor viejo por el nuevo.</p>
+
+<p>Para esto se le envía al Dictionary el mensaje at:put: que me diga qué objeto tiene asociado a una clave. Si no tiene ninguno, da error… a menos que se lo pida de una forma que evita el error.</p>
+
+<p>La forma standard de pedir el valor asociado a una clave es enviarle al Dictionary el mensaje at:; si quiero especificar qué quiero que haga si no encuentra la clave, uso at:ifAbsent: .</p>
+
+<p>Un Dictionary es una Collection, entonces los mensajes comunes a todas las Collections se los voy a poder enviar a un Dictionary. Para estos mensajes, se toman sólo los valores, p.ej. si pregunto includes: estoy preguntando si contiene un valor, y en select: / collect: / etc. el parámetro va a ser un valor. A pesar de esto, el resultado del select: será un Dictionary, para los valores para los que el bloque dé true va a incluir el par clave/valor correspondiente.</p>
+
+<p>Un ejemplo de todo esto: un sencillo diccionario de traducción de palabras. De esta forma creo un Dictionary y le pongo algunas asociaciones</p>
+
+<p><code class="highlighter-rouge">dct := Dictionary new. </code>
+<code class="highlighter-rouge">dct at: 'uno' put: 'one'. "Clave 'uno', valor 'one'" </code>
+<code class="highlighter-rouge">dct at: 'dos' put: 'two'. "Clave 'dos', valor 'two'" </code>
+<code class="highlighter-rouge">dct at: 'tres' put: 'three'. </code>
+<code class="highlighter-rouge">dct at: 'cuatro' put: 'four'. </code></p>
+
+<p>Le pido a dct un elemento</p>
+
+<p><code class="highlighter-rouge">dct at: 'tres' "devuelve 'three'" </code>
+<code class="highlighter-rouge">dct at: 'cinco' "tira error" </code>
+<code class="highlighter-rouge">dct at: 'cinco' ifAbsent: ['no se'] "devuelve 'no se'" </code>
+<code class="highlighter-rouge">dct at: 'tres' ifAbsent: ['no se'] "devuelve 'three'" </code></p>
+
+<p>Le pido cosas de Collection</p>
+
+<p><code class="highlighter-rouge">dct size. "devuelve 4" </code>
+<code class="highlighter-rouge">dct includes: 'dos' "false, trabaja sobre los valores" </code>
+<code class="highlighter-rouge">dct includes: 'two' "true" </code>
+<code class="highlighter-rouge">dct select: [:pal | pal size = 4]  "a Dictionary('cuatro' -&gt; 'four'), Analiza sobre los  valores pero devuelve un nuevo diccionario respetando las claves" </code></p>
+
+<p>Ahora, ¿qué pasa si queremos usar las claves, o necesitamos trabajar con los pares clave/valor? Vamos de a poco.</p>
+
+<p>Si a un Dictionary le envío el mensaje keys me devuelve un Set con las claves, en caso:</p>
+
+<p><code class="highlighter-rouge">dct keys "devuelve a Set('uno' 'dos' 'cuatro' 'tres')" </code></p>
+
+<p>Este es un nuevo objeto Set, al que le puedo hacer/preguntar lo que quiera, obviamente que si lo modifico el diccionario no se ve afectado. P.ej.</p>
+
+<p><code class="highlighter-rouge">dct keys select: [:pal | pal size = 4]  "devuelve a Set('tres')" </code></p>
+
+<p>Ahora veamos cómo trabajar con claves y valores a la vez.</p>
+
+<p>Primero me pregunto, si quiero trabajar con los pares clave/valor, es probable que tenga que representar cada par como un objeto. ¿Qué objetos van a ser estos?</p>
+
+<p>Respuesta: van a ser instancias de la clase Association. Una Association es un par clave/valor, entiende los mensajes key y value.</p>
+
+<p>Si a un Dictionary le envío el mensaje associations, va a devolver una OrderedCollection con sus pares clave/valor representados mediante Associations, p.ej.</p>
+
+<p><code class="highlighter-rouge">dct associations "devuelve anOrderedCollection('uno' -&gt; 'one'  'dos' -&gt; 'two'  'cuatro' -&gt; 'four'  'tres' -&gt; 'three')"</code></p>
+
+<p>Entonces, si obtengo uno de estos pares, p.ej.</p>
+
+<p><code class="highlighter-rouge">dct associations first </code></p>
+
+<p>obtengo un objeto al que le puedo pedir key y value. P.ej.</p>
+
+<p><code class="highlighter-rouge">dct associations first key "respuesta posible: 'uno'" </code>
+<code class="highlighter-rouge">dct associations first value "respuesta posible: 'one'" </code></p>
+
+<p>Otra vez, esta es una colección a la que puedo hacerle cualquier cosa, p.ej.</p>
+
+<p><code class="highlighter-rouge">dct associations select: [:assoc | assoc key size = assoc value size] "devuelve an OrderedCollection('uno' -&gt; 'one' 'dos' -&gt; 'two')"</code></p>
+
+<p>Terminamos con otro ejemplo, una implementación de un depósito que se acuerda del stock de cada artículo usando un diccionario donde la clave es el artículo y el valor es la cantidad de unidades del artículo en el depósito.</p>
+
+<p><code class="highlighter-rouge">#Depósito (v.i. artículos)</code>
+<code class="highlighter-rouge"> &gt;&gt; initialize</code>
+<code class="highlighter-rouge">     artículos := Dictionary new.</code>
+<code class="highlighter-rouge"> </code>
+<code class="highlighter-rouge"> &gt;&gt; cuantoTenésDe: unArtículo </code>
+<code class="highlighter-rouge">     ^artículos at: unArtículo </code>
+<code class="highlighter-rouge"> </code>
+<code class="highlighter-rouge"> &gt;&gt; pone: cant de: unArtículo </code>
+<code class="highlighter-rouge">     artículos at: unArtículo put: (artículos at: unArtículo) + cant </code>
+<code class="highlighter-rouge"> </code>
+<code class="highlighter-rouge"> &gt;&gt; saca: cant de: unArtículo </code>
+<code class="highlighter-rouge">     artículos at: unArtículo put: (artículos at: unArtículo) - cant </code>
+<code class="highlighter-rouge"> </code>
+<code class="highlighter-rouge"> &gt;&gt; cantidadTotalDeUnidades </code>
+<code class="highlighter-rouge">     "trabaja sobre los valores, que son las cantidades" </code>
+<code class="highlighter-rouge">     ^artículos inject: 0 into: [:x :elem | x + elem]. </code>
+<code class="highlighter-rouge"> </code>
+<code class="highlighter-rouge"> &gt;&gt; valorTotalDeposito </code>
+<code class="highlighter-rouge">    "a assoc key (el artículo) le pido el precio, assoc value es la cantidad de ese artículo en el depósito" </code>
+<code class="highlighter-rouge">     ^artículos associations  inject: 0  into: [:x :assoc |  x + assoc key precio * assoc value].</code></p>
+
+<p>Algo importante a tener en cuenta al usar un diccionario es detenerse a pensar si no nos está faltando una abstracción que deberíamos modelar en vez de manejar asociaciones de valores. A una asociación no le podemos agregar comportamiento, con lo cual la lógica que trabaja con los valores asociados está en el objeto que tiene el mapa (como en este caso se puede ver en el producto entre el precio y la cantidad en el depósito), esa asociación bien podría reemplazarse por un objeto propio que conozca al producto y la cantidad que hay en stock al cual sí podríamos agregarle comportamiento. Forma parte de diseñar la solución decidir si es buena idea o no usar un diccionario en vez de una colección con objetos de dominio que, además de asociar otros objetos, tengan responsabilidades propias.</p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>94</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

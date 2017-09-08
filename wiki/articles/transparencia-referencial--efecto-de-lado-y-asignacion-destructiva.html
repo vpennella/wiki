@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Transparencia referencial  efecto de lado y asignacion destructiva</title>
+  <meta property="og:title" content="Transparencia referencial  efecto de lado y asignacion destructiva" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/transparencia-referencial--efecto-de-lado-y-asignacion-destructiva.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/transparencia-referencial--efecto-de-lado-y-asignacion-destructiva.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Transparencia referencial  efecto de lado y asignacion destructiva</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="definiciones">Definiciones</h2>
+
+<p>Operación:aplicar una función, evaluar un predicado, enviar un mensaje, etc.
+Transparencia Referencial<br />
+Hay transparencia referencial si al reemplazar una operación por su resultado se logra el mismo efecto.</p>
+
+<p>Una definición alternativa dice: Hay transparencia referencial cuando al realizar una operación con los mismos valores siempre da el mismo resultado. Si bien esta parece más fácil de entender, no es tan precisa como la primera; puede ser útil para dar los primeros pasos, pero para el final hay que terminar de entender la otra.</p>
+
+<!-- -->
+
+<p>También se puede pensar en las propiedades necesarias para tener Transparencia Referencial.</p>
+
+<p>Decimos que una operación tiene transparencia referencial si es:</p>
+
+<ul>
+  <li>Independiente: No dependen del estado de nada que este fuera de si misma</li>
+  <li>Sin estado/Stateless: No tiene un estado que se mantenga de llamada en llamada</li>
+  <li>Determinística: Siempre devuelven el mismo valor dados los mismos argumentos</li>
+</ul>
+
+<p>Efecto de Lado/Colateral (Side Effect)<br />
+Hay efecto de lado cuando un cambio de estado sobrevive a la realización de una operación. Por ejemplo, una operación puede modificar una variable global, modificar uno de sus argumentos, escribir datos a la pantalla o a un archivo, o hacer uso de otras operaciones que tienen efecto de lado.</p>
+
+<p>Otra definición válida es:</p>
+
+<p>Si le sacás una foto al sistema (llamémosla F1), después realizas la operación de tu interés, y le volvés a sacar una foto al sistema (F2). Si F1 y F2 son distintas =&gt; la operación que hiciste tiene efecto de lado.</p>
+
+<!-- -->
+
+<p>Asignación Destructiva<br />
+Asignar destructivamente es reemplazar el valor de una variable por otro valor.</p>
+
+<p>La <a href="unificacion-y-pattern-matching.html">unificación</a> no se considera asignación (al momento de ligar no había ningún valor anterior, ¿sería más bien una inicialización?). Unificar es encontrar una sustitución capaz de igualar 2 términos. Cuando se efectiviza está sustitución hablamos de ligado de variables (tal valor se ligó a tal variable).</p>
+
+<h2 id="ejemplos">Ejemplos</h2>
+
+<p>Cuando hablamos de que “algo” tiene transparencia referencial, efecto de lado o asignación destructiva, ese “algo” es la realización de una operación, de un lenguaje en particular o de un paradigma.</p>
+
+<p>Estos tres conceptos suelen ir de la mano y si bien pueden darse relaciones entre ellas es saludable poder detectar la aparición de cada uno de ellos individualmente. Una relación que surge de la definición de transparencia referencial es que para ésta se dé, no puede haber efecto colateral, ya que si el estado del sistema se modifica, no es lo mismo ejecutar esa operación que reemplazar por el resultado.</p>
+
+<p>A continuación mostramos algunos ejemplos en Smalltalk, ya que permite la aparición de todas estas características, para dejar más en claro de qué manera podemos identificarlas.</p>
+
+<h3 id="ejemplo-1-consulta-no-determinística">Ejemplo 1: consulta no determinística</h3>
+
+<p><code class="highlighter-rouge">Date today</code></p>
+
+<ul>
+  <li>Transparencia Referencial: NO (Con cualquiera de las 2 definiciones de transparencia referencial)</li>
+  <li>Efecto de Lado: NO</li>
+  <li>Asignación Destructiva: NO</li>
+</ul>
+
+<p>Evaluarlo con los mismos parámetros (o sea ninguno) en días distintos va a dar resultados distintos. Reemplazar la operación por el resultado una vez que cambia el día se rompe todo. Asignación destructiva y efecto de lado hay, pero en la CPU que actualiza la variable que indica el tiempo, no en el mensaje <code class="highlighter-rouge">today</code> que consulta ese valor (no se si es tan así, pero es a modo ilustrativo).</p>
+
+<p>El efecto colateral de otra operación afecta a esta operación y le hace perder la transparencia referencial, a pesar de que esta operación por si misma NO tiene efecto de lado.</p>
+
+<p>Ejemplos como este hacen que transparencia referencial y efecto colateral no sean conceptos opuestos.</p>
+
+<h3 id="ejemplo-2-método-con-efecto">Ejemplo 2: método con efecto</h3>
+
+<p><code class="highlighter-rouge">#LaColeccionConEfectoDeLado</code>
+<code class="highlighter-rouge">&gt;&gt;add: unElemento</code>
+<code class="highlighter-rouge">  "El add: siempre devuelve lo que se agrega. Acá se redefine para avisarle </code>
+<code class="highlighter-rouge">   al elemento que fue agregado (no se me ocurrió nada mejor)"</code>
+<code class="highlighter-rouge">  unElemento teAgregaronEn: self.</code>
+<code class="highlighter-rouge">  ^super add: unElemento.</code></p>
+
+<ul>
+  <li>Transparencia Referencial: NO (si te toma la definición alternativa SI, por eso dicha definición no es correcta). En un final, si se da un caso como este y están en duda, justifiquen por qué sí o no.</li>
+  <li>Efecto colateral: SI, porque la colección, luego de recibir el mensaje add: se modifica.</li>
+  <li>Asignación destructiva: no se la ve directamente en éste método, si bien puede estar presente en <code class="highlighter-rouge">teAgregaronEn:</code> o en <code class="highlighter-rouge">add:</code>. Probablemente no tenga mucho sentido hablar de asignación destructiva en este ejemplo.</li>
+</ul>
+
+<p>Asumiendo que los parámetros siempre entienden el mensaje <code class="highlighter-rouge">#teAgregaronEn:</code> no importa cuantas veces se realicen estás operaciones siempre devuelven el parámetro.</p>
+
+<p><code class="highlighter-rouge">LaColeccionConEfectoDeLado new add: 4. "Devuelve 4"</code>
+<code class="highlighter-rouge">LaColeccionConEfectoDeLado new add: pepita. "Devuelve pepita"</code></p>
+
+<p>Pero obviamente no es lo mismo escribir</p>
+
+<p><code class="highlighter-rouge">(LaColeccionConEfectoDeLado new add: 4) que esto (4)</code></p>
+
+<p>Acá se puede ver la importancia de utilizar la definición correcta de transparencia referencial.</p>
+
+<h3 id="ejemplo-3-método-de-consulta-determinística">Ejemplo 3: método de consulta determinística</h3>
+
+<p><code class="highlighter-rouge">#Number</code>
+<code class="highlighter-rouge"> &gt;&gt;factorial</code>
+<code class="highlighter-rouge">    | resultado |</code>
+<code class="highlighter-rouge">    resultado := 1.</code>
+<code class="highlighter-rouge">    self &lt; 0 ifTrue: [ self error: 'Como que no va pedirle el factorial a un número negativo' ].</code>
+<code class="highlighter-rouge">    1 to: self do: [ :indice | resultado := resultado * indice ].</code>
+<code class="highlighter-rouge">    ^resultado</code></p>
+
+<ul>
+  <li>Transparencia Referencial: SI (con las 2 definiciones)</li>
+  <li>Efecto colateral: NO</li>
+  <li>Asignaciones Destructivas: SI</li>
+</ul>
+
+<h3 id="ejemplo-4-el-efecto-colateral-dependiendo-del-contexto">Ejemplo 4: El efecto colateral dependiendo del contexto</h3>
+
+<p><code class="highlighter-rouge">#Collection</code>
+<code class="highlighter-rouge">select: aBlock</code>
+<code class="highlighter-rouge">   | newCollection |</code>
+<code class="highlighter-rouge">   newCollection := self species new.</code>
+<code class="highlighter-rouge">   self do: [:each | (aBlock value: each) ifTrue: [newCollection add: each]].</code>
+<code class="highlighter-rouge">   ^newCollection</code></p>
+
+<p>Sabemos que el método <code class="highlighter-rouge">select:</code> no tiene efecto colateral en sí mismo, porque no modifica la colección original (<code class="highlighter-rouge">self</code>), sino que devuelve una nueva de su mismo tipo.</p>
+
+<p>Sin embargo podemos ver dentro de <code class="highlighter-rouge">select:</code> efectos colaterales en la asignación de <code class="highlighter-rouge">newCollection</code> y en el <code class="highlighter-rouge">add:</code>. Ambos pueden ser considerados como efectos colaterales dentro de la ejecución del método, pero quien usa <code class="highlighter-rouge">select:</code> no se da cuenta de eso y para él no tiene efecto de lado. Es decir, las asignaciones destructivas de variables locales <em>no presuponen</em> un efecto colateral para el sistema visto como un todo, ya que esos cambios de estado no perduran más allá de la ejecución del método. Sí podría analizarse como efecto <em>colateral</em> dentro del método. Probablemente en un método tan pequeño como este no tenga importancia ese tipo de análisis, pero en el caso de algoritmos más complejos podría cobrar valor (y asumiendo que no sea posible partir un algoritmo complejo en operaciones más pequeñas que simplifiquen justamente el análisis, pero eso ya es otra cuestión).</p>
+
+<p>Por otra parte, aunque el <code class="highlighter-rouge">select:</code> no genera efectos de lado, no nos garantiza que el bloque que viene como parámetro no pueda tenerlo, por lo que uno debe tener cuidado con eso.</p>
+
+<h2 id="por-qué-nos-interesa-pensar-en-estos-conceptos">¿Por qué nos interesa pensar en estos conceptos?</h2>
+
+<p>Estos son algunos ejemplos concretos sobre cómo la existencia o no de efecto, asignación destructiva y transparencia referencial afectan a la hora de programar.</p>
+
+<p><strong>Separar la lógica que hace cosas de la que consulta:</strong> Muy seguido vemos métodos (o procedimientos, dependiendo del paradigma) que tienen efecto y a su vez retornan algún valor relacionado con el mismo, estas prácticas pueden llevar a confusiones que producen un funcionamiento erróneo del sistema, sobre todo cuando el nombre del método elegido no denota que existe un efecto asociado a su ejecución. Es una buena práctica tener separada la lógica que realiza modificaciones sobre el sistema de los que sólo pretenden obtener el resultado de una consulta, que nuestros métodos tengan un único objetivo, lo cual simplifica su uso y la elección de un nombre suficientemente representativo.</p>
+
+<p><strong>Optimizaciones:</strong> Tener asegurada la transparencia referencial permite hacer optimizaciones como las que tiene el motor de Haskell que afectan globalmente a los programas construidos con el mismo. La <a href="estrategias-de-evaluacion-lazy-evaluation.html">evaluación perezosa o lazy</a> es posible gracias a esta característica. También lo podemos ver en Prolog que para buscar soluciones utiliza el mecanismo de <a href="backtracking.html">Backtracking</a> de modo que se puedan encontrar múltiples respuestas a una consulta, así como descartar los caminos por los cuales no sea posible hayar alguna, de una forma eficiente.</p>
+
+<p>Otro ejemplo viene de la mano del procesamiento en paralelo. Si tenemos un conjunto con millones de elementos y queremos filtrarlo por un criterio, ¿no puedo dividir ese conjunto en varios más pequeños, filtrarlos por separado en distintos procesadores y juntar sus resultados? Si yo aseguro que evaluar el criterio de filtrado sobre cada elemento no va a provocar ningún efecto que pueda alterar mi resultado final, esta optimización podría permitir aprovechar mucho mejor el hardware disponible. Si te interesa el tema acá hay algo para leer al respecto: <a href="http://infoscience.epfl.ch/record/150220/files/pc.pdf">Scala - Parallel Collection Framework</a></p>
+
+<p><strong><a href="testing.html">Testing</a>:</strong> El testeo unitario se basa en la premisa de que cada test sea independiente del otro y eso se logra controlando que el estado del sistema antes y después de correr cada test sea el mismo, por ese motivo es importante mantener el efecto controlado y poder revertir aquellos cambios que sobrevivan a la ejecución de cada test particular. También la transparencia referencial es importante para el testeo unitario ya que testear el resultado de una operación que depende de algo no determinístico no es viable y hace falta usar estrategias de testeo más avanzadas (<a href="http://es.wikipedia.org/wiki/Objeto_simulado">Mock Objects</a>) para evitar este tipo de dependencia.</p>
+
+<h2 id="preguntas-frecuentes">Preguntas frecuentes</h2>
+
+<p>Leí una definición de Transparencia Referencial: “Hay transparencia referencial si al reemplazar una operación por su resultado se logra el mismo efecto”</p>
+
+<p>Con este criterio, aquí sí habría transparencia referencial:</p>
+
+<p><code class="highlighter-rouge">int a=1;</code>
+<code class="highlighter-rouge">int c;</code>
+<code class="highlighter-rouge">c=a++;</code></p>
+
+<p>Ya que es lo mismo que hacer esto:</p>
+
+<p><code class="highlighter-rouge">int a=1;</code>
+<code class="highlighter-rouge">int c;</code>
+<code class="highlighter-rouge">c=1;</code></p>
+
+<p>Ya que el efecto en la variable c es el mismo: va a valer 1.</p>
+
+<p>Pero para mí no es así, ya que no va a haber transparencia referencial, porque si bien se logra el mismo efecto con respecto a c, el sistema cambia (la variable a se incrementa en una unidad).</p>
+
+<p>¿Es correcto afirmar entonces que si no hay Efecto de Lado entonces tengo garantizada la Transparencia referencial y viceversa?</p>
+
+<h3 id="varias-respuestas">Varias respuestas</h3>
+
+<p>Relación entre efecto colateral y transparencia referencial:<br />
+Ojo, las definiciones no son intercambiables. Seguramente hay sistemas con efecto de lado y que además logran transparencia referencial (cualquier sistema donde no se usen variables globales o estáticas, y no tenga funciones de entrada salida). En smalltalk no es dificil de conseguir. En c++ tampoco (siempre que uses const para marcar las cosas que querés que sean inmutables).</p>
+
+<p>Sin embargo, <strong>ausencia de efecto de lado implica transparencia referencial</strong>, simplemente por el hecho de que el sistema no te permite cambiar el estado de las variables en un contexto dado.</p>
+
+<p>En el ejemplo dado no hay transparencia referencial, es correcta la interpretación. La expresión a++ tiene el efecto colateral de modificar el valor de a, por lo tanto no puede tener transparencia referencial.</p>
+
+<p>Efecto:Tal vez la duda viene por la idea de <em>efecto</em>.<br />
+El efecto no es solamente el resultado, incluye todas las posibles consecuencias de evaluar una expresión, en particular lo que llamamos efecto de lado (o mejor dicho colateral).</p>
+
+<p>Entonces si hay efecto colateral, hay efecto (y no puede haber transparencia referencial).</p>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>167</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

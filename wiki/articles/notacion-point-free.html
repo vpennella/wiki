@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Notacion point free</title>
+  <meta property="og:title" content="Notacion point free" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/notacion-point-free.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/notacion-point-free.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Notacion point free</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>A veces, como consecuencia de definir solamente en términos de <a href="aplicacion-parcial.html">Aplicación Parcial</a> y/o <a href="composicion.html">Composición</a> de funciones, escribir explícitamente los parámetros de la misma se vuelve redundante.</p>
+
+<p>Por ejemplo, se podría escribir</p>
+
+<p><code class="highlighter-rouge">esMultiploDe a b = ((==0).( `mod` a)) b </code></p>
+
+<p>Sin embargo, lo que está dentro del paréntesis principal ya es una función que hace lo que queremos, con el tipo adecuado. Por lo que puede reescribirse de la siguiente manera:</p>
+
+<p><code class="highlighter-rouge">esMultiploDe a = (==0).( `mod` a)</code></p>
+
+<p>Lo cual se conoce como notación <strong>point-free</strong>, la cual es interesante porque pone nos permite concentrarnos en la combinación de las funciones en lugar del pasaje de paramétro, subiendo así nuestro nivel de abstracción.</p>
+
+<p>Al principio puede generar cierta confusión sobre la pregunta ¿cuantos parámetros recibe la función?. Así que analicemos algunos casos concretos.</p>
+
+<h2 id="una-reglita-básica">Una reglita básica</h2>
+
+<p>La regla es que una función como esa tiene tantos parámetros como la suma entre:</p>
+
+<ul>
+  <li>Los parámetros que aparecen a la izquierda del igual.</li>
+  <li>Los parámetros que “le faltan” a la expresión a la derecha del igual.</li>
+</ul>
+
+<p>Analizando el caso anterior vemos:</p>
+
+<ul>
+  <li>Un parámetro a la izquierda del igual: a. (Esta parte es la más directa.)</li>
+  <li>La expresión de la derecha es una composición y por lo tanto una función a-&gt;b entonces le falta un parámetro.</li>
+  <li>En total la función recibe dos parámetros.</li>
+</ul>
+
+<h2 id="analizando-un-poco-más-los-tipos">Analizando un poco más los tipos</h2>
+
+<p>Para no confundirse, en la forma más tradicional de escribir funciones a la expresión a la derecha del igual no le falta ningún parámetro:</p>
+
+<p><code class="highlighter-rouge">siguiente x = x + 1</code></p>
+
+<p>Se ve claramente que x+1 es una expresión que denota un valor numérico y no una función, o dicho de otra manera “no le faltan parámetros”. En cambio sí le faltarían si uno pusiera por ejemplo (+1).</p>
+
+<p>La definición anterior es totalmente equivalente a:</p>
+
+<p><code class="highlighter-rouge">siguiente = (+1)</code></p>
+
+<p>Al aplicar parcialmente la función (+) :: Num a =&gt; a -&gt; a -&gt; a obtenemos otra función que es del tipo Num a =&gt; a -&gt; a. Si siguiente es igual a la función (+1), entonces su tipo es el mismo que el de (+1).</p>
+
+<p>En general lo más común es ver funciones que sólo les falta el último parámetro, como en el caso de esMultiploDe, ya que está definida en función de una composición. No sería correcto definirla de esta forma a pesar de que ambos parámetros vayan en ese orden “aplicados al final”:</p>
+
+<p><code class="highlighter-rouge">esMultiploDe = (==0).flip mod</code></p>
+
+<p>Como no coincide la imagen de la función flip mod</p>
+
+<p><code class="highlighter-rouge">flip mod :: Integral c =&gt; c -&gt; </code><strong><code class="highlighter-rouge">c</code> <code class="highlighter-rouge">-&gt;</code> <code class="highlighter-rouge">c</code></strong></p>
+
+<p>con el dominio de (==0)</p>
+
+<p><code class="highlighter-rouge">(==0) :: (Eq a, Num a) =&gt; </code><strong><code class="highlighter-rouge">a</code></strong><code class="highlighter-rouge"> -&gt; Bool</code></p>
+
+<p>La composición de estas dos funciones no es correcta (de hecho esa expresión tipa, pero no lo van a poder usar porque el tipo de esMultiploDe requeriría un único argumento que sea a la vez una función y un número equiparable… y como que no tiene mucho sentido)</p>
+
+<p>Este otro ejemplo sí sería correcto:</p>
+
+<p><code class="highlighter-rouge">resto = flip mod</code></p>
+
+<p>El tipo de la función resto es el mismo que el de la función flip mod que ya mostramos antes.</p>
+
+<h2 id="pros-y-cons-de-la-notación-point-free">Pros y Cons de la notación point-free</h2>
+
+<p>A favor de usar la notación point-free es que nos fuerza a dejar de pensar en función de la aplicación y los valores con los que estamos acostumbrados a trabajar, teniendo que pensar en definir funciones como equivalencia de otras funciones combinadas. El paradigma funcional se basa en la idea de combinar funciones, ellas son las divas de esta forma de pensar la programación, por eso cuando definimos funciones como composición de otras funciones y/o a la aplicación parcial de las mismas con estilo point-free, el código resultante es más limpio :)</p>
+
+<p>La notación point-free puede llevar a ofuscar el código cuando se usa malintencionadamente. Al combinar funciones puede que se vuelva más complicado inferir mentalmente el tipo de una expresión ya que cuesta más deducir la cantidad de parámetros necesarios para que la función definida se reduzca a un valor concreto mediante la aplicación.</p>
+
+<p>Otro problema que podría surgir dada una función compleja escrita de esta forma es que al intentar introducir un cambio menor de funcionalidad en la misma haya que hacer un cambio radical en el código, sin embargo para el nivel de paradigmas esto no debería suceder.</p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>76</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

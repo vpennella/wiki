@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Errores comunes al comenzar a trabajar con haskell</title>
+  <meta property="og:title" content="Errores comunes al comenzar a trabajar con haskell" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/errores-comunes-al-comenzar-a-trabajar-con-haskell.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/errores-comunes-al-comenzar-a-trabajar-con-haskell.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Errores comunes al comenzar a trabajar con haskell</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="variables-mágicas">Variables mágicas</h2>
+
+<p>Algo que se ve mucho en los parciales es gente que inventa variables mágicas por no entender orden superior y aplicación parcial, por ejemplo hacer algo como:</p>
+
+<p><code class="highlighter-rouge">aprobados alumnos = filter (nota </code><strong><code class="highlighter-rouge">alumno</code></strong><code class="highlighter-rouge"> &gt; 4) alumnos</code></p>
+
+<p>en vez de:</p>
+
+<p><code class="highlighter-rouge">aprobados alumnos = filter ((&gt;4).nota) alumnos</code></p>
+
+<p>o en todo caso usando <a href="expresiones-lambda.html">Expresiones lambda</a>:</p>
+
+<p><code class="highlighter-rouge">aprobados alumnos = filter (\alumno -&gt; nota alumno &gt; 4) alumnos</code></p>
+
+<p>La variable alumno de la solución errónea no existe, y si existiera estaríamos cayendo en el problema explicado en la siguiente sección.</p>
+
+<h2 id="funciones-y-valores">Funciones y valores</h2>
+
+<p>Es importante diferenciar:</p>
+
+<ul>
+  <li>Qué valores son funciones y qué valores no.</li>
+  <li>En qué lugares se espera poner una función y en qué lugares se espera otro tipo de valor.</li>
+</ul>
+
+<p>Por ejemplo</p>
+
+<p><code class="highlighter-rouge">sonTodasPasables pelicula = all (puntajePromedio pelicula &gt; 6) (snd pelicula)</code></p>
+
+<p>tiene un error porque la función espera como parámetro una función, mientras que <strong>no es una función</strong> (denota un valor booleano).</p>
+
+<p>_ Otro ejemplo:</p>
+
+<p><code class="highlighter-rouge">puntajes pelicula = snd pelicula</code>
+<code class="highlighter-rouge">esRiesgosa = elem 1 puntajes</code></p>
+
+<p>¿Cuál es el problema? La función espera como segundo parámetro <strong>una lista</strong>, sin embargo la expresión no es una lista, sino <em>una función que devuelve una lista</em>.</p>
+
+<p>Moraleja:</p>
+
+<blockquote>
+  <p><em><strong>No es lo mismo</strong> un booleano/entero/string/etc <strong>que una función que devuelve</strong> un booleano/entero/string/etc</em></p>
+</blockquote>
+
+<h2 id="composición-y-aplicación-parcial">Composición y aplicación parcial</h2>
+
+<p>Muchas veces se ven errores que (a veces disfrazados de un me confundí con los paréntesis) llevan a expresiones inválidas, lo importante es entender qué construcciones son válidas y cuáles no.</p>
+
+<p>Normalmente hay muchas formas de llegar al mismo resultado. Por ejemplo:</p>
+
+<p><code class="highlighter-rouge">(not.esDivisor año) 100</code>
+<code class="highlighter-rouge">not (esDivisor año 100)</code></p>
+
+<p>Estas dos lineas producen el mismo resultado. Mientras que las siguientes están mal:</p>
+
+<p><code class="highlighter-rouge">not.esDivisor año 100</code>
+<code class="highlighter-rouge">(not.esDivisor) año 100</code>
+<code class="highlighter-rouge">(otroBooleano &amp;&amp; (not.esDivisor año)) 100</code></p>
+
+<p>Porqué? Repasemos las que estaban bien:</p>
+
+<p><strong><code class="highlighter-rouge">(not.esDivisor</code> <code class="highlighter-rouge">año)</code></strong><code class="highlighter-rouge"> 100</code></p>
+
+<p>Lo que está resaltado es una <strong>función</strong>. Es resultado de componer otras dos funciones: <strong>not</strong> y <strong>esDivisor año</strong>. Notá como me refiero a <strong>esDivisor año</strong> como una única función, que NO es <strong>esDivisor</strong>. Para ver que son diferentes, podemos solo chequear sus tipos:</p>
+
+<p><code class="highlighter-rouge">'''esDivisor::Int-&gt;Int-&gt;Bool</code>
+<code class="highlighter-rouge">esDivisor año::Int-&gt;Bool'''</code></p>
+
+<p>Esta es una versión simplificada del tipo, no es exactamente lo que diría haskell, pero a efectos de la explicación da igual. Notá que <strong>esDivisor año</strong> espera un argumento menos que <strong>esDivisor</strong> (justamente, porque ya le pasaste el año). Obviamente, si aplicamos esta función otra vez, esto se repite.</p>
+
+<p><strong><code class="highlighter-rouge">esDivisor</code> <code class="highlighter-rouge">año</code> <code class="highlighter-rouge">100</code> <code class="highlighter-rouge">::</code> <code class="highlighter-rouge">Bool</code></strong></p>
+
+<p>Esto ya no es una función. Es un booleano. Ya no puedo aplicarlo.</p>
+
+<p>Habiendo entendido esto, miremos otra vez la composición:</p>
+
+<p><code class="highlighter-rouge">(not.esDivisor año)</code></p>
+
+<p>Si digo que se está componiendo <strong>not</strong> con <strong>esDivisor año</strong>, podés deducir que la aplicación de una función tiene “mayor precedencia” que la composición. Una forma de entender esto es que la aplicación tiene prioridad, entonces la composición va a trabajar con el resultado de la aplicación.</p>
+
+<p>Comparemos esto con uno de los casos de error:</p>
+
+<p><code class="highlighter-rouge">(not.esDivisor año) 100      </code><strong><code class="highlighter-rouge">&lt;-</code> <code class="highlighter-rouge">Funciona</code> <code class="highlighter-rouge">bien.</code> <code class="highlighter-rouge">Le</code> <code class="highlighter-rouge">aplico</code> <code class="highlighter-rouge">100</code> <code class="highlighter-rouge">al</code> <code class="highlighter-rouge">resultado</code> <code class="highlighter-rouge">de</code> <code class="highlighter-rouge">la</code> <code class="highlighter-rouge">composición</code></strong>
+<code class="highlighter-rouge">not.esDivisor año 100        </code><strong><code class="highlighter-rouge">&lt;-</code> <code class="highlighter-rouge">Falla!</code> <code class="highlighter-rouge">Trata</code> <code class="highlighter-rouge">de</code> <code class="highlighter-rouge">componer</code> <code class="highlighter-rouge">not</code> <code class="highlighter-rouge">con</code> <code class="highlighter-rouge">esDivisor</code> <code class="highlighter-rouge">año</code> <code class="highlighter-rouge">100,</code> <code class="highlighter-rouge">que</code> <code class="highlighter-rouge">es</code> <code class="highlighter-rouge">un</code> <code class="highlighter-rouge">Bool,</code> <code class="highlighter-rouge">no</code> <code class="highlighter-rouge">una</code> <code class="highlighter-rouge">función.</code></strong></p>
+
+<p>Los otros casos erroneos también podemos deducirlos así:</p>
+
+<p><code class="highlighter-rouge">(not.esDivisor) año 100      </code><strong><code class="highlighter-rouge">&lt;-</code> <code class="highlighter-rouge">Falla</code> <code class="highlighter-rouge">porque</code> <code class="highlighter-rouge">tratás</code> <code class="highlighter-rouge">de</code> <code class="highlighter-rouge">componer</code> <code class="highlighter-rouge">esDivisor,</code> <code class="highlighter-rouge">que</code> <code class="highlighter-rouge">espera</code> <code class="highlighter-rouge">más</code> <code class="highlighter-rouge">de</code> <code class="highlighter-rouge">un</code> <code class="highlighter-rouge">argumento.</code></strong>
+<code class="highlighter-rouge">(otroBooleano &amp;&amp; (not.esDivisor año)) 100   </code><strong><code class="highlighter-rouge">&lt;-</code> <code class="highlighter-rouge">Falla</code> <code class="highlighter-rouge">porque</code> <code class="highlighter-rouge">(not.esDivisor</code> <code class="highlighter-rouge">año)</code> <code class="highlighter-rouge">es</code> <code class="highlighter-rouge">una</code> <code class="highlighter-rouge">función</code> <code class="highlighter-rouge">y</code> <code class="highlighter-rouge">&amp;&amp;</code> <code class="highlighter-rouge">espera</code> <code class="highlighter-rouge">un</code> <code class="highlighter-rouge">booleano.</code></strong></p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>93</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

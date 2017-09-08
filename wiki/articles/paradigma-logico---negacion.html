@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Paradigma logico   negacion</title>
+  <meta property="og:title" content="Paradigma logico   negacion" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/paradigma-logico---negacion.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/paradigma-logico---negacion.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Paradigma logico   negacion</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>El predicado de <a href="orden-superior.html">orden superior</a> más simple, y a la vez muy utilizado, es el <code class="highlighter-rouge">not/1</code>, que representa una negación. Si <code class="highlighter-rouge">P</code> es una proposición, entonces <code class="highlighter-rouge">not(P)</code> es una proposición que niega el valor de verdad asumido para P. Así, la negación de algo falso se toma por verdadera, y la negación de algo con valor cierto, se toma como falso.</p>
+
+<h2 id="ejemplos">Ejemplos</h2>
+
+<h3 id="consultas-individuales">Consultas Individuales</h3>
+
+<p>Supongamos lo siguiente:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>esMalo(feinmann). 
+esMalo(hadad). 
+esMalo(echecopar).
+</code></pre>
+</div>
+
+<p>Y miremos los resultados de las siguientes consultas:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esMalo(hadad).
+true
+?- not(esMalo(hadad)).
+false
+?- esMalo(bambi).
+false
+?- not(esMalo(bambi)).
+true
+</code></pre>
+</div>
+
+<p>Ahora, miremos ésto:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esMalo(34).
+false
+</code></pre>
+</div>
+
+<p>¡Claro que no es malo! ¡El 34 no lastimaría una mosca! Porque éste paradigma se basa en el concepto de <a href="paradigma-logico---introduccion.html">Universo Cerrado</a>. (Si no está en la base, es falso). Entonces, la siguiente consulta da verdadero:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- not(esMalo(34)).
+true
+</code></pre>
+</div>
+
+<h3 id="consultas-existenciales-ó-variables">Consultas Existenciales ó Variables</h3>
+
+<p>Recordemos cuál es el significado de la siguiente consulta:</p>
+
+<p><code class="highlighter-rouge">?- esMalo(_).</code></p>
+
+<p>Así, con la variable anónima, estoy preguntando si <strong><em>existe un malo</em></strong>. Bueno, eso es cierto:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esMalo(_).
+true
+</code></pre>
+</div>
+
+<p>Ahora bien, veamos qué sucede si preguntamos si es cierto que “no existe un malo”</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- not(esMalo(_)).
+false
+</code></pre>
+</div>
+
+<p>Por último, ¿se podrá usar una variable que no sea la variable anónima dentro de una negación?</p>
+
+<p>Para responder a eso vamos a tener que hablar sobre inversibilidad.</p>
+
+<h2 id="inversibilidad">Inversibilidad</h2>
+
+<p>Agreguemos lo siguiente al ejemplo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>esPersona(feinmann). 
+esPersona(hadad). 
+esPersona(echecopar).
+esPersona(bambi).
+esPersona(fer).
+esPersona(lucas).
+
+esBueno(Persona):- 
+  not(esMalo(Persona)).
+</code></pre>
+</div>
+
+<h3 id="problema">Problema</h3>
+
+<p>Veamos el resultado de la siguiente consulta:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esBueno(lucas).
+true.
+?- esBueno(fer).
+true.
+</code></pre>
+</div>
+
+<p>Y ahora tratemos de preguntar <strong>si existe algún bueno</strong> (claro que existen!):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esBueno(X).
+false.
+</code></pre>
+</div>
+
+<p>¿¿Qué pasó?? ¿No debería ser capaz de decirnos quiénes son buenos?</p>
+
+<h3 id="interpretación">Interpretación</h3>
+
+<p>Mi regla dice que se cumple <code class="highlighter-rouge">esBueno(X)</code>, si se cumple <code class="highlighter-rouge">not(esMalo(Persona))</code>.</p>
+
+<p>Sabiendo que la variable anónima es igual que cualquier otra variable, sólo que la usamos cuando no nos interesa conocer qué individuo hace que se cumpla la consulta, éstas dos consultas tienen el mismo valor de verdad, que para nuestra base de conocimientos sería verdadero ya que existe alguien que es malo:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esMalo(_).
+?- esMalo(X).
+</code></pre>
+</div>
+
+<p>Entonces, la siguiente consulta (equivalente a <code class="highlighter-rouge">esBueno(X)</code>) dará falso:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- not(esMalo(X)).
+false.
+</code></pre>
+</div>
+
+<p>Porque estoy preguntando si es cierto que “no existe alguien malo”.</p>
+
+<p>Normalmente si usamos una variable no anónima, Prolog tratará de darnos <em>ejemplos</em> que hacen verdadera esa consulta. Pero en el caso de la negación, es imposible para el motor encontrar ejemplos de individuos que satisfagan la consulta, porque son infinitos! Por ejemplo, el 34 no es malo…</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esBueno(34).
+true.
+</code></pre>
+</div>
+
+<h3 id="solución">Solución</h3>
+
+<p>Entonces… ¿Qué hacemos?</p>
+
+<p><em>Generamos</em>.</p>
+
+<p><a href="paradigma-logico---generacion.html">Generar</a> es agregar una condición que <em>sí</em> sea inversible antes del <code class="highlighter-rouge">not</code>, para que las variables lleguen ligadas al mismo. De ésta manera, transformamos la consulta dentro del <code class="highlighter-rouge">not</code> que podía llegar a ser una <em>consulta existencial</em> en una <em>consulta individual</em>, que funcionan como nosotros esperamos (Leer más ariba).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>esBueno(Persona) :-
+  esPersona(Persona), 
+  not(esMalo(Persona)).
+</code></pre>
+</div>
+
+<p>Y así podemos consultar si “existe un bueno”, y tener también ejemplos de buenos.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esBueno(X).
+X = bambi;
+X = fer;
+X = lucas.
+</code></pre>
+</div>
+
+<p>Para más información sobre inversibilidad y generación, visitar el artículo <a href="paradigma-logico---inversibilidad.html">Paradigma Lógico - inversibilidad</a></p>
+
+<p>Además, nuestro nuevo predicado <code class="highlighter-rouge">esBueno</code> se va a comportar distinto que antes ante esta consulta individual:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>?- esBueno(34).
+false.
+</code></pre>
+</div>
+
+<p>Si bien el número 34 nos gusta mucho, sería conceptualmente incorrecto aceptar que fuera bueno, ya que nuestro dominio trabaja con personas, y es sobre ellas que, en éste caso, queremos verificar la propiedad de <em>ser buenas</em>. Con el agregado que hicimos no sólo resolvimos el problema de las consultas existenciales, sino que además sirvió para acotar el dominio de aquellos que pueden ser buenos.</p>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>169</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

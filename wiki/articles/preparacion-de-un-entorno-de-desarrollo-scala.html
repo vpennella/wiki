@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Preparacion de un entorno de desarrollo scala</title>
+  <meta property="og:title" content="Preparacion de un entorno de desarrollo scala" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/preparacion-de-un-entorno-de-desarrollo-scala.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/preparacion-de-un-entorno-de-desarrollo-scala.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Preparacion de un entorno de desarrollo scala</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Download e instalación base</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-2">
+                  <a href="#tocAnchor-1-1-1"><span class="tocnumber">1.1</span> <span class="toctext">Alternativa - Combinación Eclipse - Scala - Plugins</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#tocAnchor-1-3"><span class="tocnumber">2</span> <span class="toctext">Creación de un proyecto Maven con Scala</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#tocAnchor-1-4"><span class="tocnumber">3</span> <span class="toctext">Documentación</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#tocAnchor-1-5"><span class="tocnumber">4</span> <span class="toctext">Errores posibles</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#tocAnchor-1-6"><span class="tocnumber">5</span> <span class="toctext">Links de interés</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h1 id="tocAnchor-1-1">Download e instalación base</h1>
+
+<p>Hay varios IDEs para desarrollar con Scala, incluso podemos desarrollar sin un IDE (solamente necesitamos el compilador). De todos modos acá vamos a explicar cómo se puede armar un ambiente de desarrollo usando Eclipse y Maven (para manejo de dependencias).</p>
+
+<ul>
+  <li>
+    <p>La opción más recomendada es descargar la última versión <a href="http://scala-ide.org/download/sdk.html">Scala IDE</a>.</p>
+  </li>
+  <li>
+    <p>También instalar el plugin que integra Scala con Maven del update site de <a href="http://alchim31.free.fr/m2e-scala/update-site">alchim31.free.fr</a>, solamente te va a proponer instalar el componente m2e-slf4j, ya que los otros vienen con la instalación default. Aceptalo y ¡ya tenés tu entorno listo!</p>
+  </li>
+</ul>
+
+<h2 id="tocAnchor-1-1-1">Alternativa - Combinación Eclipse - Scala - Plugins</h2>
+
+<p>Otra opción es combinar una instalación de</p>
+
+<ul>
+  <li>
+    <p><a href="http://www.eclipse.org/downloads/">Eclipse</a></p>
+  </li>
+  <li>
+    <p>con el plugin del <a href="http://scala-ide.org/download/current.html">Scala IDE for Eclipse</a>. <strong>Asegurate que coincida la versión del plugin con la versión de Eclipse que tengas instalado.</strong></p>
+  </li>
+  <li>
+    <p>Para ejecutar y escribir tests en ScalaTest (una especie de JUnit para Scala), tenés que instalarle un plugin opcional, que se encuentra en la misma URL que usaste para instalar el ScalaIDE. Asegurate de checkear el item bajo “Scala IDE Plugins (incubation) -&gt; ScalaTests for ScalaIDE”. Pueden ver <a href="http://www.scalatest.org/user_guide/using_scalatest_with_eclipse">acá</a> un screenshot.</p>
+  </li>
+  <li>
+    <p>También instalar el plugin que integra Scala con Maven del update site de <a href="http://alchim31.free.fr/m2e-scala/update-site">alchim31.free.fr</a></p>
+  </li>
+</ul>
+
+<p>Esta configuración tiene un bug que impide la utilización del visualizador de POMs que viene con el plugin de Maven. Un <em>workaround</em> para el problema del POM es abrirlo con el editor de XML.</p>
+
+<p>Por favor si notás que esta información está desactualizada reportalo.</p>
+
+<h1 id="tocAnchor-1-3">Creación de un proyecto Maven con Scala</h1>
+
+<p>La configuración de un proyecto Scala para poder utilizar Maven es relativamente compleja y tiene varias sutilezas, principalmente para poder integrar ambas herramientas dentro del Eclipse. Por eso, recomendamos la utilización de este parent project que creamos con este objetivo específico:</p>
+
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code>   <span class="nt">&lt;parent&gt;</span>
+       <span class="nt">&lt;groupId&gt;</span>org.uqbar-project<span class="nt">&lt;/groupId&gt;</span>
+       <span class="nt">&lt;artifactId&gt;</span>uqbar-scala-parent<span class="nt">&lt;/artifactId&gt;</span>
+       <span class="nt">&lt;version&gt;</span>1.3<span class="nt">&lt;/version&gt;</span>
+   <span class="nt">&lt;/parent&gt;</span>
+</code></pre>
+</div>
+
+<p>Para poder utilizar ese parent project necesario realizar previamente realizar las tareas indicadas en <a href="configuracion-de-maven-para-poder-utilizar-las-herramientas-de-uqbar.html">Configuración de Maven para poder utilizar las herramientas de Uqbar</a></p>
+
+<p>Este parent project realiza varias configuraciones:</p>
+
+<ul>
+  <li>Agrega las dependencias con Scala y ScalaTest</li>
+  <li>Define src/main/scala como directorio default donde están los fuentes (y src/test/scala donde están los tests).</li>
+  <li>Le indica al maven que utilice el compilador de Scala.</li>
+  <li>Configura la integración con el Eclipse.</li>
+</ul>
+
+<h1 id="tocAnchor-1-4">Documentación</h1>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/node/197">Documentación oficial</a></li>
+  <li><a href="http://www.scala-lang.org/node/198">Manuales de referencia</a></li>
+  <li><a href="http://www.scala-lang.org/docu/files/ScalaByExample.pdf#">Scala by Example</a> escrito por Martin Odersky, el creador de Scala.</li>
+  <li><a href="http://twitter.github.io/effectivescala/">Effective Scala</a></li>
+</ul>
+
+<h1 id="tocAnchor-1-5">Errores posibles</h1>
+
+<p>Si te aparece un mensaje de error</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>scalatest_2.9.1-1.6.1.jar is cross-compiled with an incompatible version of Scala <span class="o">(</span>2.9.1<span class="o">)</span>. 
+In case of errorneous report, this check can be disabled in the compiler preference page.
+</code></pre>
+</div>
+
+<p>la solución es Window &gt; Preferences &gt; Scala Compiler &gt; solapa Build Manager y deschequear la opción withVersionClasspathValidator. Hacer un rebuild de todos los proyectos.</p>
+
+<h1 id="tocAnchor-1-6">Links de interés</h1>
+
+<ul>
+  <li><a href="http://www.scala-lang.org/">Página principal de Scala</a></li>
+  <li><a href="http://paco.uqbar-project.org/te/scala/introduccin-a-scala">Un tutorial de Scala</a> de Javi Fernándes, miembro de Uqbar</li>
+  <li><a href="groovy-vs-scala.html">Groovy vs Scala</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on August 03, 2017 by
+        fdodino</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>5</td>
+                                <td>119</td>
+                                <td>45</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>3</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>fdodino</td>
+                                <td>fernand...</td>
+                                <td>2</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>fa87415</td>
+                        <td>Thu Aug 3 18:11:18 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Setting scala preferences</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9b940be</td>
+                        <td>Thu Aug 3 18:10:27 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Upgrading scala environment</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>6449a3c</td>
+                        <td>Tue Jul 18 20:13:41 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update preparacion-de-un-entorno-de-desarrollo-scala.md</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>19b7d59</td>
+                        <td>Tue Jul 18 20:12:53 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update preparacion-de-un-entorno-de-desarrollo-scala.md</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

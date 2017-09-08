@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Diseno y tecnologia</title>
+  <meta property="og:title" content="Diseno y tecnologia" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/diseno-y-tecnologia.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/diseno-y-tecnologia.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Diseno y tecnologia</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>Existe una fuerte relación entre diseño y la programación, o mejor dicho, entre el diseño y la tecnología que voy a utilizar para construir el sistema.</p>
+
+<h2 id="el-nivel-de-detalle-del-diseño">El nivel de detalle del diseño</h2>
+
+<p>En primer lugar podemos analizar el nivel de detalle de ambos. Obviamente el programa tendrá muchos detalles más que el diseño, necesita poder ser compilado y ejecutado, incluir todos esos detalles en la especificación de diseño sería contraproducente porque nos obligamos a decidir sobre cada uno de esos puntos y tal vez convenga postergar algunas decisiones para el momento de programar. En el extremo, si el diseño definiera todos los detalles del programa subyacente, entonces la programación posterior no requiere de tomar ninguna decisión y por lo tanto podría automatizarse. En ese caso la programación deja de tener sentido como actividad, la puedo considerar un paso más de la compilación y nuestro diseño podría considerarse directamente como un programa.</p>
+
+<p>A medida que los lenguajes de programación fueron siendo cada vez de más alto nivel y fueron incorporando mejores abstracciones (podemos destacar el manejo automático de memoria como un ejemplo esencial), la diferencia entre el nivel de abstracción del diseño y del programa se fue achicando. En la literatura podemos encontrar dos visiones de este proceso. Algunas metodologías como MDA consideran que sólo debemos diseñar y debemos descartar la programación como actividad. Entonces la ingeniería de software debería dedicarse a producir modelos, y los programas deberían derivarse automáticamente de esos modelos. Otras metodologías como XP incorporan el diseño como parte de la actividad, y entonces consideran que la única actividad es la programación. Como referencia de este pensamiento puede leerse el artículo de Martin Fowler: <a href="http://martinfowler.com/articles/designDead.html">Is Design Dead?</a></p>
+
+<p>Ambas visiones no son tan distintas entre sí, en definitiva el diseño y el programa se acercan, y finalmente la única discusión restante es si nuestros modelos/programas deberán tener forma de diagrama o si tendrán forma de texto. (¿Y si se combinan ambos? ¿Hay otras posibilidades?… todas son preguntas para las que hoy la ciencia del desarrollo de software no tiene respuestas únicas)</p>
+
+<p>Por otro lado, un diseño de muy alto nivel deja muchos detalles a responsabilidad de la persona que va a construir. Si el modelo deja abiertas cuestiones que tienen que ver (por ejemplo) con la forma en que se estructurará el programa entonces está postergando decisiones que son de diseño aunque las tome una persona cuyo rol formal es el de programador. En ese caso lo que pasa es que el programador es el que está llevando a cabo el nivel más detallado del diseño. Esto no tiene por qué ser algo negativo, es una forma de organización perfectamente válida, en la cual algunas personas toman la responsabilidad del diseño a alto nivel (podría llamarse incluso arquitectura) y a otras les toca ocuparse del diseño más detallado.</p>
+
+<h2 id="metamodelos-en-el-diseño-y-metamodelos-en-el-programa">Metamodelos en el diseño y metamodelos en el programa</h2>
+
+<p>La otra perspectiva desde la que podríamos analizar la relación entre diseño y tecnología es pensar la relación entre el <a href="metamodelo.html">metamodelo</a> que usamos para diseñar y el metamodelo del lenguaje que usaremos para construir.</p>
+
+<p>Si esos metamodelos coinciden entonces lo que yo diseñe puede que sea más fácil de construir (o de visualizar la relación entre lo construido y el modelo). Pero, de nuevo, un metamodelo para un programa puede requerir de muchos detalles que en determinado momento del diseño todavía no estoy en condiciones de decidir. Un ejemplo común es tener que decidir si queremos poner una clase abstracta o una interfaz cuando todavía no hemos definido los detalles del concepto asociado.</p>
+
+<p>Entonces dependiendo del nivel de detalle de nuestro diseño tal vez convenga elegir metamodelos más o menos parecidos a los metamodelos de nuestra tecnología subyacente:</p>
+
+<ul>
+  <li>Utilizar metamodelos sutilmente diferentes nos permite diseñar con más libertad, desprendiéndonos de complejidades y restricciones tecnológicas.</li>
+  <li>Pero las diferencias entre ambos metamodelos plantean “gaps” que luego habrá que resolver al construir, entonces no podemos permitir que ambos metamodelos tengan diferencias demasiado fundamentales.</li>
+</ul>
+
+<p>En resumen, el diseño es la especificación de lo que quiero construir. Entonces, al elegir la forma en la que quiero diseñar, las herramientas que uso para diseñar tengo que entender la relación que establezco con la tecnología usada para la construcción.</p>
+
+<ul>
+  <li>Si las dos ideas se parecen mucho eso puede plantear restricciones muy tempranamente, si planteo actividades distintas es porque quiero ponerles focos distintos, usar herramientas distintas.</li>
+  <li>Pero si las dos ideas van por caminos muy distintos entonces puede que el diseño pierda utilidad, porque para poder construir voy a tener que llenar los huecos (gaps) que el modelo de diseño no cubra. En definitiva, no es posible construir sin llenar esos huecos, y llenar esos huecos es diseñar.</li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>35</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

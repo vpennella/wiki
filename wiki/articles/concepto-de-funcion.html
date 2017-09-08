@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Concepto de funcion</title>
+  <meta property="og:title" content="Concepto de funcion" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/concepto-de-funcion.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/concepto-de-funcion.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Concepto de funcion</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>Como su nombre lo indica, la función es el concepto fundamental del paradigma funcional: mientras que, por ejemplo, en el paradigma de objetos, los problemas se resuelven en términos de envío de mensajes entre objetos, en funcional los programas se estructurarán en torno a aplicación de funciones sobre valores. La función, es así, pues, la <a href="http://es.wikipedia.org/wiki/Teor%C3%ADa_de_la_computaci%C3%B3n">computación</a> característica del paradigma.</p>
+
+<h2 id="enfoques">Enfoques</h2>
+
+<h3 id="función-como-caja-negra">Función como caja negra</h3>
+
+<p>Una forma simple de pensar una función es como una máquina con una salida y al menos una entrada, capaz de producir un resultado. Decimos que se trata de una caja negra, porque para aquel que la use no tiene acceso al interior de la misma, sino tan solo a sus entradas y salida. Esto nos lleva a que las funciones pueden ser combinadas fácilmente, de diversas formas, tan solo conociendo el tipo de entradas y salidas que posee.</p>
+
+<h3 id="función-como-transformación-matemática">Función como transformación matemática</h3>
+
+<p>Las funciones, sin embargo, no son simples cajas negras, que podrían, por ejemplo, tener memoria de sus entradas anteriores, sino que son transformaciones matemáticas que presentan <a href="transparencia-referencial--efecto-de-lado-y-asignacion-destructiva.html">transparencia referencial</a>.</p>
+
+<p>En particular, las funciones son relaciones que presentan las siguientes características:</p>
+
+<ul>
+  <li>para toda entrada aceptable (su dominio), existe un único resultado (imagen), lo cual se conoce como unicidad.</li>
+  <li>para toda entrada del dominio, existe un resultado, lo que se conoce como existencia.</li>
+</ul>
+
+<h3 id="función-desde-un-punto-de-vista-imperativo">Función desde un punto de vista imperativo</h3>
+
+<p>Al llevar los conceptos de función matemática al mundo computacional, la transparencia referencial implica que las funciones, comparadas contra los procedimientos imperativos, no tienen <a href="transparencia-referencial--efecto-de-lado-y-asignacion-destructiva.html">efecto</a>, su aplicación no afecta al contexto, o, cuando menos, no es visible para el observador que evalua la expresión.</p>
+
+<p>Si bien no tiene sentido hablar de mutabilidad en el contexto matemático, dado que solo se manejan valores y no referencias (al menos, en un enfoque simplista), la transparencia referencial en los programas construidos en el paradigma funcional tiene dos consecuencias mas o menos evidentes:</p>
+
+<ul>
+  <li>Las funciones no pueden mutar sus argumentos ni otras variables, locales o globales, ni directa ni indirectamente. Esto se garantiza al eliminar la <a href="transparencia-referencial--efecto-de-lado-y-asignacion-destructiva.html">asignación destructiva</a> del lenguaje. (podemos decir que las variables no varían)</li>
+  <li>Las funciones no pueden realizar de forma directa operaciones de entrada/salida (aunque existen estrategias para realizarlas indirectamente preservando a la función pura)</li>
+</ul>
+
+<h3 id="función-como-un-tad">Función como un TAD</h3>
+
+<p>Las funciones <a href="currificacion.html">currificadas</a>, en tanto valores, pueden ser también pensandas como un <a href="http://es.wikipedia.org/wiki/Tipo_abstracto_de_dato">TAD</a>, para el cual:</p>
+
+<ul>
+  <li>su única operación primitiva es la <a href="aplicacion.html">aplicación</a>, definida entre una función y otro valor. Esta operación, a su vez también es una función, llamada apply, (función ($) en el Prelude de Haskell). Las demás operaciones complementarias, como la composición, se construyen a partir de la aplicación.</li>
+  <li>sus valores son cada una de las funciones posibles. Así, por ejemplo, even, odd, (+) son todos valores del tipo función</li>
+</ul>
+
+<h3 id="función-desde-el-cálculo-lambda">Función desde el cálculo lambda</h3>
+
+<p>Desde el punto de vista del <a href="http://es.wikipedia.org/wiki/C%C3%A1lculo_lambda">cálculo lambda</a>, la función es una primitiva del lenguaje, y todas las funciones son anónimas, es decir, son <a href="expresiones-lambda.html">expresiones lambda</a>. Por lo que la función <code class="highlighter-rouge">siguiente</code>, que en Haskell normalmente escribiríamos:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">siguiente</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre>
+</div>
+
+<p>En cálculo lambda no tipado la escribiríamos:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>siguiente = 𝛌x.sum x one
+</code></pre>
+</div>
+
+<p>Equivalente a la siguiente definición Haskell:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">siguiente</span> <span class="o">=</span> <span class="nf">\</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre>
+</div>
+<h3 id="funciones-en-haskell">Funciones en Haskell</h3>
+
+<p>Las funciones en Haskell presentan todas las carecterísticas mencionadas anteriormente. A modo de resumen, decimos que:</p>
+
+<ul>
+  <li>Las funciones son transformaciones matemáticas, que presentan transparencia referencial, y por tanto libres de efecto</li>
+  <li>Las funciones son valores</li>
+  <li>Las funciones tienen <a href="tipos-de-haskell-funciones.html">tipo función</a> ((-&gt;) a b), que está determinado por su dominio e imagen. Una función de enteros en booleanos tiene tipo <code class="highlighter-rouge">Int</code> <code class="highlighter-rouge">-&gt;</code> <code class="highlighter-rouge">Bool</code></li>
+  <li>Las funciones son un caso particular de las relaciones, que presentan unicidad y existencia para todo su dominio.</li>
+  <li>Las funciones están currificadas, por lo que no existen funciones de más de un argumento realmente, sino que se emulan a partir de funciones de un argumento que devuelven otra función que toma los parámetros restantes.</li>
+  <li>La operación primitiva de la función es la aplicación, por la cual se evalúa una función pasandole sus argumentos y obteniendo un resultado</li>
+  <li>El mecanismo de la evaluación de las funciones es la reducción (reducción 𝛃)</li>
+  <li>Dado que la única operación primitiva del tipo función es la aplicación, sólo es función aquello todo y sólo lo que pueda ser aplicado. Moraleja: no tiene sentido hablar de funciones de cero argumentos, ya que no pueden ser aplicadas</li>
+  <li>La <a href="estrategias-de-evaluacion.html">estrategia de reducción</a> empleada por Haskell es no estricta (≅ call-by-name), lo cual no es lo mismo que evaluación diferida, que significa que las expresiones son evaluadas a medida que son necesarias. Sin embargo, en la práctica, una lleva normalmente a la otra, por lo que podremos decir sin excesivo rigor que Haskell presenta evaluación diferida.</li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>72</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

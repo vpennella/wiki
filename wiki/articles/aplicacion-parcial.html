@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Aplicacion parcial</title>
+  <meta property="og:title" content="Aplicacion parcial" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/aplicacion-parcial.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/aplicacion-parcial.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Aplicacion parcial</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <p>Por aplicación parcial se entiende a la <a href="aplicacion.html">aplicación de una función</a>, pero suministrando menos parámetros que los que esta requiere. <strong>El resultado de aplicar parcialmente una función es otra función que espera menos parámetros que la original</strong>, ya que puede realizar reemplazos en su definición por expresiones o valores concretos. La aplicación parcial es muy útil para <a href="composicion.html">componer funciones</a> y para parametrizar funciones de <a href="orden-superior.html">Orden Superior</a>.</p>
+
+<p>Por ejemplo, las siguientes expresiones presentan aplicación parcial:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">take 3</code></li>
+  <li><code class="highlighter-rouge">(+1)</code></li>
+  <li><code class="highlighter-rouge">max "hola"</code></li>
+</ul>
+
+<p>Para visualizar mejor la transformación que ocurre al aplicar parcialmente una función pueden consultar el tipo de las funciones sin aplicar y parcialmente aplicadas usando :t en el editor de Haskell. Podemos realizar un análisis en función del tipo de las expresiones anteriores, cuantos más parámetros se aplican menor aridad (cantidad de parámetros) tiene la función resultante:</p>
+
+<pre><code class="language-Haskell">*Main&gt; :t take
+take :: Int -&gt; [a] -&gt; [a]
+*Main&gt; :t take 3
+take 3 :: [a] -&gt; [a]
+
+*Main&gt; :t (+)
+(+) :: Num a =&gt; a -&gt; a -&gt; a
+*Main&gt; :t (+1)
+(+1) :: Num a =&gt; a -&gt; a
+
+*Main&gt; :t max
+max :: Ord a =&gt; a -&gt; a -&gt; a
+*Main&gt; :t max "hola"
+max "hola" :: [Char] -&gt; [Char]
+</code></pre>
+
+<p>En el caso de max “hola” vemos también que no sólo disminuyó la cantidad de parámetros, sino que el tipo de la función resultante es más particular, ya que “hola” obliga a que el otro valor esperado por el max también sea de tipo String para poder compararlos y determinar cuál es mayor en orden alfabético.</p>
+
+<p>Las siguientes funciones no están aplicadas parcialmente:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">take</code> (no está aplicada)</li>
+  <li><code class="highlighter-rouge">odd</code> (no está aplicada)</li>
+  <li><code class="highlighter-rouge">odd 3</code> (está completamente aplicada, esta expresión no es de tipo función sino que es un booleano)</li>
+  <li><code class="highlighter-rouge">max 0 3</code> (está completamente aplicada, esta expresión no es de tipo función sino que es un número)</li>
+</ul>
+
+<p>Una consecuencia de esto es que sólo pueden aplicarse parcialmente funciones de 2 o más argumentos. Para que la aplicación parcial exista, es necesario que las funciones estén currificadas (ver <a href="currificacion.html">Currificación</a>).</p>
+
+<h2 id="puedo-aplicar-parcialmente-el-segundo-parámetro-en-vez-del-primero">Puedo aplicar parcialmente el segundo parámetro en vez del primero?</h2>
+
+<p>En ocasiones sucede que no podemos aplicar parcialmente una función ya que el valor que le queremos pasar no es el primero que espera sino otro, por ejemplo si quiero saber si un nombre es exótico, que se cumple si tiene x, k, q o w, no sería correcto intentar hacer:</p>
+
+<p><code class="highlighter-rouge">esExotico nombre = any (elem "XKQWxkqw") nombre</code></p>
+
+<p>Ya que “xkqw” que es la lista en la cual quiero verificar si se encuentra uno de los caracteres del nombre, no es correcto tratar de aplicárselo a elem porque debería ser el segundo parámetro, no el primero. De hecho esa función va a compilar correctamente, pero no va a funcionar como esperamos, ya que al intentar usarla de esta forma:</p>
+
+<p><code class="highlighter-rouge">&gt; esExotico "Xiomara"</code></p>
+
+<p>Nosotros esperaríamos que nos diga True, pero vamos a tener un error de tipos:</p>
+
+<p><code class="highlighter-rouge">   Couldn't match expected type `[ [Char] ]' with actual type `Char'</code></p>
+
+<p>Esto sucede porque si a elem le aplicamos un String (equivalente a [Char]), el resultado va a ser una función de tipo [ [Char] ] -&gt; Bool</p>
+
+<p>Formas posibles de resolverlo:</p>
+
+<p><strong>Usando una <a href="expresiones-lambda.html">expresión lambda</a></strong></p>
+
+<p><code class="highlighter-rouge">esExotico nombre = any (\letra -&gt; elem letra "XKQWxkqw") nombre</code></p>
+
+<p><strong>Usando notación infija (como los operadores) en vez de prefija</strong>: En ocasiones nos parece más natural usar las funciones de dos argumentos de forma infija, por ejemplo:</p>
+
+<p><code class="highlighter-rouge">&gt; 10 `mod` 2</code></p>
+
+<p>Podemos aprovechar ese feature para aplicar el segundo parámetro y no el primero como hacemos con los operadores, por ej. <code class="highlighter-rouge">(/2)</code></p>
+
+<p><code class="highlighter-rouge">esExotico nombre = any (`elem` "XKQWxkqw") nombre</code></p>
+
+<p><strong>Usando la función flip</strong></p>
+
+<p>En Haskell existe una función de <a href="orden-superior.html">Orden Superior</a> llamada flip cuyo tipo es <code class="highlighter-rouge">(a -&gt; b -&gt; c) -&gt; b -&gt; a -&gt; c</code>, y sirve justamente para resolver esta clase de problemas ya que lo que hace es aplicar la función que recibe con los parámetros en el orden inverso al que le llegan. Podríamos usar flip parcialmente aplicada para lograr nuestro objetivo.</p>
+
+<p><code class="highlighter-rouge">esExotico nombre = any (flip elem "XKQWxkqw") nombre</code></p>
+
+<h2 id="ejemplos-de-aplicación-parcial">Ejemplos de aplicación parcial</h2>
+<h3 id="uso">Uso</h3>
+<p>Suponiendo que se tiene una función genérica como el between, genérica porque tiene bocha de parámetros:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">between</span> <span class="n">menor</span> <span class="n">mayor</span> <span class="n">nro</span> <span class="o">=</span> <span class="n">menor</span> <span class="o">&lt;=</span> <span class="n">nro</span> <span class="o">&amp;&amp;</span> <span class="n">nro</span> <span class="o">&lt;=</span> <span class="n">mayor</span>
+</code></pre>
+</div>
+
+<p>Y se usa así:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;</span> <span class="n">between</span> <span class="mi">5</span> <span class="mi">10</span> <span class="mi">7</span>
+<span class="kt">True</span>
+</code></pre>
+</div>
+
+<p>Podés hacer nuevas funciones a partir de esa, aplicando parcialmente.
+Por ejemplo, podés hacer una función más específica, que tome, en vez de tres cosas, sólo una:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">between</span> <span class="mi">18</span> <span class="mi">65</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>¡Porque le falta un parámetro!</p>
+
+<p>Y se puede usar para componer:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">debeVotar</span> <span class="n">persona</span> <span class="o">=</span> <span class="p">(</span><span class="n">between</span> <span class="mi">18</span> <span class="mi">65</span> <span class="o">.</span> <span class="n">edad</span><span class="p">)</span> <span class="n">persona</span>
+</code></pre>
+</div>
+
+<h3 id="ejemplo">Ejemplo</h3>
+
+<p>Supongamos que trabajamos para Spotify. Recién estamos empezando, y tenemos que modelar las canciones y los usuarios en Haskell.
+Elegimos modelarlos con data, donde cada canción tiene un nombre, la cantidad de likes y dislikes; y cada usuario tiene un nombre de usuario y un número que representa hace cuántos años usa Spotify:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="kr">data</span> <span class="kt">Cancion</span> <span class="o">=</span> <span class="kt">UnaCancion</span> <span class="kt">String</span> <span class="kt">Float</span> <span class="kt">Float</span>
+<span class="kr">data</span> <span class="kt">Usuario</span> <span class="o">=</span> <span class="kt">UnUsuario</span> <span class="kt">String</span> <span class="kt">Float</span>
+</code></pre>
+</div>
+
+<p>Para decidir si poner una canción en la pantalla de inicio de un usuario, el Sr. Spotify nos comenta que usan un algoritmo muy raro, 
+con un cálculo llamado tasaDeRecomendabilidad, que depende tanto de la canción como del usuario; y ponen una canción en la pantalla de inicio de alguien si esa tasa da mayor a 1000. El cálculo de la tasaDeRecomendabilidad es una formulita que nos dan ellos, y nos dicen que se calcula así:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">tasaDeRecomendabilidad</span> <span class="p">(</span><span class="kt">UnUsuario</span> <span class="kr">_</span> <span class="n">antiguedad</span><span class="p">)</span> <span class="p">(</span><span class="kt">UnaCancion</span> <span class="kr">_</span> <span class="n">likes</span> <span class="n">dislikes</span><span class="p">)</span> <span class="o">=</span> <span class="n">likes</span> <span class="o">/</span> <span class="n">dislikes</span> <span class="o">*</span> <span class="n">antiguedad</span> <span class="o">+</span> <span class="n">likes</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">29</span>
+</code></pre>
+</div>
+
+<p>Notar que el cálculo es ridículamente extraño (pero nosotros nos abstraemos de él). Y deciden si la tasa pasa su evaluación así:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">esTasaRecomendable</span> <span class="n">tasa</span> <span class="o">=</span> <span class="n">tasa</span> <span class="o">&gt;</span> <span class="mi">1000</span>
+</code></pre>
+</div>
+
+<p>Nos delegan escribir cómo decidir si una canción se pone en la pantalla de inicio de un usuario. Entonces hacemos:</p>
+
+<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="n">vaEnPantallaDeInicioDe</span> <span class="n">usuario</span> <span class="n">cancion</span> <span class="o">=</span> <span class="p">(</span><span class="n">esTasaRecomendable</span><span class="o">.</span><span class="n">tasaDeRecomendabilidad</span> <span class="n">usuario</span><span class="p">)</span> <span class="n">cancion</span>
+</code></pre>
+</div>
+
+<p>Acá, tasaDeRecomendabilidad es una función de 2 parámetros, pero como ya le pasamos uno, tasaDeRecomendabilidad usuario es una función de 1 parámetro. Porque ahora sólo espera 1 parámetro, no 2 (el primero ya lo tiene).</p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>141</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

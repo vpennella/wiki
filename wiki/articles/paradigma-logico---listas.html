@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Paradigma logico   listas</title>
+  <meta property="og:title" content="Paradigma logico   listas" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/paradigma-logico---listas.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/paradigma-logico---listas.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Paradigma logico   listas</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="motivación">Motivación</h2>
+
+<p>Si nuestra base de conocimiento es</p>
+
+<p><code class="highlighter-rouge">padre(homero,bart).</code>
+<code class="highlighter-rouge">padre(homero,maggie).</code>
+<code class="highlighter-rouge">padre(homero,lisa).</code></p>
+
+<p>Vimos varias consultas posibles</p>
+
+<p><code class="highlighter-rouge">%Es cierto que homero es padre de bart?</code>
+<code class="highlighter-rouge">?- padre(homero,bart).</code>
+<code class="highlighter-rouge">Yes</code>
+<code class="highlighter-rouge">%Es cierto que homero es papá?</code>
+<code class="highlighter-rouge">?- padre(homero,_).</code>
+<code class="highlighter-rouge">Yes</code>
+<code class="highlighter-rouge">%Quienes son los padres de bart?</code>
+<code class="highlighter-rouge">?- padre(P,bart).</code>
+<code class="highlighter-rouge">P = homero</code>
+<code class="highlighter-rouge">%Quienes son los hijos de homero?</code>
+<code class="highlighter-rouge">?- padre(homero,H).</code>
+<code class="highlighter-rouge">H = bart;</code>
+<code class="highlighter-rouge">...</code></p>
+
+<p><code class="highlighter-rouge">%Quienes son padre e hijo?</code>
+<code class="highlighter-rouge">?- padre(X,Y).</code>
+<code class="highlighter-rouge">X = homero</code>
+<code class="highlighter-rouge">Y = bart;</code>
+<code class="highlighter-rouge">etc.</code></p>
+
+<p>Pero a pesar de esta gran gama de consultas hay ciertas preguntas que se vuelven complicadas o imposibles. Vamos a tomar como ejemplo la siguiente pregunta: ¿Cuántos hijos tiene homero?.</p>
+
+<p>En el estado actual de las cosas tenemos que hacer la consulta</p>
+
+<p><code class="highlighter-rouge">?- padre(homero,H).</code>
+<code class="highlighter-rouge">H = bart;</code>
+<code class="highlighter-rouge">H = lisa;</code>
+<code class="highlighter-rouge">H = maggie;</code>
+<code class="highlighter-rouge">No</code></p>
+
+<p>Contamos la cantidad de respuestas, en este caso los posibles valores de H y obtenemos la respuesta … 3. Ahora bien, esto es impracticable cuando el número de respuestas es alto y además no responde a nuestra pregunta de forma directa.</p>
+
+<p>Pensemos en predicados e individuos y definamos un predicado que relacione lo que nos interesa … una persona y su cantidad de hijos. Dicho predicado puede llamarse cantidadDeHijos/2.</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(homero,C).</code>
+<code class="highlighter-rouge">C = 3</code></p>
+
+<p>Perfecto, ya tenemos definido nuestro objetivo ahora definamos el predicado a través de una regla (lo quiero hacer por comprensión porque quiero que me sirva para cualquier persona, no solo homero)</p>
+
+<p><code class="highlighter-rouge">cantidadDeHijos(P,Cantidad) :- ... .</code></p>
+
+<p>Para resolver esto volvamos un poco para atrás. En el mundo del paradigma lógico ¿qué es lo que da 3? La cantidad de respuestas de la consulta .</p>
+
+<p>Entonces lo que nos gustaría hacer es tener en un solo lugar todas las respuestas a la consulta para después contar todos los posibles valores de H pero todavía no sabemos cómo hacer eso así que imaginemos que por el momento es magia.</p>
+
+<h2 id="el-conjunto-como-un-individuo">El conjunto como un individuo</h2>
+
+<p>Sin importar como obtenemos esas respuestas las queremos tener identificadas en un solo lugar, en un solo individuo … un individuo compuesto que representa un conjunto!</p>
+
+<p>En el caso de homero ese conjunto va a ser .</p>
+
+<p>A este tipo de individuo que representa conjuntos lo vamos a llamar <strong>lista</strong> y se encierra entre corchetes () donde cada elemento del conjunto se separa por coma ().</p>
+
+<p>En nuestra definición del predicado vamos a definir una variable Hijos que va representar a dicho conjunto, pero a nosotros no nos interesa el conjunto de hijos sino la cantidad de elementos que tiene ese conjunto …</p>
+
+<p>Una vez hecha la magia, lo que necesitamos es un predicado que relacione a un conjunto con su cantidad de elementos y eso ya viene con prolog. Ese predicado se llama .</p>
+
+<p><code class="highlighter-rouge">cantidadDeHijos(P,Cantidad) :- </code>
+<code class="highlighter-rouge">    acá va la magia que le da valor a la variable Hijos,</code>
+<code class="highlighter-rouge">    length(Hijos,Cantidad).</code></p>
+
+<p>Nos falta hacer la magia!</p>
+
+<h2 id="cómo-obtener-todas-las-respuestas-juntas">¿Cómo obtener todas las respuestas ‘juntas’?</h2>
+
+<p>Si tenemos una forma de obtener múltiples respuestas a una consulta (en este caso, todos los H que son respuesta de la consulta padre(P,H) cuando P es por ejemplo homero), y lo que queremos es que todas esas respuestas estén juntas en una lista, hay un predicado en Prolog que hace exactamente eso:</p>
+
+<p><code class="highlighter-rouge">findall(UnIndividuo,Consulta,Conjunto)</code></p>
+
+<p>Donde:</p>
+
+<ul>
+  <li>
+    <p>normalmente es una variable que se usa en la</p>
+  </li>
+  <li>
+    <p>es una lista con todos los individuos que se encontraron al consultar la Consulta</p>
+  </li>
+</ul>
+
+<p>Entonces:</p>
+
+<p>findall es un predicado que relaciona a una consulta con el conjunto (lista) de sus respuestas.</p>
+
+<p>El otro parámetro me permite indicar qué es lo que me interesa para completar la lista. Volviendo a nuestro ejemplo</p>
+
+<p><code class="highlighter-rouge">cantidadDeHijos(P, Cantidad) :- </code>
+<code class="highlighter-rouge">    findall(H, padre(P,H), Hijos),</code>
+<code class="highlighter-rouge">    length(Hijos, Cantidad).</code></p>
+
+<p>Con esta definición nuestro objetivo se cumple</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(homero,C).</code>
+<code class="highlighter-rouge">C = 3</code></p>
+
+<p>Observamos que la variable de la cláusula que define cantidadDeHijos llega ligada al findall, por lo tanto la consulta que está adentro (el 2do parámetro) queda que efectivamente tiene 3 respuestas.</p>
+
+<h2 id="inversibilidad-del-predicado-findall">Inversibilidad del predicado findall</h2>
+
+<p>Ahora bien, agregemos algunos hechos a la base de conocimiento</p>
+
+<p><code class="highlighter-rouge">padre(homero,bart).</code>
+<code class="highlighter-rouge">padre(homero,maggie).</code>
+<code class="highlighter-rouge">padre(homero,lisa).</code>
+<code class="highlighter-rouge">padre(abraham,homero).</code>
+<code class="highlighter-rouge">padre(abraham,herbert).</code></p>
+
+<p>Y pensemos en otra consulta</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(P,C).</code>
+<code class="highlighter-rouge">C = 5.</code></p>
+
+<p>No funciona como esperábamos, ¿a qué se debe?</p>
+
+<p>Debemos mirar la consulta que se está realizando en el findall (el 2do parámetro): . Si pensamos cuántas respuestas tiene esa pregunta veremos que ¡efectivamente son 5!</p>
+
+<p><code class="highlighter-rouge">%Quienes son padre e hijo?</code>
+<code class="highlighter-rouge">?- padre(P,H).</code>
+<code class="highlighter-rouge">P = homero,</code>
+<code class="highlighter-rouge">H = bart ;</code>
+<code class="highlighter-rouge">P = homero,</code>
+<code class="highlighter-rouge">H = maggie ;</code>
+<code class="highlighter-rouge">P = homero,</code>
+<code class="highlighter-rouge">H = lisa ;</code>
+<code class="highlighter-rouge">P = abraham,</code>
+<code class="highlighter-rouge">H = homero ;</code>
+<code class="highlighter-rouge">P = abraham,</code>
+<code class="highlighter-rouge">H = herbert.</code></p>
+
+<p>En el findall/3 como primer parámetro dijimos que nos interesa solamente la variable H de cada respuesta, e Hijos será un conjunto de esos H. Por lo tanto Hijos es la lista [bart,maggie,lisa,homero,herbert] que tiene 5 elementos (la respuesta a nuestra consulta).</p>
+
+<h3 id="un-findall-totalmente-inversible-generación">Un findall <em>totalmente inversible</em>: Generación</h3>
+
+<p>El problema está en la consulta de adentro del findall, no queremos preguntar “¿Quienes son padre e hijo?” sino “¿Quienes son hijos de P?” (risas) y para preguntar eso P debe llegar ligada al findall, para poder preguntar por los hijos de una persona en particular.</p>
+
+<p>Ahora tenemos que averiguar cómo ligar a P, y para eso hay que pensar cuáles serían los posibles P que nos interesan. Una respuesta sencilla es pensar que queremos que P sea una persona, entonces podríamos agregar al antecedente la restricción: .</p>
+
+<p>(También se podría usar el predicado padre/2 en lugar de persona/1, analizamos la diferencia entre ambos en el próximo apartado.)</p>
+
+<p><code class="highlighter-rouge">cantidadDeHijos(P,Cantidad) :-</code>
+<code class="highlighter-rouge">    persona(P), % Generacion, asi la variable P llega ligada al findall</code>
+<code class="highlighter-rouge">    findall(H,padre(P,H),Hijos),</code>
+<code class="highlighter-rouge">    length(Hijos,Cantidad).</code></p>
+
+<p>Lo que logramos al hacer que P llegue ligada al findall es que el predicado cantidadDeHijos/2 sea totalmente inversible. A esta técnica la denominamos <a href="generacion.html">generación</a>.</p>
+
+<h3 id="dos-formas-distintas-de-generación">Dos formas distintas de generación</h3>
+
+<p>Dijimos que en realidad hay dos formas de determinar cuáles son todos los P que me interesan:</p>
+
+<ol>
+  <li>Una forma es decir que P es una persona, entonces podríamos poner:</li>
+  <li>Por el otro podemos pensar que P tiene que ser padre, entonces surge la opción: . (Me interesa que sea padre y no me importa en principio cuáles son sus hijos.</li>
+</ol>
+
+<p>¿Qué pasaría si usamos en lugar de como generador?</p>
+
+<p><code class="highlighter-rouge">cantidadDeHijos(P,Cantidad) :-</code>
+<code class="highlighter-rouge">    padre(P,_), %Generacion, asi la variable P llega ligada al findall</code>
+<code class="highlighter-rouge">    findall(H,padre(P,H),Hijos),</code>
+<code class="highlighter-rouge">    length(Hijos,Cantidad).</code></p>
+
+<p>La diferencia la vamos a encontrar si hacemos la consulta:</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(bart,C).</code></p>
+
+<p>Con la solución propuesta en el apartado anterior nos dice que bart tiene cero hijos:</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(bart,C).</code>
+<code class="highlighter-rouge">C = 0</code></p>
+
+<p>Con la segunda posibilidad, bart no es una posible respuesta para (porque no es padre de nadie). Entonces lo que voy a obtener es:</p>
+
+<p><code class="highlighter-rouge">?- cantidadDeHijos(bart,C).</code>
+<code class="highlighter-rouge">No</code></p>
+
+<p>En este caso consideramos que es más saludable un 0 que un No. Independientemente de eso, lo que debe quedar de todo esto es que las distintas formas de generar nos pueden dar diferentes resultados como respuesta y hay que elegir qué queremos.</p>
+
+<p>Una pregunta adicional que podría surgir es: ¿qué pasa si no tenemos el predicado persona? Bueno, habrá que agregarlo a la base de conocimientos, y para ello tenemos dos posibilidades:</p>
+
+<p>Por extensión:uno por uno enumerando cada persona (un hecho para cada persona:</p>
+
+<p><code class="highlighter-rouge">persona(bart).</code>
+<code class="highlighter-rouge">persona(lisa).</code>
+<code class="highlighter-rouge">... etc.</code></p>
+
+<p>Por comprensión:con una regla descubrir quiénes podemos considerar persona a partir de la información que ya tenemos. Una forma de hacer eso sería:</p>
+
+<p><code class="highlighter-rouge">persona(Papa) :- padre(Papa,_).</code>
+<code class="highlighter-rouge">persona(Hijo) :- padre(_,Hijo).</code></p>
+
+<p>Es decir, el que es padre de alguien es una persona, y el que es hijo también.</p>
+
+<h2 id="haciendo-consultas-más-heavies">Haciendo consultas más heavies</h2>
+
+<p>En el segundo parámetro del findall se pueden poner cualquier tipo de consulta, no es necesario que solo 1 predicado esté involucrado.</p>
+
+<p>findall(X,(p(X),q(X),r(X),…,s(X)), Xs)</p>
+
+<p>Hay que encerrarla entre paréntesis para no cambiar la aridad de findall que es tres (3).</p>
+
+<h3 id="ejemplo">Ejemplo</h3>
+
+<p>Si queremos hacer un predicado que me diga cuantos hijos pibes tiene una persona podemos hacer esto</p>
+
+<p>Los X que me interesan son los que cumplen la consulta (padre(P,H),esPibe(H))</p>
+
+<p><code class="highlighter-rouge">cuantosPibes(Persona,Cant) :- </code>
+<code class="highlighter-rouge">     persona(Persona),</code>
+<code class="highlighter-rouge">     findall(H,(padre(Persona,H),esPibe(H)),Pibes),</code>
+<code class="highlighter-rouge">     length(Pibes,Cant).</code></p>
+
+<p>Otro ejemplo usando listas</p>
+
+<p><code class="highlighter-rouge">interseccion(Xs,Ys,Zs) :-</code>
+<code class="highlighter-rouge">    findall(E,(member(E,Xs),member(E,Ys)),Zs).</code></p>
+
+<h2 id="usando-individuos-compuestos-en-el-primer-parámetro-del-findall">Usando individuos compuestos en el primer parámetro del findall</h2>
+
+<p>En ciertas situaciones nos interesa tener una lista de individuos que hasta el momento no existían en nuestro programa o que no están presentes explícitamente en la consulta (o sea, en el 2do parámetro del findall).</p>
+
+<h3 id="ejemplo-1">Ejemplo:</h3>
+
+<p>Imagínense que tenemos un programa en donde se define el predicado puntaje/2 que relaciona a un equipo con la cantidad de puntos que tiene. Un requerimiento bastante usual en un programa de este estilo, es conocer la tabla de posiciones que se puede ver como un conjunto de individuos o sea una lista en donde cada individuo que la compone es un equipo con su cantidad de puntos.</p>
+
+<p><code class="highlighter-rouge">?- findall( ???? , puntaje(Equipo,Cant), Tabla ).</code></p>
+
+<p>La pregunta a responder es qué ponemos en ????. Necesitamos definir un individuo que está compuesto por otros 2 individuos (Equipo y Cant). Para hacer esto nada mejor que un functor (un indivudo compuesto de tamaño fijo), le inventamos un nombre por ejemplo ptos</p>
+
+<p><code class="highlighter-rouge">?- findall( ptos(Equipo,Cant) , puntaje(Equipo,Cant) , Tabla )</code></p>
+
+<p>Recuerden:</p>
+
+<ul>
+  <li>ptos es un functor no un predicado</li>
+  <li>puntaje es un predicado no un functor</li>
+  <li>Tabla es una lista de functores ptos que verifican la consulta que está como segundo parámetro del findall</li>
+</ul>
+
+<h2 id="recursividad-con-listas">Recursividad Con Listas</h2>
+
+<ul>
+  <li>Ver <a href="recursividad-en-logico.html">Recursividad en Logico</a></li>
+</ul>
+
+<h2 id="errores-comunes">Errores comunes</h2>
+
+<h3 id="findall-y-member">findall y member</h3>
+
+<p>El error más común para quienes no están acostumbrados a pensar en términos del paradigma es armar listas cuando no son necesarias para la resolución del problema. Esto se pone en evidencia por el uso del findall seguido por un member sobre la lista resultante. El findall arma listas, el member las desarma… son operaciones inversas!</p>
+
+<p>Por ejemplo, si quiero saber quiénes son los hijos de homero puedo consultar padre(homero,Hijo). Resolver esto como:</p>
+
+<p><code class="highlighter-rouge">?- findall(H, padre(homero,H), Hijos), member(Hijo,Hijos).</code></p>
+
+<p>es no estar entendiendo la forma de pensar.</p>
+
+<p>Si bien este primer ejemplo puede parecer obvio, hay casos en los cuales no es tan evidente, por ejemplo cuando se arma una lista de los que cumplen CONDICION con el predicado A y el predicado B consulta A y luego se obtienen los elementos con member.</p>
+
+<p>Siguiendo el ejemplo anterior de los hijos pibes, podemos mostrar el problema anterior de esta forma:</p>
+
+<p><code class="highlighter-rouge">hijosPibes(P,Pibes) :- persona(P),</code>
+<code class="highlighter-rouge">     findall(H,(padre(P,H),esPibe(H)),Pibes).</code>
+<code class="highlighter-rouge">esHijoPibe(Persona,Hijo) :-</code>
+<code class="highlighter-rouge">     hijosPibes(Persona,Pibes),</code>
+<code class="highlighter-rouge">     member(Hijo,Pibes).</code></p>
+
+<p>En ese caso todo lo que necesitábamos era consultar por existencia quién cumple CONDICION, y si todavía nos interesa hijosPibes/2 podríamos hacer los siguientes cambios:</p>
+
+<p><code class="highlighter-rouge">hijosPibes(P,Pibes) :- persona(P),</code>
+<code class="highlighter-rouge">     findall(Hijo,esHijoPibe(P,Hijo),Pibes).</code>
+<code class="highlighter-rouge">esHijoPibe(Persona,Hijo) :-</code>
+<code class="highlighter-rouge">     padre(Persona,H),</code>
+<code class="highlighter-rouge">     esPibe(H).</code></p>
+
+<p>En este caso fue simple porque B modelaba directamente CONDICION, pero bien podría pasar que nos esté faltando una abstracción para modelar CONDICION, que podemos solucionar definiendo otro predicado C y modificando los predicados A y B para que usen C.</p>
+
+<h3 id="findall-y-length">findall y length</h3>
+
+<p>Uno de los usos más comunes de findall tiene como objetivo saber cuántos individuos cumplen una determinada condicion, como en el ejemplo visto anteriormente de cantidadDeHijos/3. Sin embargo hay casos en los cuales pensamos la solución a un problema básico en término de cantidad de respuestas, lo cual disminuye la <a href="declaratividad.html">declaratividad</a> de la solución. Veamos un par de ejemplos:</p>
+
+<p><code class="highlighter-rouge"> esPadre(Persona) :- persona(Persona),</code>
+<code class="highlighter-rouge">      findall(Hijo, padre(Persona, Hijo), Hijos),</code>
+<code class="highlighter-rouge">      length(Hijos, CantidadDeHijos),</code>
+<code class="highlighter-rouge">      CantidadDeHijos &gt;= 1.</code></p>
+
+<p><code class="highlighter-rouge"> noTieneHijos(Persona) :- persona(Persona),</code>
+<code class="highlighter-rouge">      findall(Hijo, padre(Persona, Hijo), Hijos),</code>
+<code class="highlighter-rouge">      length(Hijos, 0).</code></p>
+
+<p>Estos dos predicados podrían definirse sin uso de listas, y no sólo eso sino que la solución de ambos es mucho más sencilla. En ambos casos debería simplemente trabajar con la idea de existencia, ya sea afirmándola o negándola, o sea:</p>
+
+<p><code class="highlighter-rouge"> esPadre(Persona) :- padre(Persona,_).</code></p>
+
+<p><code class="highlighter-rouge"> noTieneHijos(Persona) :- persona(Persona),</code>
+<code class="highlighter-rouge">      not(padre(Persona, _)).</code></p>
+
+<h4 id="caso-existe-más-de-un">Caso “existe más de un”</h4>
+
+<p>Un problema común es saber si hay más de un individuo que cumple una condición. Si alguien tiene más de un hijo, por ejemplo. Eso lo podemos saber así:</p>
+
+<p><code class="highlighter-rouge"> tieneMasDeUnHijo(Persona) :- persona(Persona),</code>
+<code class="highlighter-rouge">      findall(Hijo, padre(Persona, Hijo), Hijos),</code>
+<code class="highlighter-rouge">      length(Hijos, CantidadDeHijos),</code>
+<code class="highlighter-rouge">      CantidadDeHijos &gt; 1.</code></p>
+
+<p>Hay un problema nuevamente con la declaratividad, y con la manera de pensar lógicamente. Si le damos una vuelta de tuerca, podemos resolver este ejercicio <strong>sin necesidad de armar una lista y contar</strong>.</p>
+
+<p>Esto se logra pensando así: tengo más de un hijo <em>si existen dos hijos diferentes</em>.</p>
+
+<p><code class="highlighter-rouge"> tieneMasDeUnHijo(Persona):-</code>
+<code class="highlighter-rouge">      padre(Persona,Hijo1),</code>
+<code class="highlighter-rouge">      padre(Persona,Hijo2),</code>
+<code class="highlighter-rouge">      Hijo1 \= Hijo2.</code></p>
+
+<p>¡Es mucho más directo! Y respeta mejor las ideas del paradigma.</p>
+
+<h3 id="findall-y-forall">findall y forall</h3>
+
+<p><a href="paradigma-logico---forall---no-siempre-con-member.html">Y otro caso típico de mal uso de findall y member aparece al tratar de usar el forall</a>.</p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>334</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

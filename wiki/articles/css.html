@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Css</title>
+  <meta property="og:title" content="Css" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/css.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/css.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Css</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Sintaxis</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Selectores Principales</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Uso de CSS desde HTML</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">Cascada</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#tocAnchor-1-4-1"><span class="tocnumber">4.1</span> <span class="toctext">Combinando Selectores (OR)</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#tocAnchor-1-4-2"><span class="tocnumber">4.2</span> <span class="toctext">Ventajas del uso de CSS</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#tocAnchor-1-7"><span class="tocnumber">5</span> <span class="toctext">Links relacionados</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><p>Es la forma más recomendada de especificar y modificar las cuestiones estéticas de una página <a href="html.html">HTML</a>. La característica principal es que <strong>separa estas declaraciones del propio html</strong>. Así evita ensuciar la información (html) con cuestiones estéticas (el archivo .css). Además permite reutilizar estilos entre las diferentes páginas html, manteniendo consistencia entre el estilo de todo el sitio/aplicación.</p>
+
+<h1 id="tocAnchor-1-1">Sintaxis</h1>
+
+<p>CSS tiene su propio lenguaje declarativo en el cual especificamos <strong>reglas</strong>. Una regla tiene la siguiente sintaxis:</p>
+
+<p>
+  <img src="/img/css-rule.gif" alt="css rule" />
+</p>
+
+<p>El <strong>selector</strong> nos permite aplicar el estilo a aquellos elementos que coincidan con dicha expresión. Luego el cuerpo de la regla contiene un conjunto de propiedades y valores para éstos.</p>
+
+<p>Algunas propiedades aplican solo a algunos tipos de tags. Sin embargo, no es un lenguaje que “compile” o que tire errores. Simplemente si una propiedad no aplica a un tag, el browser no le va a dar bola.</p>
+
+<p>Un primer ejemplo para entender la sintaxis</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">span</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Aplica el valor “center” a la propiedad “text-align” de todos los tags de la página que sean de tipo &lt;span&gt; (en otras palabras, alinea un texto en el centro de donde está contenido).</p>
+
+<h1 id="tocAnchor-1-2">Selectores Principales</h1>
+
+<p>Básicamente lo primero que tenemos que saber sobre los selectores es que hay tres grandes tipos o formas de matchear nuestros tags.</p>
+
+<ul>
+  <li><strong>Por tag</strong>, es decir a todos los tags de un tipo (por ejemplo h1, h2, etc).</li>
+  <li><strong>Por clase</strong> (class), es decir a los tags a los que se les haya indicado un estilo determinado (mediante el atributo <strong>class</strong>).</li>
+  <li><strong>Por id</strong>, es decir a un elemento específico de la página según su <strong>id</strong>.</li>
+</ul>
+
+<p>Ejemplo por tag (ya vimos otro arriba para &lt;span&gt;)</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">td</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">   </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Aplica esas dos propiedades a todos los &lt;td&gt;</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nc">.filaImpar</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">   </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Este selector, que comienza con un punto, indica que va a matchear con cualquier tag (no importa el tipo de tag), siempre que éste tenga el valor <strong>filaImpar</strong> en su atributo <strong>class</strong>. Por ejemplo matchearía con estos tags:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>     <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"filaImpar"</span><span class="nt">&gt;</span>Hola Soy un P<span class="ni">&amp;aacute;</span>rrafo<span class="nt">&lt;p&gt;</span>
+
+     <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"filaImpar importante"</span><span class="nt">&gt;</span>Hola Soy un Span<span class="nt">&lt;p&gt;</span>
+
+     <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"conBordes fondoImportante filaImpar"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;td&gt;</span>Hola, soy una Fila<span class="nt">&lt;/td&gt;</span>
+     <span class="nt">&lt;tr&gt;</span>
+</code></pre>
+</div>
+
+<p>Como se ve en el ejemplo anterior, un tag <strong>puede tener más de un class</strong>. Así los classes no tienen nada que ver con las clases de un lenguaje orientado a objetos. Pueden pensarlos más bien como “labels” o “etiquetas” o marcas que pongo a los tags, para luego por CSS agregarle características visuales. Así eventualmente uno en un proyecto grande, se crearía su propia convención con un conjunto de “classes” que reutilizaría en todo su sitio. Por ejemplo “titulo” o “menu”, “botonGrande”, “botonMediano”, etc. Es una buena forma de elevar el nivel del html con nuevos significados.</p>
+
+<p>El último ejemplo, matchear por id</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nf">#unElementoEspecifico</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">   </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Este selector es el más “puntual” o específico, y permite matchear con tags, no importa su tipo, ni tampoco su class, sino que solo busca por “id”.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>     <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">"opcionIrAAyuda"</span><span class="nt">&gt;</span>Ir a Ayuda<span class="nt">&lt;/li&gt;</span>
+     <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"volver"</span><span class="nt">&gt;</span>Volver<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+</div>
+
+<p>Como en una página no deberían existir dos tags con el mismo id sin importar en qué tag o nivel se encuentre es el mecanismo menos recomendable para trabajar.</p>
+
+<h1 id="tocAnchor-1-3">Uso de CSS desde HTML</h1>
+
+<p>El html usa el css mediante una declaración en la sección <strong>HEAD</strong>.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>      <span class="nt">&lt;html&gt;</span>
+        <span class="nt">&lt;head&gt;</span>
+          ...
+          <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"styles.css"</span> <span class="nt">/&gt;</span>
+          ...
+        <span class="nt">&lt;/head&gt;</span>
+      <span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>Donde “styles.css” sería mi archivo de estilos y estaría, en este caso en la misma carpeta en que se encuentra este html. También podríamos usar una URL absoluta:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>        <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+
+<p>Existen otras formas de incluir estilos en un html, sin embargo la mejor es la que ya citamos. Las demás involucran ensuciar el html, y las pueden ver <a href="http://www.w3schools.com/css/css_howto.asp">en este link</a></p>
+
+<h1 id="tocAnchor-1-4">Cascada</h1>
+
+<p>Las reglas se aplican <em>en cascada</em>, esto significa dos cosas:</p>
+
+<ol>
+  <li>En primer lugar cada componente hereda determinados estilos de sus contenedores, por ejemplo un td (celda de una tabla) hereda los del tr (fila) y del table correspondientes. Los estilos que apliquen al componente específico sobreescriben a los del contenedor, pero aquellos que no estén especificados se heredan. No todas las indicaciones de estilo son “heredables” (inheritable en inglés), es importante entender el comportamiento de cada una de las diferentes indicaciones de estilo.</li>
+  <li>En segundo lugar sobre cada componente pueden aplicarse más de un estilo, que matcheen con ese componente según su tag, class y id respectivamente. Esos diferentes estilos se van a combinar permitiendo que el estilo más específico sobreescriba los estilos más generales, pero aun manteniendo las indicaciones correspondientes al estilo más general que no sean redefinidas.</li>
+</ol>
+
+<p>Ejemplo de varias reglas aplicando al mismo tiempo sobre un tag.</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">tr</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.resaltar</span><span class="err"> </span><span class="p">{</span>
+<span class="err">   </span><span class="nl">background-color</span><span class="p">:</span><span class="err"> </span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Ambas reglas van a aplicar en este tag</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>        <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"resaltar"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td&gt;</span>Hola, soy una celda<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+</code></pre>
+</div>
+
+<p>El texto se va a ver centrado y además con fondo rojo.</p>
+
+<h2 id="tocAnchor-1-4-1">Combinando Selectores (OR)</h2>
+
+<p>Es común que tengamos que aplicar los mismos estilos a diferentes tags. Para evitar duplicación de código las reglas se pueden combinar. Ej:</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">  </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">  </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">p</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">  </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Se puede refactorizar a esto:</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span><span class="err"> </span><span class="nt">h2</span><span class="o">,</span><span class="err"> </span><span class="nt">p</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span>
+<span class="err">  </span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>La sintaxis entonces es:</p>
+
+<div class="language-css highlighter-rouge"><pre class="highlight"><code>     <span class="nt">selector1</span><span class="o">,</span> <span class="nt">selector2</span><span class="o">,</span> <span class="o">...</span> <span class="nt">selectorN</span> <span class="p">{</span>
+         <span class="py">propiedad1</span><span class="p">:</span> <span class="n">valor1</span><span class="p">;</span>
+         <span class="py">propiedad2</span><span class="p">:</span> <span class="n">valor2</span><span class="p">;</span>
+         <span class="err">...</span>
+         <span class="py">propiedadN</span><span class="p">:</span> <span class="n">valorN</span><span class="p">;</span>
+     <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Se puede pensar como un <strong>or</strong>. Sería, si es un h1 <strong>o</strong> es un h2, <strong>o</strong> es un p.</p>
+
+<h2 id="tocAnchor-1-4-2">Ventajas del uso de CSS</h2>
+
+<p>La separación de concerns (layout vs. configuración estética) permite dos cosas:</p>
+
+<ul>
+  <li>
+    <p>Configurar y personalizar el estilo que se muestre por usuario/región/dispositivo y preservar el lema DRY (Don’t repeat yourself), la página HTML aumenta su expresividad (es más fácil de entender) los diseñadores gráficos se concentran el look &amp; feel, decorando los botones, las tablas (grillas), el tipo de letra, los títulos y también los logos, isotipos e imágenes que la aplicación va a tener. Por lo general reciben un “esqueleto” de las páginas con datos de prueba escritos en forma manual</p>
+  </li>
+  <li>
+    <p>Por otra parte, los programadores se concentran en la lógica de presentación y en la facilidad de uso por parte del usuario</p>
+  </li>
+</ul>
+
+<h1 id="tocAnchor-1-7">Links relacionados</h1>
+
+<ul>
+  <li><a href="algo3-temario.html">Temario Algoritmos III</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on August 31, 2017 by
+        fdodino</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>210</td>
+                                <td>17</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>fdodino</td>
+                                <td>fernand...</td>
+                                <td>3</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>2c4a6bb</td>
+                        <td>Thu Aug 31 09:39:28 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Adding links to Algo3 Temario in css and responsiveness</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>048e8e1</td>
+                        <td>Thu Aug 31 09:18:28 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Adding responsiveness page + fix css typo</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>2228d8b</td>
+                        <td>Thu Aug 24 09:21:51 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Fix typo ambos => ambas in css file</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

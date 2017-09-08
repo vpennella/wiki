@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Primeros pasos en javascript</title>
+  <meta property="og:title" content="Primeros pasos en javascript" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/primeros-pasos-con-es6.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/primeros-pasos-con-es6.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="javascript,es6,entorno,ecmascript,instalacion,pasos,primeros,proyecto," />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Primeros pasos en javascript</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+    <div id="mw-indicator-featured-star" class="mw-indicator">
+    <a href="#"
+       title="This is a featured article. Click here for more information."><img
+            alt="This is a featured article"
+            src="/img/featured_star.png" width="20"
+            height="19"
+            data-file-width="462" data-file-height="438">
+    </a>
+</div>
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Instalar extensiones para nuestro editor</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Tecnologías</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Cómo iniciar el proyecto</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-4">
+                  <a href="#tocAnchor-1-3-1"><span class="tocnumber">3.1</span> <span class="toctext">Clonar un ejemplo de otro repositorio</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#tocAnchor-1-3-2"><span class="tocnumber">3.2</span> <span class="toctext">Generar nuestro nuevo proyecto</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#tocAnchor-1-3-3"><span class="tocnumber">3.3</span> <span class="toctext">Copiar archivos de definición de un proyecto</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#tocAnchor-1-3-4"><span class="tocnumber">3.4</span> <span class="toctext">Editar el package.json</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-8">
+                  <a href="#tocAnchor-1-3-5"><span class="tocnumber">3.5</span> <span class="toctext">Bajar dependencias</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-9">
+                  <a href="#tocAnchor-1-3-6"><span class="tocnumber">3.6</span> <span class="toctext">Escribir una primera definición</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-10">
+                  <a href="#tocAnchor-1-3-7"><span class="tocnumber">3.7</span> <span class="toctext">Escribir el primer test</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-11">
+                  <a href="#tocAnchor-1-3-8"><span class="tocnumber">3.8</span> <span class="toctext">Estado de nuestro proyecto</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-12">
+                  <a href="#tocAnchor-1-3-9"><span class="tocnumber">3.9</span> <span class="toctext">Script de prueba</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h1 id="tocAnchor-1-1">Instalar extensiones para nuestro editor</h1>
+
+<p>Agregale las extensiones para el Visual Studio Code según muestra <a href="http://wiki.uqbar.org/wiki/articles/instalacion-de-entorno-javascript.html">esta página</a></p>
+
+<h1 id="tocAnchor-1-2">Tecnologías</h1>
+
+<p>Para crear un proyecto desde cero vamos a tomar como base un proyecto existente, de manera muy similar a lo que hicimos en Algoritmos 2 con un proyecto en Xtend, solo que con herramientas similares.</p>
+
+<ul>
+  <li><strong>npm</strong> o node package manager: para resolver las dependencias (la función equivalente la cumplía Maven)</li>
+  <li><strong>Jasmine</strong> para definir los tests (el equivalente a JUnit) + <strong>Karma</strong> que nos permitirá automatizar las tareas mediante npm</li>
+  <li>El código que vamos a escribir en Ecmascript 6 se traducirá a Javascript 5 que es compatible con más tecnologías, mediante un <em>transpilador</em> que se llama Babel (algo equivalente a lo que hace xtend traduciendo código xtend a Java)</li>
+</ul>
+
+<p>
+  <img src="https://i1.wp.com/wipdeveloper.com/wp-content/uploads/2017/05/babel-es6-inaction1.gif?resize=940%2C330&amp;ssl=1" alt="image" />
+</p>
+
+<h1 id="tocAnchor-1-3">Cómo iniciar el proyecto</h1>
+
+<h2 id="tocAnchor-1-3-1">Clonar un ejemplo de otro repositorio</h2>
+
+<p>Desde el git bash o la consola nos posicionamos en un directorio y bajamos algún ejemplo base, por ejemplo el que muestra la herencia de clientes:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git clone https://github.com/uqbar-project/clientesHerencia-es6
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-3-2">Generar nuestro nuevo proyecto</h2>
+
+<p>Debemos construir un directorio paralelo que tenga esta estructura:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>+ proyectoNuevo <span class="o">(</span>el nombre que quieran<span class="o">)</span>
+  + src
+  + spec
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-3-3">Copiar archivos de definición de un proyecto</h2>
+
+<p>Del ejemplo base vamos a copiar dos archivos importantes al directorio raíz de nuestro proyecto:</p>
+
+<ul>
+  <li><strong>package.json</strong>: el equivalente al pom.xml, contiene información sobre el proyecto y sus dependencias</li>
+  <li><strong>karma.conf.js</strong>: contiene la configuración para ejecutar los tests desde un script</li>
+  <li><strong>.travis.yml</strong>: es el archivo que contiene la configuración para poder ejecutar en un server de Continuous Integration nuestro ejemplo</li>
+</ul>
+
+<p>Nos debería quedar entonces la siguiente estructura:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>+ proyectoNuevo <span class="o">(</span>el nombre que quieran<span class="o">)</span>
+  + src
+  + spec
+  - package.json
+  - karma.conf.js
+  - .travis.yml
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-3-4">Editar el package.json</h2>
+
+<p>Abrimos el Visual Studio Code y editamos la información del package.json</p>
+
+<p>
+  <img src="/img/wiki/editarPackageJSONVisualStudio.png" alt="image" />
+</p>
+
+<p>Hay que cambiar estos atributos:</p>
+
+<ul>
+  <li>name</li>
+  <li>description</li>
+  <li>keywords</li>
+  <li>repository, y dentro la url</li>
+</ul>
+
+<p>
+  <br />
+</p>
+
+<h2 id="tocAnchor-1-3-5">Bajar dependencias</h2>
+
+<p>Por el momento solo tenemos la cáscara, vamos a bajar las dependencias necesarias para nuestro proyecto escribiendo</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install
+</code></pre>
+</div>
+
+<p>Esto va a dejar en el directorio node_modules todos los archivos .js con las librerías y frameworks necesarios. La estructura de nuestro proyecto quedaría</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>+ proyectoNuevo <span class="o">(</span>el nombre que quieran<span class="o">)</span>
+  + src
+  + spec
+  + node_modules <span class="o">(</span>nuevo<span class="o">)</span>
+  - package.json
+  - karma.conf.js
+  - .travis.yml
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-3-6">Escribir una primera definición</h2>
+
+<p>Dentro de Visual Studio Code, agregamos un archivo clientes.js en el directorio <strong>src</strong> y escribimos el código que queremos, por ejemplo:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// Definición de un cliente</span>
+<span class="kr">class</span> <span class="nx">Cliente</span> <span class="p">{</span>
+	<span class="c1">// Atributos</span>
+	<span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">this</span><span class="p">.</span><span class="nx">deuda</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>
+  <br />
+</p>
+
+<h2 id="tocAnchor-1-3-7">Escribir el primer test</h2>
+
+<p>Dentro de Visual Studio Code, agregamos un archivo clientes.js en el directorio <strong>spec</strong> y escribimos los casos de prueba deseados, algo como:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">describe</span><span class="p">(</span><span class="s1">'clientes'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">jorge</span>
+  
+    <span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">jorge</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cliente</span><span class="p">()</span>
+    <span class="p">})</span>
+  
+    <span class="nx">it</span><span class="p">(</span><span class="s1">'jorge tiene saldo cero inicialmente'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">expect</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">jorge</span><span class="p">.</span><span class="nx">deuda</span><span class="p">)</span>
+    <span class="p">})</span> 
+  <span class="p">})</span>
+</code></pre>
+</div>
+
+<p>
+  <br />
+</p>
+
+<h2 id="tocAnchor-1-3-8">Estado de nuestro proyecto</h2>
+
+<p>La estructura resultante debería ser:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>+ proyectoNuevo <span class="o">(</span>el nombre que quieran<span class="o">)</span>
+  + src
+    - clientes.js
+  + spec
+    - clientes.js
+  + node_modules <span class="o">(</span>nuevo<span class="o">)</span>
+  - package.json
+  - karma.conf.js
+  - .travis.yml
+</code></pre>
+</div>
+
+<p>
+  <br />
+</p>
+
+<h2 id="tocAnchor-1-3-9">Script de prueba</h2>
+
+<p>Para probarlo, podemos hacerlo desde la consola Linux, por git bash o desde el Visual Studio Code utilizando la consola integrada (View &gt; Integrated Terminal o el shortcut Ctrl + `)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm <span class="nb">test</span>
+</code></pre>
+</div>
+
+<p>Con la configuración que tiene el package.json y karma.conf.js, se ejecutan los tests, y veremos un color verde si pasan todos ok o bien los mensajes de error correspondientes.</p>
+
+
+</div>
+
+
+    <div id="catlinks" class="catlinks" data-mw="interface">
+    <div id="normal-catlinks" class="normal-catlinks"><a href="/wiki/internal/categories.html" title="Help:Category">Categories</a>:
+        <ul>
+            
+             <li><a href="/categories/javascript" title="javascript">Javascript</a></li>
+            
+             <li><a href="/categories/es6" title="es6">Es6</a></li>
+            
+             <li><a href="/categories/entorno" title="entorno">Entorno</a></li>
+            
+             <li><a href="/categories/ecmascript" title="ecmascript">Ecmascript</a></li>
+            
+             <li><a href="/categories/instalacion" title="instalacion">Instalacion</a></li>
+            
+             <li><a href="/categories/pasos" title="pasos">Pasos</a></li>
+            
+             <li><a href="/categories/primeros" title="primeros">Primeros</a></li>
+            
+             <li><a href="/categories/proyecto" title="proyecto">Proyecto</a></li>
+            
+        </ul>
+    </div>
+    <div id="hidden-catlinks" class="hidden-catlinks mw-hidden-cats-hidden">Hidden categories:
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on September 07, 2017 by
+        fdodino</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>160</td>
+                                <td>2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>fdodino</td>
+                                <td>fernand...</td>
+                                <td>4</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>b60fca9</td>
+                        <td>Thu Sep 7 12:58:39 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Adding keywords for es6 first steps</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4358c91</td>
+                        <td>Thu Sep 7 12:58:08 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Fix es6 first steps</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>18f8f70</td>
+                        <td>Thu Sep 7 12:46:12 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Fix javascript - es6 first steps</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>97b0a9a</td>
+                        <td>Thu Sep 7 12:34:44 2017 -0300</td>
+                        <td>fdodino</td>
+                        <td>fernand...</td>
+                        <td>Adding first steps in es6 page</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

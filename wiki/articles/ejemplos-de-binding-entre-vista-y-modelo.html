@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Ejemplos de binding entre vista y modelo</title>
+  <meta property="og:title" content="Ejemplos de binding entre vista y modelo" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/ejemplos-de-binding-entre-vista-y-modelo.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/ejemplos-de-binding-entre-vista-y-modelo.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Ejemplos de binding entre vista y modelo</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="introducción">Introducción</h2>
+
+<p>Recordemos nuestro objetivo:</p>
+
+<ul>
+  <li>cuando el usuario carga un dato en la pantalla queremos que se actualice el modelo automáticamente</li>
+</ul>
+
+<p>pero también</p>
+
+<ul>
+  <li>cuando alguien actualiza el modelo (no necesariamente desde la UI) queremos que se dispare la notificación a la pantalla para que “refresque” el valor del control.</li>
+</ul>
+
+<p>Esta relación se determina a través de dos observers, que están asociados a un característica específica del modelo o del control. En el caso del modelo serán sus atributos, en el caso del control puede ser su valor u otra propiedad. Para JFace, estos observers tienen la capacidad tanto de actualizar la propiedad correspondiente como de obtener su valor. En otras tecnologías podrían tener una sola de las dos capacidades o bien estar repartidas en objetos distintos.</p>
+
+<h2 id="dónde-manejar-el-binding-bidireccional">Dónde manejar el binding bidireccional</h2>
+
+<p>Para que esta lógica de notificación bidireccional entre modelo y vista funcione, recordemos la técnica que se usa con los observers, también llamados listeners:</p>
+
+<ul>
+  <li>en un primer momento se registran los interesados (addObserver)</li>
+  <li>cuando se produce un evento de interés para los interesados, se dispara la notificación (en método update del dominio, se envía mensaje notify a cada observer)</li>
+</ul>
+
+<p>Volviendo al ejemplo modelo-vista,</p>
+
+<ul>
+  <li>al crear la UI debemos enlazar cada propiedad de un objeto de dominio con un control específico (addObserver, se registra el binding)</li>
+  <li>cuando la propiedad del objeto de dominio cambia, se dispara la notificación a todos los controles que observan esa propiedad (no necesariamente uno solo, podrían ser varios)</li>
+  <li>a su vez, cuando el usuario escribe información en el control, se debe actualizar la propiedad del objeto de dominio, <em>cuidando de no entrar en un loop de notificaciones infinitas hacia la vista y viceversa</em>.</li>
+</ul>
+
+<p>Toda esta responsabilidad que marcamos anteriormente bien podría ser de los observers, pero dada la complejidad del manejo de eventos en UI es común que esté separado en un objeto que se ocupe exclusivamente de esto: un contexto de binding, objeto responsable de recordar las diferentes parejas de modelo-control que están vinculados entre sí y de repartir los eventos teniendo en cuenta todas las complejidades que eso implica (evitar los ciclos, manejar la concurrencia, etc).</p>
+
+<h2 id="control-textbox">Control Textbox</h2>
+
+<p>Dependiendo del framework el textbox puede llamarse text, input (type text), input field, etc. A partir de aquí utilizaremos en forma genérica al textbox para referirnos al elemento gráfico de forma rectangular que permite ingresar caracteres (por default, alfanuméricos).</p>
+
+<p>Queremos observar el valor de ese textbox para bindearlo contra un atributo del modelo. Algunos ejemplos de binding contra la propiedad value del textbox:</p>
+
+<ol>
+  <li>un <em>String</em>: nombre del cliente (variable de instancia nombre de la clase cliente)</li>
+  <li>un <em>Date</em>: fecha de nacimiento de un cliente (variable fechaNacimiento de la clase cliente)</li>
+  <li>un <em>Number</em>: la nota de un examen (variable nota de la clase examen)</li>
+</ol>
+
+<p>En el primer caso el binding se da naturalmente; en los otros dependemos de que la tecnología de UI tenga un control textbox particular cuyo value sea de tipo Date/Number/etc. De otro modo vamos a necesitar</p>
+
+<ul>
+  <li>un <strong>conversor</strong>, que transforme el valor recibido desde la interfaz de usuario (generalmente un String) al tipo requerido por el modelo y viceversa.</li>
+  <li><strong>validadores</strong>, que proveen diferentes puntos de chequeo del valor recibido. En principio se deben contemplar al menos dos puntos de validación: antes y después de la conversión.</li>
+</ul>
+
+<p>A estas validaciones pueden sumarse otras realizadas por el modelo de dominio, por ejemplo en el momento de setearle el valor. Todos estos objetos en conjunto intervienen cada vez que se produce un evento en uno de los dos extremos de la cadena de binding, para hacer llegar el evento (y probablemente el valor asociado) hasta el otro extremo.</p>
+
+<h3 id="otras-propiedades-de-interés">Otras propiedades de interés</h3>
+
+<ul>
+  <li><strong>editable</strong>: si se habilita/deshabilita el input desde el teclado</li>
+  <li><strong>visible</strong>: si el control es visible o no en la pantalla</li>
+  <li><strong>font/foreground/background</strong>: la letra con la que se visualizan los datos cargados en el control, el color de la letra o bien el de fondo</li>
+  <li><strong>tooltip</strong>: una pequeña explicación de la información que carga el control</li>
+  <li><strong>width</strong>: el tamaño del control, que generalmente va asociado al</li>
+  <li><strong>size</strong>: la cantidad de caracteres que permite cargar</li>
+</ul>
+
+<h2 id="control-checkbox">Control Checkbox</h2>
+
+<p>Dependiendo del framework se los denomina checkbox, button(de tipo check), input (type check), etc.</p>
+
+<p>Es un control pensado para modelar atributos booleanos del modelo (a través de la propiedad value), de forma cuadrada con un tilde marcado o desmarcado según la propiedad sea true/false respectivamente. A los checkboxes se les puede setear por lo general los atributos read only y visible.</p>
+
+<p>Ejemplos que pueden modelarse con este control:</p>
+
+<ul>
+  <li>un usuario puede estar activo/inactivo</li>
+  <li>una persona puede ser mayor de edad o no</li>
+  <li>un pedido entregado/pendiente (siempre que no existan más estados)</li>
+</ul>
+
+<h2 id="control-combo">Control Combo</h2>
+
+<p>Dependiendo del framework se los llama combo box, drop down, input (type select), etc.</p>
+
+<p><em>Ejemplo:</em> si modelamos una aplicación para un Videoclub, cada película se relaciona con un género. Entonces la pantalla de carga de una película tiene:</p>
+
+<ul>
+  <li>un TextBox título</li>
+  <li>un TextBox año de filmación (numérico)</li>
+  <li>un ComboBox que selecciona un género</li>
+</ul>
+
+<p>Cuando el usuario cambia la selección del combo tenemos que enviar el mensaje <code class="highlighter-rouge">pelicula.setGenero(genero);</code></p>
+
+<p>El combo necesita tener asociado:</p>
+
+<ul>
+  <li>un conjunto de elementos “seleccionables”</li>
+  <li>el elemento seleccionado</li>
+</ul>
+
+<p>¿De qué tipo es esa lista de elementos seleccionables? Si trabajamos con generics, podríamos pensar en un Combo<T> de manera que el modelo subyacente sea un Collection/Set/List<T> y el elemento seleccionado un T. En el ejemplo planteado T = Genero.</T></T></p>
+
+<p>Otra alternativa menos elegante es</p>
+
+<ul>
+  <li>los elementos seleccionables del combo se restringen a una lista de strings que son los que se van a mostrar en pantalla. Entonces ya no selecciono un género, ni un socio, ni una película, lo que estoy eligiendo es el string “Comedia”, o el string “Romero Federico”</li>
+  <li>el elemento seleccionado es en realidad un int que contiene el índice del elemento seleccionado</li>
+</ul>
+
+<p>Independientemente de la manera en que trabajemos, vamos a necesitar tener un <strong>conversor</strong> para asociar los elementos visuales del combo con los objetos que representan esas opciones y pasar de uno a otro en ambas direcciones, esto es capturar el evento de cambio para mapear el elemento/índice seleccionado con un objeto Genero que es lo que el modelo necesita.</p>
+
+<h2 id="control-grilla">Control Grilla</h2>
+
+<p>Dependiendo del framework se los llama table, grid, etc. La grilla es un control compuesto en forma de matriz que tiene:</p>
+
+<ul>
+  <li>como filas un conjunto de elementos</li>
+  <li>como columnas el conjunto de atributos a visualizar de cada elemento</li>
+</ul>
+
+<p>Al igual que el combo la grilla conoce a</p>
+
+<ul>
+  <li>un conjunto de elementos</li>
+  <li>y al elemento seleccionado. En muchas tecnologías la grilla admite selección múltiple de elementos.</li>
+</ul>
+
+<p><em>Ejemplo:</em> en una pantalla que busca socios de un videoclub, la grilla tiene como modelo asociado el resultado de la búsqueda (un Collection/Set/List<Socio>), separados en columnas:</Socio></p>
+
+<ul>
+  <li>nombre</li>
+  <li>dirección</li>
+  <li>si está activo</li>
+</ul>
+
+<p>etc.</p>
+
+<p>En algunas tecnologías las columnas pueden contener controles de ingreso de datos (textboxes, checkboxes, botones, etc.), en otras sólo se puede visualizar la información.</p>
+
+<p>Es común utilizar paginadores para segmentar la cantidad de registros que deben mostrarse. Ejemplo: la grilla se parte en segmentos de 10 socios, entonces si la búsqueda trae 1.200 socios, se guardan 12 páginas de 10 socios cada una, y se avanzan de a 10 socios. Esto se hace por varios motivos:</p>
+
+<ul>
+  <li>evita que el usuario haga scrolling de la grilla o bien de la página</li>
+  <li>llenar una grilla con 10 socios tarda menos que llenar el mismo control con 1.200 elementos (performance)</li>
+  <li>permite que el usuario no tenga toda la información de golpe, lo ordena visualmente</li>
+</ul>
+
+<h2 id="control-botón">Control Botón</h2>
+
+<p>Dependiendo del framework se los llama button, action, actionButton, command, etc. Se utilizan para disparar eventos de la UI o mapear acciones del negocio.</p>
+
+<p><em>Ejemplos:</em> en un caso de uso que actualiza los socios de una biblioteca podemos mencionar los siguientes botones</p>
+
+<ul>
+  <li>Crear Socio</li>
+  <li>Eliminar</li>
+  <li>Modificar (Editar datos)</li>
+  <li>Buscar socios (en base a un criterio de búsqueda)</li>
+</ul>
+
+<p>En otras pantallas, también permiten disparar procesos de naturaleza batch (Generar Facturación), etc.</p>
+
+<h2 id="otros-controles">Otros controles</h2>
+
+<h3 id="ingreso">Ingreso</h3>
+
+<ul>
+  <li><strong>TextArea (TextEdit)</strong>: un Text box de varias líneas que permite ingresar una gran cantidad de palabras (Ej: campo “Observaciones” al registrar un Reclamo o un Pedido)</li>
+  <li><strong>Radio buttons</strong>: alternativa visual al combo box para seleccionar un conjunto acotado de opciones (Ej: una película puede ser cortometraje, largometraje o documental, un socio puede ser de categoría menor, activo, jubilado o dado de baja).</li>
+</ul>
+
+<h3 id="visualización">Visualización</h3>
+
+<ul>
+  <li><strong>Label (TextView)</strong>: se puede bindear el valor para mostrar información (como la fecha de último alquiler de un socio, la antigüedad en años de un empleado o el monto pendiente de una factura) o estar fijo (acompañando los controles de carga de datos: “Fecha de nacimiento”, “Nombre”, o como observaciones y ayuda para la carga: “Recuerde que debe ingresar nombre o apellido para buscar un socio”).</li>
+  <li><strong>MessageArea (StatusBar)</strong>: un área para ubicar mensajes de error (o bien se puede manejar con un label). En ese caso podemos bindear el message de una excepción con el texto a visualizar.</li>
+</ul>
+
+<h3 id="selección">Selección</h3>
+
+<ul>
+  <li><strong>List Boxes (Lists)</strong>: Es una alternativa al combo box ya que permiten visualizar más de un elemento a la vez. También admiten selección múltiple, aunque respecto a la grilla tienen la desventaja de tener una sola columna. <em>Ejemplo:</em> si queremos seleccionar las sucursales de una librería, o las provincias donde presta servicio un empleado, etc.</li>
+  <li><strong>Trees/Treeviews</strong>: Es un control que permite visualizar nodos en forma jerárquica, suelen trabajarse con algoritmos recursivos. <em>Ejemplo:</em> si queremos mostrar las cuentas contables anidadas en forma jerárquica, o bien el organigrama de los empleados de una compañía.</li>
+</ul>
+
+<h3 id="controles-contenedores">Controles contenedores</h3>
+
+<ul>
+  <li><strong>Frame/Group/Tab/Panel/Form</strong>: son controles contenedores de otros controles</li>
+</ul>
+
+<h3 id="menú-de-opciones">Menú de opciones</h3>
+
+<ul>
+  <li><strong>Toolbars</strong>: barra de herramientas</li>
+  <li><strong>Menu</strong>: permite generar menú de opciones con jerarquías</li>
+</ul>
+
+<h2 id="links-relacionados">Links relacionados</h2>
+
+<ul>
+  <li><a href="formas-de-vincular-una-vista-con-el-modelo-de-dominio.html">Formas de vincular una vista con el modelo de dominio</a></li>
+  <li><a href="jface--controles-y-binding.html">JFace: Controles y binding</a></li>
+  <li><a href="algo3-temario.html">Temario Algoritmos III</a></li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>178</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Binding  polimorfismo y sobrecarga</title>
+  <meta property="og:title" content="Binding  polimorfismo y sobrecarga" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/binding--polimorfismo-y-sobrecarga.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/binding--polimorfismo-y-sobrecarga.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Binding  polimorfismo y sobrecarga</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="qué-entendemos-por-binding">¿Qué entendemos por Binding?</h2>
+
+<p>El binding es la relación que se establece entre la invocación a un procedimiento-función-método y el código que se ejecuta. Otro nombre que le damos es <em>dispatch</em>. Los conceptos de binding, polimorfismo y sobrecarga son aplicables a muchos paradigmas, y tienen diferentes formas de ser entendidos en cada uno de ellos. Por el momento, este artículo se concentra fundamentalmente en el paradigma de objetos.</p>
+
+<h2 id="dynamic-method-invocation">Dynamic method invocation</h2>
+
+<p>En objetos, cada vez que se envía un mensaje, el método invocado depende del receptor. Por ejemplo, en Smalltalk:</p>
+
+<p><code class="highlighter-rouge">figuras := {Cuadrado new. Rectangulo new. Circulo new}.</code>
+<code class="highlighter-rouge">figuras collect: [:f | f superficie ]</code></p>
+
+<p>Si las clases Cuadrado, Rectangulo y Circulo tienen cada una su propia implementación de , cada vez que se envía el mensaje a la referencia el método invocado será uno distinto. Esta característica es una de las más importantes para el paradigma de objetos, ya que habilita algunas de sus herramientas más interesantes.</p>
+
+<h2 id="tipo-estático-y-tipo-dinámico">Tipo estático y tipo dinámico</h2>
+
+<p>Al extender el concepto de dynamic method invocation a un lenguaje con chequeo estático de tipos, es necesario tener en cuenta la información estática que provee el sistema de tipos. En este tipo de lenguajes, a cada expresión se le asigna un tipo en forma estática. Estos tipos se ejecutan para validar la corrección de los programas antes de su ejecución y eliminar algunos posibles errores.</p>
+
+<p>El valor que tome la expresión en tiempo de ejecución puede diferir del valor que es asignado a esa expresión en forma estática. Por ejemplo:</p>
+
+<p><code class="highlighter-rouge">public interface Figura {</code>
+<code class="highlighter-rouge">    public double getSuperficie();</code>
+<code class="highlighter-rouge">}</code>
+<code class="highlighter-rouge">public class Circulo implements Figura {</code>
+<code class="highlighter-rouge">    @Override</code>
+<code class="highlighter-rouge">    public double getSuperficie() { ... }</code>
+<code class="highlighter-rouge">    </code>
+<code class="highlighter-rouge">    public double getRadio() { ... }</code>
+<code class="highlighter-rouge">}</code>
+<code class="highlighter-rouge">Figura f = new Circulo();</code></p>
+
+<p>Estáticamente, la variable tiene el tipo , pero cuando ese programa se ejecute, el valor de será un Circulo. La asignación <code class="highlighter-rouge">code|Figura</code> <code class="highlighter-rouge">f</code> <code class="highlighter-rouge">=</code> <code class="highlighter-rouge">new</code> <code class="highlighter-rouge">Circulo()</code> es válida siempre que sea un <strong>subtipo</strong> de . A esta regla se la conoce como <strong>subsumption</strong>.</p>
+
+<p>La presencia de tipado estático nos obliga a analizar nuestro código desde las dos perspectivas. Al evaluar se envía el mensaje al objeto <em>referenciado</em> por la variable y por lo tanto se ejecutará el método de la clase . Sin embargo, en el momento de chequear tipos se controla que el tipo de , que es contenga el mensaje enviado.</p>
+
+<p>Si intentamos evaluar se produciría un error de compilación, porque esa expresión no pasa el chequeo de tipos. Por eso, decimos que la regla de subsumption conlleva una pérdida de información de tipos. El objeto referenciado por entiende el mensaje , sin embargo el chequeador de tipos no puede verificar eso y rechaza el programa.</p>
+
+<h2 id="sobrecarga">Sobrecarga</h2>
+
+<p>Se dice que un <em>nombre de método</em> está <strong>sobrecargado</strong> en un contexto cuando es utilizado para representar dos o más métodos o funciones distintos, que se diferencian por su tipo. El tipo de un método incluye tanto a los tipos de los parámetros como al del valor de retorno. Por ejemplo:</p>
+
+<ul>
+  <li>En Haskell es posible definir funciones con el mismo nombre y distintos tipos de parámetros o distinto tipo de retorno.</li>
+  <li>En Java o C# es posible definir dos métodos en la misma clase o jerarquía con distinto número de parámetros o con parámetros de distinto tipo. (La posibilidad de sobrecargar métodos variando el tipo de retorno es menos frecuente en el paradigma de objetos.)</li>
+</ul>
+
+<p>Por ejemplo el método está sobrecargado en la clase .</p>
+
+<p><code class="highlighter-rouge">class C {</code>
+<code class="highlighter-rouge">    void m(Figura f) { println(1); }</code>
+<code class="highlighter-rouge">    void m(Circulo c) { println(2); }</code>
+<code class="highlighter-rouge">}</code></p>
+
+<p>Cuando se envía un mensaje que está sobrecargado, el sistema debe decidir cuál es el método que se debe ejecutar. En la mayoría de los lenguajes orientados a objetos, esta decisión se toma en forma estática. (Cuando la decisión es dinámica, en lugar de sobrecarga hablamos de <a href="-multimethods.html">Multimethods</a>. Por ejemplo, en la siguiente porción de código, al evaluar se ejecutará el método que recibe una figura, y no el que recibe un círculo; y por lo tanto imprimirá “1”.</p>
+
+<p><code class="highlighter-rouge">Figura f = new Circulo();</code>
+<code class="highlighter-rouge">C c = new C();</code>
+<code class="highlighter-rouge">c.m(f); // =&gt; imprime 1!</code></p>
+
+<p>La interpretación que debemos hacer es que que en realidad el mensaje enviado no se identifica únicamente por su nombre, sino que incluye los tipos de los parámetros. Desde esta perspectiva los dos métodos de la clase tienen distinto nombre, son totalmente independientes uno del otro. Debemos interpretar que el primero se denomina y el segundo . En presencia de este tipo de sobrecarga el <em>método a ejecutar</em> se decidirá en tiempo de ejecución, en función del mensaje enviado, pero el <em>mensaje a enviar</em> se decide en tiempo de compilación, a partir de la información de tipos disponible en este momento. En resumen, el mensaje enviado a no es sino . Dado que ambos métodos tienen identificadores distintos, para invocarlos se envían mensajes distintos y la decisión entre ambos será tomada en tiempo de compilación.</p>
+
+<p>Veamos un ejemplo más complejo con sobrecarga y redefinición (adaptado de <a href="http://books.google.com.ar/books?id=9NGWq3K1RwUC&amp;pg=PA27&amp;dq=Kim+Bruce+overloading+vs+overriding&amp;hl=es-419&amp;sa=X&amp;ei=I65AUuyWL4Om9gT5ooCQDw&amp;ved=0CDEQ6AEwAA#v=onepage&amp;q=Kim%20Bruce%20overloading%20vs%20overriding&amp;f=false">“Foundations of Object-oriented Languages: Types and Semantics” por Kim Bruce</a>), tenemos el siguiente código en Scala:</p>
+
+<p><code class="highlighter-rouge">class C {</code>
+<code class="highlighter-rouge">   def m(other: C) = { println(1) }</code>
+<code class="highlighter-rouge">}</code>
+<code class="highlighter-rouge">class SC extends C{</code>
+<code class="highlighter-rouge">   def m(other: SC) = { println(3) }</code>
+<code class="highlighter-rouge">   override def m(other: C) = { println(2) }</code>
+<code class="highlighter-rouge">}</code></p>
+
+<p>Si hacemos la siguiente prueba:</p>
+
+<p><code class="highlighter-rouge">var c2: C = new SC()</code>
+<code class="highlighter-rouge">var sc: SC = new SC()</code>
+<code class="highlighter-rouge">c2.m(sc)</code></p>
+
+<p>El resultado será 2, no 3, ya que el mensaje que se elige estáticamente no es m(SC), sino m(C). Para entender lo que sucede podemos hacer dos pasos bien separados: Pensar primero como compilador y después pensar como máquina virtual (pensar en tiempo de compilación y tiempo de ejecución).</p>
+
+<p>Empecemos como compiladores: c2 es una variable del tipo C, y sc es una variable del tipo SC. En c2 se referenciará a una instancia del tipo SC, pero eso como compiladores por ahora no nos importa, porque no estamos ejecutando el código.</p>
+
+<p>Luego vamos a esta llamada:</p>
+
+<p>Acá es donde empieza la confusión: Uno piensa que porque sc es del tipo SC y c2 es una instancia de SC (si bien la variable es de tipo C) el método que se va a ejecutar es m(SC), pero no es así. ¿Por qué? La respuesta viene de pensar como compilador, no “ejecutar” el código y mirar la el tipo de la variable c2, y deducir de ahí los posibles mensajes que entiende, y de ver bien la firma de esos mensajes.</p>
+
+<p>¿De qué tipo es C2? Del tipo C. ¿Qué mensajes entiende un objeto del tipo C? Vamos a ver la declaración de C:</p>
+
+<p><code class="highlighter-rouge">class C {</code>
+<code class="highlighter-rouge">   def m(other: C) = { println(1) }</code>
+<code class="highlighter-rouge">}</code></p>
+
+<p>Los objetos del tipo C sólo entienden un mensaje, y ese es m(C). Por lo tanto, siendo que SC es un subtipo de C, la firma del mensaje que va a ser llamado en va a ser m(C):Unit y no m(SC):Unit, dado que el tipo C no tiene definido ningún mensaje con parámetro SC. Esa firma es decidida en compilación y depende sólo de los tipos declarados/inferidos de las variables, y no de las instancias.</p>
+
+<p>Ahora sabemos la firma, terminamos de compilar el código. Pasemos al modo ejecución y pensemos como máquinas virtuales ¿Qué método se ejecuta al hacer c2.m(sc)? Para saberlo, no hay que hacer otra cosa que method lookup.</p>
+
+<ol>
+  <li>
+    <p>¿Cuál es la firma del mensaje c2.m(sc)? La firma es m(C):Unit (por lo que vimos antes en “compilación”.</p>
+  </li>
+  <li>
+    <p>¿A quién le estoy enviando ese mensaje? Al objeto referenciado por c2, que es una instancia de la clase SC.</p>
+  </li>
+  <li>
+    <p>Para saber qué método ejecutará entonces, comenzamos el method lookup a partir de la clase SC.</p>
+  </li>
+</ol>
+
+<p><code class="highlighter-rouge">class SC extends C {</code>
+<code class="highlighter-rouge">  def m(other: SC) = { println(3) }</code>
+<code class="highlighter-rouge">   </code>
+<code class="highlighter-rouge">  override def m(other: C) = { println(2) }</code>
+<code class="highlighter-rouge">}</code></p>
+
+<ol>
+  <li>¿Tiene SC algún método definido cuya firma sea m(C):Unit? Sí. Entonces ese es el método que se va a ejecutar, que es el que imprime 2.</li>
+</ol>
+
+<p>Eso sería básicamente todo. Lo importante de todo esto es entender que ahora los tipos son mucho más importantes para la construcción de mi modelo conceptual. Y la idea es que con ejercicios como estos uno comprueba si entendió o no que los tipos me cambian un poquito la semántica del código y me agregan algo más en lo que tengo que pensar, si bien me previenen algunos errores en compilación.</p>
+
+<h2 id="ejemplos">Ejemplos</h2>
+
+<p>Tres ejemplos del lenguaje Java:</p>
+
+<ul>
+  <li>Al mandar un mensaje a dos objetos (polimórficos) distintos, el binding es dinámico.</li>
+  <li>Si un objeto recibe dos mensajes con el mismo nombre pero distintos tipos de parámetros, el bingind es estático. A esto lo llamamos sobrecarga.</li>
+  <li>Si invocamos un método de clase, el binding es estático.</li>
+</ul>
+
+<p>Algunas variantes</p>
+
+<ul>
+  <li>En C++ o C# si no les pongo virtual a los métodos el binding es estático.</li>
+  <li>En Eiffel se da dinámicamente, a esta característica la denominamos multimethods.</li>
+  <li>En Smalltalk el binding de los métodos de clases es también dinámico. (Y esto es uno de los motivos que nos da pie a decir que las clases en Smalltalk son realmente objetos, mientras que en Java no es así.)</li>
+</ul>
+
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>132</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

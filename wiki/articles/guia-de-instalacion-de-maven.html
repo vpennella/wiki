@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Guia de instalacion de maven</title>
+  <meta property="og:title" content="Guia de instalacion de maven" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/guia-de-instalacion-de-maven.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/guia-de-instalacion-de-maven.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Guia de instalacion de maven</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Instalación default</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Instalación en SO Unix-based (Linux, Solaris y Mac OS X)</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-3">
+                  <a href="#tocAnchor-1-2-1"><span class="tocnumber">2.1</span> <span class="toctext">Mediante apt-get</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-4">
+                  <a href="#tocAnchor-1-2-2"><span class="tocnumber">2.2</span> <span class="toctext">Manualmente</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-5">
+              <a href="#tocAnchor-1-5"><span class="tocnumber">3</span> <span class="toctext">Verificación de la instalación</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-6">
+                  <a href="#tocAnchor-1-5-1"><span class="tocnumber">3.1</span> <span class="toctext">Configuración de Maven</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-7">
+                  <a href="#tocAnchor-1-5-2"><span class="tocnumber">3.2</span> <span class="toctext">Propiedades de Maven en Eclipse</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-8">
+              <a href="#tocAnchor-1-8"><span class="tocnumber">4</span> <span class="toctext">Uso de Maven</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-9">
+                  <a href="#tocAnchor-1-8-1"><span class="tocnumber">4.1</span> <span class="toctext">Plugin de Eclipse (M2E)</span></a>
+                </li>
+                <li class="toc_level-2 toc_section-10">
+                  <a href="#tocAnchor-1-8-2"><span class="tocnumber">4.2</span> <span class="toctext">Por consola</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-11">
+              <a href="#tocAnchor-1-11"><span class="tocnumber">5</span> <span class="toctext">Guías de referencia</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-12">
+                  <a href="#tocAnchor-1-11-1"><span class="tocnumber">5.1</span> <span class="toctext">Creación de un proyecto básico</span></a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h1 id="tocAnchor-1-1">Instalación default</h1>
+
+<p>Pueden seguir <a href="http://maven.apache.org/download.cgi#Installation">estas instrucciones</a></p>
+
+<h1 id="tocAnchor-1-2">Instalación en SO Unix-based (Linux, Solaris y Mac OS X)</h1>
+
+<h2 id="tocAnchor-1-2-1">Mediante apt-get</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">$ </span>sudo apt-get install maven
+<span class="nv">$ </span>sudo ln -s /usr/share/maven3/bin/mvn /usr/bin/mvn
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-2-2">Manualmente</h2>
+
+<p>Descargar Apache Maven 3 desde <a href="http://apache.dattatec.com/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz">este link</a>.</p>
+
+<p>Descomprimir el tarball y mover el directorio a donde usualmente se guardan los programas. Ejemplo: <em>/home/john/programs/</em>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">$ </span>tar -xzvf apache-maven-3.5.0-bin.tar.gz
+<span class="nv">$ </span>mv apache-maven-3.5.0 /home/john/programs/
+</code></pre>
+</div>
+
+<p>Agregar la siguiente línea al archivo <strong>.bashrc</strong>. Este archivo oculto (su nombre empieza con ‘.’) contiene comandos que se ejecutan cuando se abre una terminal (consola). Se puede abrir con cualquier editor de textos (gedit, vim, emacs, notepad++, etc) y se encuentra en el directorio <strong>home</strong> del usuario.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export</span> PATH<span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/programs/apache-maven-3.5.0/bin
+</code></pre>
+</div>
+
+<p>Una forma sencilla de hacer ésto (sin tener que abrir un editor) es usando el programa <strong>echo</strong> y <em>agregando al final</em> del archivo el valor ingresado. <strong>Prestar atención al hecho de que se usan dos signos mayor</strong>:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'export PATH=$PATH:$HOME/programs/apache-maven-3.5.0/bin'</span> &gt;&gt; .bashrc
+</code></pre>
+</div>
+
+<h1 id="tocAnchor-1-5">Verificación de la instalación</h1>
+
+<p>Corroboramos que podemos usar Maven. El output sería algo parecido a éste:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>john@notebook:~<span class="nv">$ </span>mvn -v
+Apache Maven 3.5.0 <span class="o">(</span>r...<span class="o">)</span>
+Maven home: /home/john/programs/apache-maven-3.5.0
+Java version: 1.8...
+Java home: /usr/lib/jvm/...
+Default locale: en_US, platform encoding: UTF-8
+OS name: <span class="s2">"linux"</span>, version: <span class="s2">"3.0.0-19-generic"</span>, arch: <span class="s2">"i386"</span>, family: <span class="s2">"unix"</span>
+</code></pre>
+</div>
+
+<h2 id="tocAnchor-1-5-1">Configuración de Maven</h2>
+
+<p>Por defecto no necesitás hacer nada, la configuración por defecto está bien para comenzar a trabajar. Pero en caso de ser necesario algunos ajustes, tenés que mirar el archivo <code class="highlighter-rouge">settings.xml</code>, que por defecto se ubica en</p>
+
+<ul>
+  <li><code class="highlighter-rouge">home/usuario/.m2</code> para sistemas operativos Unix-based</li>
+  <li><code class="highlighter-rouge">C:\Users\Usuario\.m2</code> para Windows, donde C: es el drive donde se instaló Maven</li>
+  <li>si quieren modificar el directorio por defecto, <a href="https://stackoverflow.com/questions/16649420/how-to-specify-an-alternate-location-for-the-m2-folder-or-settings-xml-permanen">podés chequear esta pregunta en stack overflow</a>.</li>
+  <li>si el archivo no existe, tenés que crearlo. Para más información te dejamos <a href="https://maven.apache.org/settings.html">la documentación oficial de la configuración de Maven</a></li>
+</ul>
+
+<h2 id="tocAnchor-1-5-2">Propiedades de Maven en Eclipse</h2>
+
+<p>Window &gt; Preferences te permite configurar algunas propiedades para Maven. Te recomendamos</p>
+
+<ul>
+  <li>tener chequeado “Do not automatically update dependencies from remote repositories” para que no intente bajarte permanentemente nuevas versiones de los componentes que utilices. Esto requiere que lo hagas en forma manual, algo que quizás sea más recomendable.</li>
+  <li>tener chequeado “Download artifact sources” te permite ver el código fuente de los .jars que te bajes, esta opción hace que las descargas inicialmente tarden un poco más de tiempo pero es bueno cuando tenés algún error y necesitás entender cómo funciona alguna parte de un componente.</li>
+  <li>también es bueno chequear “Download artifact javadocs” para obtener documentación de los componentes que utilizamos</li>
+  <li>Y por último tener deschequeada la opción “Update Maven projects on startup” permite que manualmente vos actualices los proyectos solamente ante un cambio y no cuando levantes el Eclipse.</li>
+</ul>
+
+<p>Una configuración más que puede ser útil para encontrar versiones nuevas de artefactos en los repositorios es dejar chequeada:</p>
+
+<ul>
+  <li>La opción “Download repository index on startup” (opción por defecto chequeada): para más información pueden leer <a href="http://stackoverflow.com/questions/8647769/what-is-eclipse-doing-when-it-says-that-its-updating-indexes">http://stackoverflow.com/questions/8647769/what-is-eclipse-doing-when-it-says-that-its-updating-indexes</a>.</li>
+</ul>
+
+<h1 id="tocAnchor-1-8">Uso de Maven</h1>
+
+<p>Hay dos formas de trabajar con Maven, integrándose con el entorno de desarrollo (Eclipse, IntelliJ, etc.) o bien trabajando directamente por consola.</p>
+
+<h2 id="tocAnchor-1-8-1">Plugin de Eclipse (M2E)</h2>
+
+<p>Las versiones recientes de Eclipse no requieren que descargues el plugin M2E, en todo caso si no lo ves entrá a <a href="http://eclipse.org/m2e/">http://eclipse.org/m2e/</a> y seguí las instrucciones de instalación. Cuando quieras ejecutar algún goal de Maven, simplemente te parás sobre el proyecto, Run As y elegís un Maven Goal de tu preferencia: build, clean, generate-sources, install o test. En el caso de elegir un build, tenés que completar un goal específico, p. ej: compile. También podés armar tu goal a partir del menú Run Configurations, y modificarle las opciones en el cuadro de diálogo.</p>
+
+<h2 id="tocAnchor-1-8-2">Por consola</h2>
+
+<p>El trabajo por consola directa requiere ubicarse en el mismo directorio donde está el proyecto en el que estás en tu IDE y ejecutar los goals desde allí.</p>
+
+<p>Una sutil diferencia entre trabajar con el entorno integrado es que si contás con dos proyectos</p>
+
+<ul>
+  <li>un proyecto Saraza-Domain</li>
+  <li>y otro proyecto de UI Saraza-Arena que tiene una dependencia a Saraza-Domain</li>
+</ul>
+
+<p>Cuando lo debuggeen en el IDE podrán ver (y updatear) su proyecto de dominio corriendo el de Arena. En cambio si lo usan desde la consola cuando cambien algo en el dominio tendrán que instalar la versión del dominio y después actualizar la dependencia del proyecto arena en el archivo pom.</p>
+
+<h1 id="tocAnchor-1-11">Guías de referencia</h1>
+
+<p>Cualquiera sea la opción que elijas te dejamos estos links para trabajar:</p>
+
+<ul>
+  <li><a href="https://maven.apache.org/guides/MavenQuickReferenceCard.pdf">Una guía de referencia rápida</a></li>
+  <li><a href="http://books.sonatype.com/mvnref-book/reference/">Un manual completo de Maven</a></li>
+</ul>
+
+<p>Y si necesitás arrancar, acá te dejamos instrucciones iniciales:</p>
+
+<h2 id="tocAnchor-1-11-1">Creación de un proyecto básico</h2>
+
+<p>Una vez instaladas todas las herramientas, se puede crear un proyecto en esta plataforma siguiendo <a href="creacion-de-un-proyecto-maven-basico.html">este tutorial</a> (ojo, este es un tutorial básico, si necesitan usar otras tecnologías de presentación busquen los tutoriales en las páginas de las tecnologías correspondientes).</p>
+
+<ul>
+  <li>Creamos un proyecto Maven. Desde la consola</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">$ </span>mvn archetype:generate -DgroupId<span class="o">=</span>ar.edu.demo -DartifactId<span class="o">=</span>demo -DinteractiveMode<span class="o">=</span><span class="nb">false</span>
+</code></pre>
+</div>
+
+<p>A todas las opciones que nos pregunte le damos enter para aceptar las default.</p>
+
+<ul>
+  <li>Copiamos nuestro código al directorio generado para el groupId. En el ejemplo: .</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Probamos hacer una compilación e instalación local.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">$ </span>mvn install
+</code></pre>
+</div>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>127</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

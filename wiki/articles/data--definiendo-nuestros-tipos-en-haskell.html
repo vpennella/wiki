@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Data  definiendo nuestros tipos en haskell</title>
+  <meta property="og:title" content="Data  definiendo nuestros tipos en haskell" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/data--definiendo-nuestros-tipos-en-haskell.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/data--definiendo-nuestros-tipos-en-haskell.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Data  definiendo nuestros tipos en haskell</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <h2 id="cómo-están-definidos-los-tipos-en-haskell">Cómo están definidos los Tipos en Haskell?</h2>
+
+<p>Se utiliza data para definir un tipo de dato, por ejemplo si quisiéramos definir el tipo Bool escribiríamos</p>
+
+<p><code class="highlighter-rouge">data Bool = &lt;...&gt; </code></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Qué vamos a escribir en &lt;…&gt; los posibles valores que tiene ese tipo separados por un pipe (</td>
+      <td>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">data Bool = False | True</code></p>
+
+<p>Con esta notación podríamos pensar que el tipo Int está escrito de la siguiente manera</p>
+
+<p><code class="highlighter-rouge">data Int = -2147483648 | -2147483647 | ... | -1 | 0 | 1 | 2 | ... | 2147483647  </code></p>
+
+<p><strong>Nota: Int no está definido de esta manera pero sirve para entender el uso de data</strong></p>
+
+<p>Si quisiéramos escribir el tipo ColorPrimario cuales serían sus posibles valores?</p>
+
+<p><code class="highlighter-rouge">data ColorPrimario = Rojo | Amarillo | Azul</code></p>
+
+<h2 id="tuplas-tuplas-tuplas">Tuplas tuplas tuplas</h2>
+
+<p>Hasta ahora cuando teníamos que representar un valor, compuesto por otros valores de tipos distintos, usábamos Tuplas. Vamos a hacer un ejemplo con tuplas de 2 elementos por simplicidad, pero lo mismo se aplica para tuplas de n elementos</p>
+
+<p>Si queremos representar un alumno por su nombre (un String) y sus notas (una lista de Int = [Int])</p>
+
+<p><code class="highlighter-rouge">cursoK9 = [("Federico",[2,3]),("Líder",[10,10,10,10,10]),("Germain",[8,9,10])]</code>
+<code class="highlighter-rouge">empezoMal unAlumno = 4 &gt; head (notasAlumno unoAlumno)</code></p>
+
+<p>Si queremos representar una película por su título (unString) y los puntajes que le ponen los críticos en imdb (una lista de Int = [Int])</p>
+
+<p><code class="highlighter-rouge">pelis = [("Pedornia", [0,0,-3,-666]),("Pulp Fiction", [9,10,9]),("Fight Club", [3,8,8,9,9,10])]</code></p>
+
+<p>también tengo que definir funciones para interactuar con alumnos y películas</p>
+
+<p><code class="highlighter-rouge">nombreAlumno unAlumno = fst unAlumno</code>
+<code class="highlighter-rouge">notasAlumno unAlumno = snd unAlumno</code>
+<code class="highlighter-rouge">tituloPelicula unaPelicula = fst unaPelicula</code>
+<code class="highlighter-rouge">puntajesPelicula unaPelicula = snd unaPelicula</code></p>
+
+<p>Si usamos lo que definimos arriba como un solo programa (un solo .hs), podemos ver que:</p>
+
+<ul>
+  <li>La función nombreAlumno es igual a la función tituloPelicula</li>
+  <li>La función notasAlumno es igual a la función puntajesPelicula</li>
+</ul>
+
+<p>Nada me impide consultar:</p>
+
+<p><code class="highlighter-rouge">&gt; puntajesPelicula ("Líder",[10,10,10,10,10])</code>
+<code class="highlighter-rouge">[10,10,10,10,10]</code></p>
+
+<p><code class="highlighter-rouge">&gt; empezoMal (head pelis)</code>
+<code class="highlighter-rouge">True</code></p>
+
+<p>Todo esto es posible porque si miramos los <a href="inferencia-de-tipos.html">tipos que infiere Haskell</a> no existe diferencia entre una película y un alumno, para Haskell los alumnos y películas son sólo tuplas de 2 elementos.</p>
+
+<p>Ejemplo:</p>
+
+<p><code class="highlighter-rouge">&gt; puntajesPelicula ([1,2,3],(True,"hola"))</code>
+<code class="highlighter-rouge">(True,"hola")</code></p>
+
+<p>Ya que Haskell es un lenguaje “que se fija mucho en los tipos”, nos gustaría que un caso como los de arriba nos tirará error (donde en vez de mandar un alumno o una película según corresponda, enviamos cualquier otra cosa).</p>
+
+<h2 id="definiendo-nuevos-tipos">Definiendo nuevos tipos</h2>
+
+<p>Para poder diferenciar a un alumno de una película y a ambos de una tupla, tenemos que definir un nuevo tipo. Eso se hace usando data:</p>
+
+<p><code class="highlighter-rouge">data NuevoTipo = Constructor Tipo1 Tipo2 ... Tipon</code></p>
+
+<p>En nuestro ejemplo:</p>
+
+<p><code class="highlighter-rouge">data TipoAlumno = Alumno String [Int]</code>
+<code class="highlighter-rouge">data TipoPelicula = Pelicula String [Int]</code></p>
+
+<p>Ahora, para obtener un nuevo alumno o una nueva película, tenemos que usar el “Constructor”</p>
+
+<p><code class="highlighter-rouge">cursoK9 = [Alumno "Federico" [2,3], Alumno "Líder" [10,10,10,10,10], Alumno "Germain" [8,9,10]]</code></p>
+
+<p><code class="highlighter-rouge">-- No cambia</code>
+<code class="highlighter-rouge">empezoMal unAlumno = 4 &gt; head (notasAlumno unoAlumno)</code></p>
+
+<p><code class="highlighter-rouge">pelis = [Pelicula "Pedornia" [0,0,-3,-666], Pelicula "Pulp Fiction" [9,10,9], Pelicula "Fight Club" [8,8,8,9,9,10]]</code></p>
+
+<p><code class="highlighter-rouge">-- Ahora estas funciones usan Pattern-Matching!</code>
+<code class="highlighter-rouge">nombreAlumno (Alumno nombre notas) = nombre </code>
+<code class="highlighter-rouge">notasAlumno (Alumno nombre notas) = notas</code>
+<code class="highlighter-rouge">tituloPelicula (Pelicula nombre notas) = nombre</code>
+<code class="highlighter-rouge">puntajesPelicula (Pelicula nombre notas) = notas</code></p>
+
+<p>Es importante remarcar que al hacer esto un alumno o una película <strong>YA NO ES UNA TUPLA</strong></p>
+
+<p><code class="highlighter-rouge">fst :: (a,b) -&gt; a</code>
+<code class="highlighter-rouge">nombreAlumno :: TipoAlumno -&gt; String</code>
+<code class="highlighter-rouge">tituloPelicula :: TipoPelicula -&gt; String</code>
+<code class="highlighter-rouge">snd :: (a,b) -&gt; b</code>
+<code class="highlighter-rouge">notasAlumno :: TipoAlumno -&gt; [Int]</code>
+<code class="highlighter-rouge">puntajesPelicula :: TipoPelicula -&gt; [Int]</code></p>
+
+<p><code class="highlighter-rouge">cursoK9 :: [ TipoAlumno ]</code>
+<code class="highlighter-rouge">empezoMal :: TipoAlumno -&gt; Bool</code></p>
+
+<p><code class="highlighter-rouge">pelis :: [ TipoPelicula ]</code></p>
+
+<p>Ejemplos:</p>
+
+<p><code class="highlighter-rouge">fede = Alumno "Federico" [2,3]</code>
+<code class="highlighter-rouge">ger = Alumno "Germain" [8,9,10]</code>
+<code class="highlighter-rouge">pulp = Pelicula "Pulp Fiction" [9,10,9]</code></p>
+
+<p><code class="highlighter-rouge">&gt; fst </code>
+<code class="highlighter-rouge">Error (fst espera una tupla y fede es de TipoAlumno)</code>
+<code class="highlighter-rouge">&gt; nombreAlumno fede</code>
+<code class="highlighter-rouge">"Federico"</code>
+<code class="highlighter-rouge">&gt; nombreAlumno pulp</code>
+<code class="highlighter-rouge">Error (nombreAlumno espera un TipoAlumno y pulp es de TipoPelicula)</code>
+<code class="highlighter-rouge">&gt; puntajesPelicula fede</code>
+<code class="highlighter-rouge">Error (puntajesPelicula espera un TipoPelicula y fede es de TipoAlumno)</code>
+<code class="highlighter-rouge">&gt; puntajesPelicula pulp</code>
+<code class="highlighter-rouge">[9,10,9]</code>
+<code class="highlighter-rouge">&gt; empezoMal fede</code>
+<code class="highlighter-rouge">True</code>
+<code class="highlighter-rouge">&gt; empezoMal (head pelis)</code>
+<code class="highlighter-rouge">Error (empezoMal espera TipoAlumno y el primer elemento de pelis es TipoPelicula)</code></p>
+
+<h2 id="deriving">Deriving</h2>
+
+<p>Es muy común querer comparar por igualdad y mostrar por pantalla un valor que tiene un tipo definido por nosotros.</p>
+
+<p><code class="highlighter-rouge">&gt; head cursoK9</code>
+<code class="highlighter-rouge">Error (el TipoAlumno no tiene la restricción </code><a href="tipos-de-haskell-la-restriccion-show.html"><code class="highlighter-rouge">Show</code></a><code class="highlighter-rouge">)</code></p>
+
+<p>Para que esto funcione deberíamos:</p>
+
+<ul>
+  <li>Decir que TipoAlumno es un tipo que pertenece a la restricción Show</li>
+  <li>Definir la función show para un TipoAlumno</li>
+</ul>
+
+<p>En vez de hacer esto a mano, y debido a que los elementos que forman un Alumno SI tienen la restricción Show, podemos hacer que el TipoAlumno “derive” esa restricción</p>
+
+<p><code class="highlighter-rouge">--Lo único que hay que agregar es deriving (Show)</code>
+<code class="highlighter-rouge">data TipoAlumno = Alumno String [Int] deriving (Show)</code></p>
+
+<p>Con este agregado podemos hacer</p>
+
+<p><code class="highlighter-rouge">&gt; head cursoK9</code>
+<code class="highlighter-rouge">Alumno "Federico" [2,3]</code></p>
+
+<p>Ahora sí hacemos lo siguiente</p>
+
+<p><code class="highlighter-rouge">&gt; fede == ger</code>
+<code class="highlighter-rouge">Error (el TipoAlumno no tiene la restricción </code><a href="tipos-de-haskell-typeclasses.html"><code class="highlighter-rouge">Eq</code></a><code class="highlighter-rouge">)</code></p>
+
+<p>También parece común querer preguntar si dos alumnos son iguales (o distintos), pasa lo mismo que con Show, nos gustaría que el TipoAlumno pertenezca a la restricción Eq</p>
+
+<p><code class="highlighter-rouge">--Lo único que hay que agregar es deriving (Show,Eq)</code>
+<code class="highlighter-rouge">data TipoAlumno = Alumno String [Int] deriving (Show,Eq)</code></p>
+
+<p>Con este agregado podemos hacer</p>
+
+<p><code class="highlighter-rouge">&gt; fede == ger</code>
+<code class="highlighter-rouge">False</code>
+<code class="highlighter-rouge">&gt; Alumno "Roberto" [7,8,9] == Alumno "Huberto" [7,8,9]</code>
+<code class="highlighter-rouge">False</code>
+<code class="highlighter-rouge">&gt; Alumno "Roberto" [7,8,9] == Alumno "Roberto" [7,8,9]</code>
+<code class="highlighter-rouge">True</code></p>
+
+<p>También se puede utilizar el deriving con la clase Ord</p>
+
+<p><code class="highlighter-rouge">data Nota = Insuficiente | Regular | Bien | MuyBien</code></p>
+
+<p>Al hacer:</p>
+
+<p><code class="highlighter-rouge">Main&gt; Insuficiente &gt; Regular</code>
+<code class="highlighter-rouge">ERROR: No instance for (Ord Nota)</code></p>
+
+<p>Esto se debe a que el tipo Nota no cumple con la restricción Ord, por defecto se considera a los valores en forma ascendente de izquierda a derecha (i.e. Insuficiente &lt; Regular &lt; Bien &lt; MuyBien).</p>
+
+<p>Para obtener este comportamiento en los valores del tipo Nota lo único que debemos hacer es “derivar” la restricción Ord</p>
+
+<p><code class="highlighter-rouge">data Nota = Insuficiente | Regular | Bien | MuyBien deriving Ord</code></p>
+
+<p><code class="highlighter-rouge">Main&gt; Insuficiente &gt; Regular</code>
+<code class="highlighter-rouge">False</code></p>
+
+<h2 id="agrandando-nuestro-sistema">Agrandando nuestro sistema</h2>
+
+<p>Es muy común hacer funciones para obtener los valores que forman nuestro individuo compuesto.</p>
+
+<p>Imaginen que ahora queremos agregarle a nuestro TipoPelicula (además del nombre y sus puntajes), el nombre del director, el nombre de los actores principales y el año en que se estrenó.</p>
+
+<p><code class="highlighter-rouge">data TipoPelicula = Pelicula String String [String] Int [Int]</code></p>
+
+<p>Lo primero que notamos es que no es tan fácil identificar cada elemento. Para eso existe la posibilidad de declarar sinónimos de tipo usando type. Un sinónimo muy útil que ya viene definido en Haskell es:</p>
+
+<p><code class="highlighter-rouge">-- Se usa type cuando queremos declarar un sinónimo de tipos</code>
+<code class="highlighter-rouge">type String = [Char]</code></p>
+
+<p>No existe un tipo String, de hecho cuando preguntamos a Haskell siempre nos responde [ Char ]</p>
+
+<p><code class="highlighter-rouge">&gt; :t "hola"</code>
+<code class="highlighter-rouge">"hola" :: [ Char ]</code></p>
+
+<p>Pero podemos usar String en nuestras definiciones como sinónimo de [ Char ]</p>
+
+<p>En el ejemplo de las películas podemos hacer algo como</p>
+
+<p><code class="highlighter-rouge">type Titulo = String</code>
+<code class="highlighter-rouge">type NombreDirector = String</code>
+<code class="highlighter-rouge">type Puntajes = [Int]</code></p>
+
+<p><code class="highlighter-rouge">data TipoPelicula = Pelicula Titulo NombreDirector [String] Int Puntajes deriving (Show,Eq)</code>
+<code class="highlighter-rouge">narnia = Pelicula "Pedornia" "Andrew Adamson" ["Tilda Swinton", "Georgie Henley","William Moseley"] 2005 [0,0,-3,-666]</code>
+<code class="highlighter-rouge">pulp = Pelicula "Pulp Fiction" "Quentin Tarantino" ["John Travolta", "Uma Thurman", "Samuel L. Jackson"] 1994 [9,10,9]</code>
+<code class="highlighter-rouge">fc = Pelicula "Fight Club" "David Fincher" ["Brad Pitt", "Edward Norton", "Helena Bonham Carter"] 1999 [8,8,8,9,9,10]</code></p>
+
+<p>Lo cual mejora la expresividad de la definición.</p>
+
+<p>Otro tema es que tenemos que definir nuevamente funciones como tituloPelicula y puntajesPelicula:</p>
+
+<p><code class="highlighter-rouge">tituloPelicula (Pelicula nombre director actores anioEstreno notas ) = nombre</code>
+<code class="highlighter-rouge">puntajesPelicula (Pelicula nombre director actores anioEstreno notas ) = notas</code></p>
+
+<p>Como en cualquier otro programa, las variables que no nos interesan en absoluto pueden ser reemplazadas por la variable anónima</p>
+
+<p><code class="highlighter-rouge">tituloPelicula (Pelicula nombre _ _ _ _ ) = nombre</code>
+<code class="highlighter-rouge">puntajesPelicula (Pelicula _ _ _ _ notas ) = notas</code></p>
+
+<p><code class="highlighter-rouge">--También tenemos que definir funciones para el resto de los campos</code>
+<code class="highlighter-rouge">directorPelicula (Pelicula _ director _ _ _ ) = director</code>
+<code class="highlighter-rouge">actores (Pelicula _ _ actores _ _ ) = actores</code>
+<code class="highlighter-rouge">anioEstreno (Pelicula _ _ _ anio _ ) = anio</code></p>
+
+<p>Una forma más rápida de definir este tipo de funciones es usando <strong>Type Records</strong> (solo disponible en GHC, no en Hugs)</p>
+
+<p>En vez de definir sólo los tipos de los valores que van a estar en la película, también agregamos en la definición el nombre de la función por el cual queremos obtener dicho valor</p>
+
+<p><code class="highlighter-rouge">-- Al utilizar la notación de registro hay que encerrar la definición de los campos entre llaves { } y separar cada campo por comas ,</code>
+<code class="highlighter-rouge">data TipoPelicula = </code>
+<code class="highlighter-rouge">  Pelicula</code>
+<code class="highlighter-rouge">    {tituloPelicula :: String ,</code>
+<code class="highlighter-rouge">    directorPelicula :: String,</code>
+<code class="highlighter-rouge">    actores :: [String],</code>
+<code class="highlighter-rouge">    anioEstreno :: Int,</code>
+<code class="highlighter-rouge">    puntajesPelicula :: [Int]}</code>
+<code class="highlighter-rouge">    deriving (Show,Eq)</code></p>
+
+<p>Con esta definición automaticamente Haskell define por nosotros las funciones tituloPelicula, puntajesPelicula, directorPelicula, actores y anioEstreno. El dominio de cada una de estas funciones es TipoPelicula y retornan lo que corresponda en cada caso.</p>
+
+<p>Además cuando querramos obtener una nueva Película, podemos hacer</p>
+
+<p><code class="highlighter-rouge">pulp = Pelicula "Pulp Fiction" "Quentin Tarantino" ["John Travolta", "Uma Thurman", "Samuel L. Jackson"] 1994 [9,10,9]</code></p>
+
+<p>O bien</p>
+
+<p>– Usando la notación record es más claro a que campo pertenece cada valor y no es necesario seguir un orden en los valores mientras se indique a que campo pertenece</p>
+
+<p><code class="highlighter-rouge">pulp = </code>
+<code class="highlighter-rouge">  Pelicula{</code>
+<code class="highlighter-rouge">    tituloPelicula = "Pulp Fiction",</code>
+<code class="highlighter-rouge">    directorPelicula = "Quentin Tarantino",</code>
+<code class="highlighter-rouge">    anioEstreno = 1994,</code>
+<code class="highlighter-rouge">    puntajesPelicula = [9,10,9],</code>
+<code class="highlighter-rouge">    actores = ["John Travolta", "Uma Thurman", "Samuel L. Jackson"]}</code></p>
+
+<p>Así como obtenemos todas estás ventajas, con la notación record tenemos la desventaja de que escribimos más. Uno tiene que evaluar cuándo vale la pena y cuándo no.</p>
+
+<h2 id="múltiples-constructores-por-tipo">Múltiples constructores por tipo</h2>
+
+<p>Nos interesa saber la densidad de un cuerpo. Por ahora vamos a manejar cilindros (de los cuales sabemos su masa, su altura y el radio de su base), cubos (sólo conocemos su masa y el largo de alguno de sus lados) y esferas (de ellas se conoce su masa y su radio).</p>
+
+<p>Para calcular la densidad de un cuerpo vamos a utilizar la siguiente fórmula</p>
+
+<p><code class="highlighter-rouge">densidad = masa / volumen</code>
+<code class="highlighter-rouge">data Cuerpo =</code>
+<code class="highlighter-rouge"> Cilindro</code>
+<code class="highlighter-rouge">   {masa :: Float,</code>
+<code class="highlighter-rouge">   altura :: Float,</code>
+<code class="highlighter-rouge">   radio :: Float} |</code>
+<code class="highlighter-rouge"> Cubo</code>
+<code class="highlighter-rouge">   {masa :: Float,</code>
+<code class="highlighter-rouge">   lado :: Float} |</code>
+<code class="highlighter-rouge"> Esfera</code>
+<code class="highlighter-rouge">   {masa :: Float,</code>
+<code class="highlighter-rouge">   radio :: Float}</code>
+<code class="highlighter-rouge"> deriving (Show,Eq)</code></p>
+
+<p>Podemos ver que el tipo Cuerpo incluye los constructores Cilindro, Cubo y Esfera. Como la fórmula de la densidad es igual para todos los cuerpos podemos escribir:</p>
+
+<p><code class="highlighter-rouge">densidad unCuerpo = masa unCuerpo / volumen unCuerpo</code></p>
+
+<p>Ahora bien, el cálculo del volumen es algo particular para cada cuerpo</p>
+
+<p><code class="highlighter-rouge">volumen (Cilindro _ unaAltura unRadio) = pi * unRadio * unaAltura</code>
+<code class="highlighter-rouge">volumen (Cubo _ unLado) = unLado ** 3</code>
+<code class="highlighter-rouge">volumen (Esfera _ unRadio) = 4/3 * pi * (unRadio ** 3)</code></p>
+
+<h2 id="instance">Instance</h2>
+
+<p>Ya dijimos que a cada restricción se la conoce como Clase/Class. A cada tipo que pertenece a una Clase se lo conoce como Instancia/Instance.</p>
+
+<p>Por ejemplo la clase Eq en algún lugar del Prelude (la biblioteca standard de Haskell) puede estar definida así:</p>
+
+<p><code class="highlighter-rouge">-- Esto ya viene con Haskell</code>
+<code class="highlighter-rouge">class Eq a where</code>
+<code class="highlighter-rouge">  (==), (/=) :: a -&gt; a -&gt; Bool</code>
+<code class="highlighter-rouge">-- Las instancias de Eq deben definir al menos una de estas 2 operaciones</code>
+<code class="highlighter-rouge">  (/=) x y =  not (x == y)</code>
+<code class="highlighter-rouge">  (==) x y =  not (x /= y)</code></p>
+
+<p>Si decimos que el tipo Bool pertenece a la clase Eq escribimos</p>
+
+<p><code class="highlighter-rouge">-- Esto ya viene con Haskell</code>
+<code class="highlighter-rouge">instance Eq Bool where</code>
+<code class="highlighter-rouge">  (==) True True = True</code>
+<code class="highlighter-rouge">  (==) False False = True</code>
+<code class="highlighter-rouge">  (==) _ _ = False</code></p>
+
+<p>Otro ejemplo con la clase Ord</p>
+
+<p><code class="highlighter-rouge">-- Notar que a tiene la restricción Eq en la definición de la clase Ord a</code>
+<code class="highlighter-rouge">class Eq a =&gt; Ord a where</code>
+<code class="highlighter-rouge"> (&lt;) :: a -&gt; a -&gt; Bool</code>
+<code class="highlighter-rouge"> (&lt;=) :: a -&gt; a -&gt; Bool</code>
+<code class="highlighter-rouge"> (&gt;) :: a -&gt; a -&gt; Bool</code>
+<code class="highlighter-rouge"> (&gt;=) :: a -&gt; a -&gt; Bool</code>
+<code class="highlighter-rouge"> max :: a -&gt; a -&gt; a</code>
+<code class="highlighter-rouge"> min :: a -&gt; a -&gt; a</code></p>
+
+<p>Si queremos hacer que el TipoPelicula sea instancia de la clase Ord (por poner un ejemplo, definimos la función (&gt;) para que nos diga que una película es mayor que otra si su promedio de puntajes es mayor), podemos escribir:</p>
+
+<p><code class="highlighter-rouge">instance Ord TipoPelicula where</code>
+<code class="highlighter-rouge">  (&gt;) unaPelicula otraPelicula = promedio (puntajesPelicula unaPelicula) &gt; promedio (puntajesPelicula otraPelicula)</code></p>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>342</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>

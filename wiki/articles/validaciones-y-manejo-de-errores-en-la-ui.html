@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 9]>
+<html class="lt-ie10" lang="en" prefix="og: http://ogp.me/ns#"> <![endif]-->
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+
+
+  <title>Validaciones y manejo de errores en la ui</title>
+  <meta property="og:title" content="Validaciones y manejo de errores en la ui" />
+
+
+
+
+
+
+<link rel="canonical" href="wiki.uqbar.org/wiki/articles/validaciones-y-manejo-de-errores-en-la-ui.html" />
+<meta property="og:url" content="wiki.uqbar.org/wiki/articles/validaciones-y-manejo-de-errores-en-la-ui.html" />
+<meta property="og:site_name" content="uqbar-wiki" />
+<meta name="application-name" content="uqbar-wiki"/>
+
+<meta property="og:updated_time" content=" 2017-09-08T12:53:01-03:00" />
+
+
+
+
+
+
+  <meta property="keywords" content="" />
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" >
+    <link type="text/plain" rel="author" href="/humans.txt"/>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/app-03d85529abca8a6b9780ed56673aae09.css">
+    <style>
+        .navbar {
+            -webkit-backface-visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <div id="pagetitle"><a id="pagetitle" href="/">uqbar-wiki</a></div>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <div class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+            <li class="has-dropdown">
+                <a href="#">Ayuda</a>
+                <ul class="dropdown">
+                    <li><a class="link article_link" href="/wiki/articles/FAQ.html">FAQ</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/como-empezar.html">Cómo colaborar</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class="has-dropdown">
+                <a href="#">Navegación</a>
+                <ul class="dropdown">
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+                    <li class="link article_link" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+<div class="column small-0 medium-2 large-2 sidebar" style="margin-top: 10px;">
+    <div class="rows" align="center">
+        <img src="/img/logoUqbar.jpg" height="70%" width="70%">
+    </div>
+    <div align="center">
+    	<p>
+    		<a href="http://www.uqbar-project.org/">Conocenos</a> 
+    	</p>
+    </div>
+
+    <hr>
+
+    <ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Links" role="menu">
+        <li class="button" role="menuitem"><a href="/">Home</a></li>
+        <li class="button" role="menuitem"><a href="/articles">Lista de articulos</a></li>
+    </ul>
+
+    <hr>
+
+	<ul class="rows small-12 medium-10 large-10 side-nav stack button-group" title="Materias" role="menu">
+            <li class="button" role="menuitem"><a href="/wiki/articles/paradigmas-de-programacion.html">Paradigmas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/design-temario.html">Diseño - Algoritmos II</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/tecnicas-avanzadas-de-programacion.html">Técnicas avanzadas de programación</a></li>
+        <li class="button" role="menuitem"><a href="/wiki/articles/algo3-temario.html">Algoritmos III</a></li>
+    </ul>
+</div>
+
+<div class="column small-12 medium-10 large-10">
+    <div id="article_title">
+    <h1>
+        <i>Validaciones y manejo de errores en la ui</i>
+    </h1>
+
+    <div id="siteSub">De Uqbar wiki</div>
+</div>
+
+
+
+<div id="article_content">
+    <div id="toc-container">
+  <table class="toc" id="toc">
+    <tbody>
+      <tr>
+        <td>
+          <div id="toctitle">
+            <h2>Contents</h2>
+          </div>
+          <ul>
+            <li class="toc_level-1 toc_section-1">
+              <a href="#tocAnchor-1-1"><span class="tocnumber">1</span> <span class="toctext">Introducción</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-2">
+              <a href="#tocAnchor-1-2"><span class="tocnumber">2</span> <span class="toctext">Interacción entre dominio y vista para manejar validaciones de negocio</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-3">
+              <a href="#tocAnchor-1-3"><span class="tocnumber">3</span> <span class="toctext">Errores de sistema</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-4">
+              <a href="#tocAnchor-1-4"><span class="tocnumber">4</span> <span class="toctext">¿Qué va en el catch del lado de la pantalla?</span></a>
+              <ul>
+                <li class="toc_level-2 toc_section-5">
+                  <a href="#tocAnchor-1-4-1"><span class="tocnumber">4.1</span> <span class="toctext">Un ejemplo genérico de manejo de errores en UI</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="toc_level-1 toc_section-6">
+              <a href="#tocAnchor-1-6"><span class="tocnumber">5</span> <span class="toctext">Otras variantes</span></a>
+            </li>
+            <li class="toc_level-1 toc_section-7">
+              <a href="#tocAnchor-1-7"><span class="tocnumber">6</span> <span class="toctext">Links relacionados</span></a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><h1 id="tocAnchor-1-1">Introducción</h1>
+
+<p>Una cuestión en la que hay que pensar es dónde poner las validaciones. Tenemos validaciones en la interfaz de usuario (o en el binding) y en el dominio. Recalcamos la importancia de poner en el dominio las validaciones de negocio, en los demás lugares deberían ir únicamente las validaciones propias de la interfaz de usuario, por ejemplo las conversiones de datos que requiere la interfaz.</p>
+
+<p>Algunos ejemplos:</p>
+
+<ul>
+  <li>Convertir una fecha de String a Date es una cuestión de la interfaz, así que validar que el formato sea válido no le corresponde al dominio, el dominio recibe un Date y no sabe nada de los Strings.</li>
+  <li>Si la fecha de nacimiento de un empleado debe ser anterior a la fecha de hoy es una regla de negocio y sería bueno poder poner esa validación como código dentro del dominio.</li>
+  <li>Que esa fecha sea obligatoria también es una regla de negocio.</li>
+</ul>
+
+<h1 id="tocAnchor-1-2">Interacción entre dominio y vista para manejar validaciones de negocio</h1>
+
+<p>Una vez que tenemos validaciones que elegimos colocar en el dominio debemos pensar en qué forma el dominio informa los problemas a la interfaz de usuario, siendo que debe hacerlo en términos del dominio.</p>
+
+<ul>
+  <li>Una opción es usar booleanos (true = el valor es válido, false = es inválido), es simple pero no permite que el dominio indique por qué el valor es inválido y nos obligará a colocar esa lógica en la UI.</li>
+  <li>Una extensión natural es usar un Enum, pero trae problemas similares: hay un alto <a href="conceptos-basicos-del-diseno.html#tocAnchor-1-5">acoplamiento</a> entre la UI y el dominio.</li>
+  <li>Otra opción es usar códigos de retorno del lado del dominio: -2 significa que la fecha de nacimiento es mayor a la fecha de hoy, -3 es que la fecha de nacimiento es anterior a 1900, etc. Sigue habiendo un alto acoplamiento entre los errores que el negocio dispara y el mensaje que la UI debe mostrar.</li>
+  <li>Lo que más nos gusta es marcar los errores con excepciones. Eso permite tener distintos tipos de error y también asociar un mensaje para el usuario:</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span><span class="n">Empleado</span>
+<span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">validar</span><span class="o">()</span><span class="err"> </span><span class="o">{</span>
+<span class="err">   </span><span class="o">...</span>
+<span class="err">   </span><span class="k">if</span><span class="err"> </span><span class="o">(!</span><span class="k">new</span><span class="err"> </span><span class="n">Date</span><span class="o">().</span><span class="na">before</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">fechaNacimiento</span><span class="o">))</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="k">throw</span><span class="err"> </span><span class="k">new</span><span class="err"> </span><span class="n">UserException</span><span class="o">(</span><span class="s">"La fecha de nacimiento tiene que ser anterior al día de hoy"</span><span class="o">);</span>
+<span class="err">   </span><span class="o">}</span>
+<span class="err">   </span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Para manejar las excepciones suele ser útil tener una excepción que sea base de todas las excepciones que contienen información para el usuario (en nuestro ejemplo la llamamos UserException). De esta forma siempre que la UI reciba una excepción de este tipo sabe que debe mostrar el mensaje de error al usuario y cualquier objeto de dominio que necesite informar un error lo puede hacer tirando una excepción de este tipo o alguna subclase. De esa manera la UI no conoce nada de la lógica que maneja el dominio y mantenemos bajo el acoplamiento entre ambos componentes.</p>
+
+<h1 id="tocAnchor-1-3">Errores de sistema</h1>
+
+<p>¿Qué sucede si hay un error de programa?</p>
+
+<ul>
+  <li>Del lado del dominio, no hay mucho por hacer: o bien “envolvemos” la excepción de bajo nivel en una de mayor nivel, o bien dejamos que la excepción salte… después de todo: ¿qué podemos hacer con una NullPointerException? ¿o con un error en la codificación del programa? Lo mejor es que el programa explote, pero de una forma elegante.</li>
+  <li>Entonces del lado de la UI, deberíamos atrapar esa excepción que se genere de manera de evitar que el Stack Trace se propague hasta el usuario.</li>
+</ul>
+
+<p>Pero ¿dónde? Una buena regla es poner try/catch en los lugares en los que, de otra manera, la aplicación mostraría el stack trace al usuario. Nosotros no queremos que eso suceda, pero es preferible que el usuario llame por una pantalla rota a que el error quede escondido, como en estos típicos casos: <code></code></p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span><span class="n">C</span><span class="err">ó</span><span class="n">digo</span><span class="err"> </span><span class="n">de</span><span class="err"> </span><span class="n">pantalla</span>
+<span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">buscarSocios</span><span class="o">()</span><span class="err"> </span><span class="o">{</span>
+<span class="err">   </span><span class="k">try</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="o">...</span><span class="err"> </span><span class="n">hacemos</span><span class="err"> </span><span class="n">la</span><span class="err"> </span><span class="n">b</span><span class="err">ú</span><span class="n">squeda</span><span class="err"> </span><span class="o">...</span>
+<span class="err">   </span><span class="o">}</span><span class="err"> </span><span class="k">catch</span><span class="err"> </span><span class="o">(</span><span class="n">Exception</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="err">   </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>El usuario no va a reportar que la búsqueda tira error, sino que “ciertas” búsquedas no funcionan. A veces trae datos y a veces no. De esa manera la aplicación pierde robustez.</p>
+
+<p>Otro error común en el manejo de errores es encerrar sólo <em>parte</em> del código en un bloque try/catch (la instrucción que sabemos que puede fallar), loguear el error o incluso no manejarlo y permitir que el método siga ejecutándose, como lo muestra el siguiente ejemplo: <code></code></p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span><span class="n">C</span><span class="err">ó</span><span class="n">digo</span><span class="err"> </span><span class="n">de</span><span class="err"> </span><span class="n">pantalla</span>
+<span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">buscarSocios</span><span class="o">()</span><span class="err"> </span><span class="o">{</span>
+<span class="err">   </span><span class="n">Socio</span><span class="err"> </span><span class="n">socio</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="kc">null</span><span class="o">;</span>
+<span class="err">   </span><span class="k">try</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="o">...</span><span class="err"> </span><span class="n">hacemos</span><span class="err"> </span><span class="n">la</span><span class="err"> </span><span class="n">b</span><span class="err">ú</span><span class="n">squeda</span><span class="err"> </span><span class="o">...</span>
+<span class="err">   </span><span class="o">}</span><span class="err"> </span><span class="k">catch</span><span class="err"> </span><span class="o">(</span><span class="n">ProgramException</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="err">   </span><span class="o">}</span>
+<span class="err">   </span><span class="c1">// envío mensajes al socio que puede no estar correctamente inicializado</span>
+<span class="err">   </span><span class="k">if</span><span class="err"> </span><span class="o">(</span><span class="n">socio</span><span class="o">.</span><span class="na">getAntiguedad</span><span class="o">()</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">2</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">      </span><span class="o">...</span>
+<span class="err">   </span><span class="o">}</span>
+<span class="err">   </span><span class="o">...</span>
+<span class="err">   </span><span class="o">...</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Tenemos dos problemas que resolver:</p>
+
+<ol>
+  <li>La búsqueda tira una ProgramException</li>
+  <li>Pero el error que vamos a recibir es NullPointerException cuando se envíe el mensaje getAntiguedad() al socio</li>
+</ol>
+
+<p>Vamos a buscar el problema en getAntiguedad() para luego darnos cuenta de que en realidad lo que falló fue la búsqueda. Si el sistema está bien construido, sabe decir dónde falló a tiempo: es consistente.</p>
+
+<h1 id="tocAnchor-1-4">¿Qué va en el catch del lado de la pantalla?</h1>
+
+<p>Por un lado, hay que guardar el error en un archivo de log dentro del servidor donde corre la aplicación en algún formato amigable que nos permita encontrarlo rápidamente. Para ello existen algunas librerías como Log4J y loggers alternativos que ayudan a</p>
+
+<ul>
+  <li>activar y desactivar distintos niveles de criticidad de los mensajes (debug/info/warn/error)</li>
+  <li>enviar los mensajes de error a distintos archivos de log en base a la aplicación/package de la clase donde se originó el error</li>
+</ul>
+
+<p>Por otra parte, necesitamos informar al usuario que cuando estábamos buscando los socios, cuando queríamos agregar el socio, cuando estábamos inicializando la pantalla, etc. ocurrió un error y la aplicación no va a poder responder correctamente el pedido. Y eso depende mucho de la tecnología en la que nos encontramos.</p>
+
+<ul>
+  <li>Si la tecnología de UI se programa en Java tengo posibilidad de enviar un message box modal al usuario</li>
+  <li>Si la tecnología de UI corre sobre un browser, a veces tengo que redirigir el error a una página especial y a veces puedo mostrar en un área de mensajes el error dentro de la misma página</li>
+</ul>
+
+<h2 id="tocAnchor-1-4-1">Un ejemplo genérico de manejo de errores en UI</h2>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span><span class="n">C</span><span class="err">ó</span><span class="n">digo</span><span class="err"> </span><span class="n">de</span><span class="err"> </span><span class="n">pantalla</span>
+<span class="kd">public</span><span class="err"> </span><span class="kt">void</span><span class="err"> </span><span class="n">agregarSocio</span><span class="o">()</span><span class="err"> </span><span class="o">{</span>
+<span class="err">   </span><span class="k">try</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="n">Socio</span><span class="err"> </span><span class="n">socio</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="o">...</span><span class="err"> </span><span class="n">recolectamos</span><span class="err"> </span><span class="n">la</span><span class="err"> </span><span class="n">informaci</span><span class="err">ó</span><span class="n">n</span><span class="err"> </span><span class="n">de</span><span class="err"> </span><span class="n">la</span><span class="err"> </span><span class="n">UI</span><span class="err"> </span><span class="o">...</span>
+<span class="err">       </span><span class="n">socio</span><span class="o">.</span><span class="na">validar</span><span class="o">();</span>
+<span class="err">       </span><span class="o">...</span><span class="err"> </span><span class="n">pedimos</span><span class="err"> </span><span class="n">que</span><span class="err"> </span><span class="n">generen</span><span class="err"> </span><span class="n">el</span><span class="err"> </span><span class="n">socio</span><span class="o">,</span><span class="err"> </span><span class="n">esto</span><span class="err"> </span><span class="n">depende</span><span class="err"> </span><span class="n">de</span><span class="err"> </span><span class="n">nuestra</span><span class="err"> </span><span class="n">estrategia</span><span class="err"> </span><span class="o">...</span>
+<span class="err">   </span><span class="o">}</span><span class="err"> </span><span class="k">catch</span><span class="err"> </span><span class="o">(</span><span class="n">UserException</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="k">this</span><span class="o">.</span><span class="na">messageWarning</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+<span class="err">   </span><span class="o">}</span><span class="err"> </span><span class="k">catch</span><span class="err"> </span><span class="o">(</span><span class="n">Exception</span><span class="err"> </span><span class="n">e</span><span class="o">)</span><span class="err"> </span><span class="o">{</span>
+<span class="err">       </span><span class="k">this</span><span class="o">.</span><span class="na">logger</span><span class="o">.</span><span class="na">fatal</span><span class="o">(</span><span class="s">"AppSocios"</span><span class="o">,</span><span class="err"> </span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+<span class="err">       </span><span class="k">this</span><span class="o">.</span><span class="na">messageError</span><span class="o">(</span><span class="s">"Ocurrió un error al agregar el socio. Por favor consulte al administrador del sistema"</span><span class="o">);</span>
+<span class="err">   </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>Los métodos messageWarning y messageError, como dijimos antes, dependen de la tecnología a implementar, en nuestro caso asumimos que está en una superclase de Form de la cual hereda la pantalla de Alta de un Socio.</p>
+
+<p>El logger es un objeto que sabe guardar el stack trace en un formato configurable y en un archivo x que depende del primer parámetro que le paso (por ejemplo, el AppSocios guarda el archivo Videoclub.log en el directorio de log default).</p>
+
+<h1 id="tocAnchor-1-6">Otras variantes</h1>
+
+<p>Un agregado que se podría hacer es evitar poner los mensajes de error en el código de dominio y poner códigos, que se traduzcan mediante un “bundle”.</p>
+
+<h1 id="tocAnchor-1-7">Links relacionados</h1>
+
+<ul>
+  <li><a href="algo3-temario.html">Temario Algoritmos III</a></li>
+</ul>
+
+</div>
+
+
+
+<div id="article_metadata">
+    <p><i>Latest update on July 17, 2017 by
+        GitHub</i></p>
+
+    <ul class="accordion" data-accordion>
+        <li class="accordion-navigation">
+            <a href="#panel1a">Page History, Meta information</a>
+
+            <div id="panel1a" class="content">
+
+                <div class="rows">
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Page Commits</th>
+                                <th>Page Additions</th>
+                                <th>Page Deletions</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>127</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column small-12 medium-6 large-6">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Commits</th>
+                            <tr>
+                            </thead>
+
+                            <tbody>
+                            
+                            <tr>
+                                <td>Fernando Dodino</td>
+                                <td>fernand...</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <table style="margin-left: 15px;">
+                    <thead>
+                    <tr>
+                        <th>Hash</th>
+                        <th>Time</th>
+                        <th>Name</th>
+                        <th>Mail</th>
+                        <th>Subject</th>
+                    <tr>
+                    </thead>
+
+                    <tbody>
+                    
+                    <tr>
+                        <td>917a5fe</td>
+                        <td>Mon Jul 17 23:16:02 2017 -0300</td>
+                        <td>GitHub</td>
+                        <td>noreply...</td>
+                        <td>Update deploy-en-maven-central.md</td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+</div>
+
+
+<div id="footer">
+    <div class="columns small-1 medium-2 large-3">
+        <small>(C) 2015-17 Matthias Beyer - Ernesto Bossi</small>
+    </div>
+
+    <div class="columns small-11 medium-10 large-9">
+    </div>
+
+</div>
+
+<script>
+    'use strict';
+</script>
+
+<script src="/assets/jquery-9954088f87089c387789507249fa70d3.js"></script>
+<script src="/assets/jquery.min-650c8b3af3d010ec559014c6e70b13c3.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+
+<script src="/assets/foundation/foundation-8e0f071884576348dba555b27a4bcaa9.js"></script>
+<script src="/assets/foundation/foundation.abide-fa5ce9fbf8301ae49154ebc752edc220.js"></script>
+<script src="/assets/foundation/foundation.accordion-bcc423fb0c2a3d515ba85ff591171a8e.js"></script>
+<script src="/assets/foundation/foundation.alert-609b779b55610f4916250faaa37d1cfc.js"></script>
+<script src="/assets/foundation/foundation.clearing-167db0285c7a789f7f216183f9038ac4.js"></script>
+<script src="/assets/foundation/foundation.dropdown-25aac997ca0ca5dc3c3094c266c8f5aa.js"></script>
+<script src="/assets/foundation/foundation.equalizer-cbdd8079a6f777c37dd1314f9b17faec.js"></script>
+<script src="/assets/foundation/foundation.interchange-6ef75863aff8abeff4de79554b62e1b9.js"></script>
+<script src="/assets/foundation/foundation.joyride-7cce0075f55d456449419a92671a3874.js"></script>
+<script src="/assets/foundation/foundation.magellan-dc0647982e238cf1db3113e50d1b85dd.js"></script>
+<script src="/assets/foundation/foundation.offcanvas-61dc0fe57ed932800c4a09b92c1ba4e5.js"></script>
+<script src="/assets/foundation/foundation.orbit-9698da4fd068f7b83b3e5c00aae63ab3.js"></script>
+<script src="/assets/foundation/foundation.reveal-4944447a204c398659229cfd716786a1.js"></script>
+<script src="/assets/foundation/foundation.slider-7ea4b29f663e7e1b52ddc9f7ca0458b3.js"></script>
+<script src="/assets/foundation/foundation.tab-c2efa8f5f8b255b06db277c3f339a0c7.js"></script>
+<script src="/assets/foundation/foundation.tooltip-4a5d212b8f811ff50bba6cc61a2b899a.js"></script>
+<script src="/assets/foundation/foundation.topbar-4dd840d30430ff2146208830574ca615.js"></script>
+
+<script src="/assets/jquery.cookie-61d99d4505fb2f5359bf351153c83f1d.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/jekyll-search-2c27791d765f338cd196c9aa9a050936.js"></script>
+
+<script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: "/search.json"
+    });
+
+    $(document).foundation();
+
+</script>
+
+<!-- prism.js -->
+<script src="/assets/prism-1eea551ba45e704ef55167430bb80ce4.js"></script>
+</body>
+</html>
